@@ -1,26 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="">
+    <router-view />
+    <!-- svgicon 컴포넌트 -->
+    <BaseIcon />
+    <!-- // svgicon 컴포넌트 -->
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseIcon from "@/components/common/BaseIcon.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BaseIcon
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
