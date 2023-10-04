@@ -1,0 +1,10 @@
+
+.form_switch {position:relative;display:inline-flex;line-height: 16px;}
+
+.form_switch input {position: absolute;top: 0;left: 0;width:1px;height:1px;opacity:0;}
+.form_switch label{cursor: pointer;margin-bottom:0;padding-right:26px;color:$text-color-400;font-size:12px;}
+.form_switch label .label_txt{margin-right:4px;}
+.form_switch label .btn_switch {position:absolute;right:0;top: 0;width: 26px;height: 16px;border-radius: 16px;background:#e1e1e1;}
+.form_switch label .btn_switch:after {content:'';position:absolute;left: 1px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius: 50%;background: #FFF;transition: all 0.3s;}
+.form_switch input:checked + label .btn_switch {background:$btn-primary-bg-color;}
+.form_switch input:checked + label .btn_switch:after {left:calc(100% - 15px );}

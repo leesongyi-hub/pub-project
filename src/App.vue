@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <div class="wrap">
+    
     <router-view />
     <!-- svgicon 컴포넌트 -->
     <BaseIcon />
