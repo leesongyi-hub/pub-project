@@ -3,8 +3,8 @@
     <main>
       <div class="mypage_area">
         <div class="dropdown dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <button type="button" class="btn_mypage">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+          <button type="button" class="btn_mypage" aria-label="마이페이지" role="menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" role="img">
               <circle cx="16" cy="16" r="16" fill="#1E8EB1"/>
               <path fill="#52E5ED" fill-rule="evenodd" d="M16 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-2.667 2A5.333 5.333 0 0 0 8 22.333 2.667 2.667 0 0 0 10.667 25h10.666A2.667 2.667 0 0 0 24 22.333 5.333 5.333 0 0 0 18.667 17h-5.334Z" clip-rule="evenodd"/>
             </svg>
@@ -179,10 +179,8 @@
                       <button tpye="button" class="chip">샘플텍스트</button>
                     </div>
 
-                    <button type="button" class="btn_more button outline icoOnly md">
-                      <i class="icoSvg i_s16 stroke col_gray ico_arr_bot">
-                        <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_arrow"></use></svg>
-                      </i>
+                    <button type="button" class="btn_more button outline icoOnly md" aria-label="전체보기">
+                      <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 stroke col_gray ico_arr_bot"><use xlink:href="#ico_arrow"></use></svg>
                     </button>
                   </div>
                 </div>
@@ -239,7 +237,7 @@ export default {
   setup() {
     const startSearch = ref(false);
 
-    return {      
+    return {
       startSearch,
     };
   },

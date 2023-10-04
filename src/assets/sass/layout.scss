@@ -2,8 +2,6 @@
 
 @import 'config/reset';
 @import 'config/font';
-@import 'config/unreset';
-@import 'config/ie';
 
 @import 'base/typography';
 @import 'base/icon';
@@ -33,7 +31,6 @@
 
 @import 'organism/header';
 @import 'organism/filter';
-@import 'organism/dragbox';
 @import 'organism/repositoryTree';
 
 @import 'page/common';

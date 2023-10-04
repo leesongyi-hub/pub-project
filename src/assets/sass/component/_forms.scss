@@ -199,9 +199,6 @@ textarea.form-control[readonly]:focus, textarea.form-control[readonly]:active, t
 .dateInput_area button{position:absolute;top:6px;right:8px;}
 .dateInput_area + .spacing{display:inline-block;margin:0 8px;line-height:32px;}
 
-/* vue datepicker */
-// .vdp-datepicker > div > input[type="text"]{width:200px;height:32px;line-height:31px;border:1px solid #E1E1E1;padding:0 12px;padding-right:28px;border-radius:4px;background-image:url(../images/icon/ico_calendar.svg);background-repeat:no-repeat;background-position:center right 8px;}
-
 /*반응형*/
 @media all and (max-width:768px) {
   .custom-control + .custom-control{margin-left:12px;}
