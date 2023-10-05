@@ -4112,7 +4112,7 @@ button:not(.button).disabled .icoSvg {
 
 .search_wrap .search_input_box .search_input {
   width: 100%;
-  height: 44px;
+  height: 48px;
   padding: 0 64px 0 16px;
   font-size: 15px;
   font-weight: bold;
@@ -4125,26 +4125,31 @@ button:not(.button).disabled .icoSvg {
 }
 
 .search_wrap .search_input_box .search_input::-webkit-input-placeholder {
+  font-size: 16px;
   color: #CACACA;
   font-weight: 400;
 }
 
 .search_wrap .search_input_box .search_input::-moz-placeholder {
+  font-size: 16px;
   color: #CACACA;
   font-weight: 400;
 }
 
 .search_wrap .search_input_box .search_input:-ms-input-placeholder {
+  font-size: 16px;
   color: #CACACA;
   font-weight: 400;
 }
 
 .search_wrap .search_input_box .search_input::-ms-input-placeholder {
+  font-size: 16px;
   color: #CACACA;
   font-weight: 400;
 }
 
 .search_wrap .search_input_box .search_input::placeholder {
+  font-size: 16px;
   color: #CACACA;
   font-weight: 400;
 }
@@ -4162,7 +4167,7 @@ button:not(.button).disabled .icoSvg {
 }
 
 .search_wrap .search_input_box .btn_reset {
-  height: 44px;
+  height: 48px;
 }
 
 .search_wrap .search_input_box .btn_reset .icoSvg {
@@ -4171,8 +4176,8 @@ button:not(.button).disabled .icoSvg {
 }
 
 .search_wrap .search_input_box .btn_search {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 }
 
 /* 최근검색어 */

@@ -12,13 +12,14 @@ import "popper.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //custom css
-import "./assets/css/tailwind.css";
+import "@/assets/css/tailwind.css";
 
 //custom css
-import "./assets/css/layout.css";
+import "@/assets/css/layout.css";
 
 const app = createApp(App)
 app.component('BasePagination', BasePagination)
 
-app.use(router).mount('#app')
+app.use(router)
+app.mount('#app')
 
