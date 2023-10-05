@@ -130,20 +130,6 @@
               <label class="custom-control-label" for="content1_1"><span>결과 내 재검색</span></label>
             </div>
           </div>
-  
-          <div class="btn_area d-flex">
-            <button type="button" class="button btn_detailSearch">
-              <span class="label">상세검색 열기</span>
-              <i class="icoSvg i_s20 col_white ml4">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_plus"></use></svg>
-              </i>
-            </button>
-            <button type="button" class="button btn_filter i_s32" aria-label="검색결과 좁혀보기">
-              <i class="icoSvg i_s20 col_white">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_filter"></use></svg>
-              </i>
-            </button>
-          </div>
         </div>
 
         <div class="layout_right">
@@ -209,11 +195,18 @@
 
     </template>
 
-
 <script>
+import { ref } from "vue";
 
 export default {
   name:'SearchHeader',
+  setup() {
+    const startSearch = ref(false);
+
+    return {
+      startSearch,
+    };
+  },
 }
 </script>
 

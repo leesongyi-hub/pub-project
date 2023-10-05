@@ -13,7 +13,6 @@
 
 .header .check_area{margin:0 24px 0 16px;color:#fff;}
 .header .check_area .custom-control-label{align-items: center;line-height:18px;}
-.header .btn_detailSearch{height:32px;line-height:30px;border:1px solid rgba(255,255,255,.6);border-radius: $btn-radius-default;padding:0 12px;background-color: transparent;color:#fff;white-space: nowrap;}
 .header .btn_filter{display:none;margin-left:8px;border:1px solid rgba(255,255,255,.6);border-radius: $btn-radius-default;}
 
 .header .layout_right{display: flex;margin-left:auto;}
@@ -33,21 +32,16 @@
 .search_wrap .search_input_box .btn_reset .icoSvg{background-color:#E1E1E1;border-radius: 50%;}
 .search_wrap .search_input_box .btn_search{width:44px;height:44px;}
 
-/* 검색어 */
+/* 최근검색어 */
 .search_layer{position:absolute;top:56px;right:0;width:100%;margin-left:auto;background-color:#fff;padding:8px 0;border-radius: $btn-radius-default;box-shadow: $shadow-sm;z-index:9;}
 .search_layer .keyword_box{display:flex;width:calc(100% - 24px);align-items: center;}
 .search_layer .keyword_box .keyword{@include ellipsis;margin-left:4px;}
 .search_layer .keyword_box .keyword strong{color:$text-color-primary}
 .search_layer .keyword_item{display:flex;height:36px;align-items:center;padding:0 16px;}
 .search_layer .keyword_item:hover{background-color:$color-bg-default}
-
-/* 최근검색어 */
 .search_layer .recent_area .recent_header{display:flex;height:36px;line-height:36px;padding:0 16px;justify-content:space-between}
 .search_layer .recent_area .recent_header span{color:#8E8E8E;}
 .search_layer .recent_area .btn_del:hover i{color:#8E8E8E;}
-
-/* 연관검색어 */
-.search_layer .related_area .keyword_box{width:100%;}
 
 @media all and (max-width:1299px) {
   .header{justify-content: space-between;}
