@@ -2,7 +2,7 @@ import { createWebHashHistory, createRouter } from "vue-router";
 import MainPage from "../views/MainView.vue";
 import SearchResult from "../views/SearchView.vue";
 import TempDetail from "../views/modal/TempDetail.vue";
-import PubList from "../views/PubList.vue";
+// import PubList from "../views/PubList.vue";
 
 const routes = [
   {
@@ -20,11 +20,11 @@ const routes = [
     name: "TempDetail",
     component: TempDetail,
   },
-  {
-    path: "/pub_list",
-    name: "PubList",
-    component: PubList,
-  },
+  // {
+  //   path: "/pub_list",
+  //   name: "PubList",
+  //   component: PubList,
+  // },
 ];
 
 const router = createRouter({
