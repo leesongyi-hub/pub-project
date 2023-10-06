@@ -15,10 +15,10 @@
 
           <ul class="nav nav-tabs nav-justified mb12" id="resultTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" data-toggle="tab" data-target="#tab1" type="button" role="tab" aria-selected="true">샘플라벨<span class="mark_count">115</span></button>
+              <button class="nav-link active" data-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">샘플라벨<span class="mark_count">115</span></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" data-toggle="tab" data-target="#tab2" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">5</span></button>
+              <button class="nav-link" data-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">5</span></button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" data-toggle="tab" data-target="#tab3" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">52</span></button>
@@ -41,6 +41,9 @@
 
         </div>
         <!-- //main_body -->
+        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+          Tooltip on top
+        </button>
       </div>
       <!-- //main_panel-->
 
@@ -51,7 +54,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted  } from "vue";
+import bootstrap from 'bootstrap';
 
 import SearchHeader from "../components/search/SearchHeader.vue";
 import SearchFilter from "../components/search/SearchFilter.vue";
@@ -62,6 +66,7 @@ import SearchTabOpinion from "../components/search/SearchTabOpinion.vue";
 import SearchTabFile from "../components/search/SearchTabFile.vue";
 
 export default {
+
   name:'SearchResult',
   components: {
     SearchHeader,
@@ -75,9 +80,27 @@ export default {
   setup() {
     const startSearch = ref(false);
 
+    onMounted(() => {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+
+      // tooltipList 변수를 사용하거나 삭제합니다.
+      // var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      //   return new bootstrap.Tooltip(tooltipTriggerEl);
+      // });
+
+      // Bootstrap 변수를 정의합니다.
+      if (typeof bootstrap !== 'undefined') {
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+          new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      }
+  });
+
     return {
-      startSearch,
+      startSearch,      
     };
+
+    
   },
 }
 </script>
