@@ -15,10 +15,10 @@
 
           <ul class="nav nav-tabs nav-justified mb12" id="resultTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" data-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">샘플라벨<span class="mark_count">115</span></button>
+              <button class="nav-link active" data-toggle="tab" data-target="#tab1" type="button" role="tab" aria-selected="true">샘플라벨<span class="mark_count">115</span></button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" data-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">5</span></button>
+              <button class="nav-link" data-toggle="tab" data-target="#tab2" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">5</span></button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" data-toggle="tab" data-target="#tab3" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">52</span></button>
@@ -28,7 +28,6 @@
               <button class="nav-link" data-toggle="tab" data-target="#tab4" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count disabled">0</span></button>
             </li>
           </ul>
-
           <div id="resultTabCont" class="tab-content">              
 
             <SearchTabDoc /><!-- //문서탭 -->              
@@ -51,7 +50,7 @@
 </template>
 
 <script>
-import { ref, onMounted  } from "vue";
+import { ref } from "vue";
 
 import SearchHeader from "../components/search/SearchHeader.vue";
 import SearchFilter from "../components/search/SearchFilter.vue";
@@ -63,6 +62,7 @@ import SearchTabFile from "../components/search/SearchTabFile.vue";
 
 export default {
 
+
   name:'SearchResult',
   components: {
     SearchHeader,
@@ -73,18 +73,15 @@ export default {
     SearchTabOpinion,
     SearchTabFile,
   },
+
   setup() {
     const startSearch = ref(false);
 
-    onMounted(() => {
-      
-  
-    });
 
     return {
-      startSearch,      
-    };
+      startSearch, 
 
+    };
     
   },
 }

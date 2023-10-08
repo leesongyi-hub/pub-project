@@ -115,42 +115,7 @@
               </div>
             </div>
           </div>
-          <div class="btn_area">
-            <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="원문 URL">
-              <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_url"></use></svg>
-              </i>
-            </a>
-            <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="의견">
-              <span class="mark_count">6</span>
-              <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_talk"></use></svg>
-              </i>
-            </a>
-            <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="문서">
-              <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_list3"></use></svg>
-              </i>
-            </a>
-            <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="분류등록">
-              <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_class"></use></svg>
-              </i>
-            </a>
-            <!-- S.버튼 구분선 -->
-            <span class="division"></span>
-            <!-- //E.버튼 구분선 -->
-            <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="수정">
-              <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_edit"></use></svg>
-              </i>
-            </a>
-            <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="삭제">
-              <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_del"></use></svg>
-              </i>
-            </a>
-          </div>
+          <SearchEditBtn />
         </div>
         <!-- //repoInfo_wrap -->
 
@@ -167,11 +132,13 @@
 
 <script>
 import SearchToolbar from "@/components/search/SearchToolbar.vue";
+import SearchEditBtn from "@/components/search/SearchEditBtn.vue";
 
 export default {
   name:'SearchTabDoc',
   components: {
-    SearchToolbar
+    SearchToolbar,
+    SearchEditBtn
   },
   setup() {
   },

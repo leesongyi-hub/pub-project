@@ -1,8 +1,8 @@
 <template>
 
       <!-- filter -->
-      <div class="filter">
-        <button type="button" class="ico_fold btn_fold" aria-label="필터 접기"></button>        
+      <div class="filter" v-if="isMenuOpen">
+        <button type="button" class="ico_fold btn_fold" aria-label="필터 접기" @click="toggleMenu"></button>        
         <div class="filter_head">
 
           <!-- [반응형] 1024px 이하에서 노출 -->
@@ -588,10 +588,19 @@ export default {
       items.value.push(newItem);
     };
 
+    const isMenuOpen = ref(true);
+
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
+
+
     // 컴포넌트에서 사용할 데이터와 메서드를 반환합니다.
     return {
       items,
       addItem,
+      isMenuOpen,
+      toggleMenu,
     };
   },
 }
