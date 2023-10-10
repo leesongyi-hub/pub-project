@@ -49,8 +49,20 @@
 .filterComp .tree_list .treeComp li > .tree .btn_acco{top:5px;margin-top:0;}
 .filterComp .tree_listItem:not(.on) .treeComp{display:none;}
 
+/* filter - 닫혔을때 */
+.search_page .filter.isOpen{left:0;}
+.search_page .filter.isOpen + main{padding-left:290px;}
+.search_page .filter.isOpen .btn_fold::after{transform: rotate(0);}
+
+.search_page .filter{left:-260px;}
+.search_page .filter + main{padding-left:40px;}
+.search_page .filter .btn_fold::after{transform: rotate(180deg);}
+
 @media all and (max-width:1023px) {
   .filter{display:block;width:300px;height:100vh;top:0;left:-100%;z-index:130;padding-top:109px;}
+  .search_page .filter,
+  .search_page .filter.isOpen{left:-100%;}
+
   .filter .btn_fold{display:none;}
   .filter .filter_head{padding-top:56px;}
   .filter .filter_head .btn_close{display:flex;position:absolute;top:16px;right:18px;}

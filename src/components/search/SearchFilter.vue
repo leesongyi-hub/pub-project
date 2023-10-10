@@ -1,7 +1,7 @@
 <template>
 
       <!-- filter -->
-      <div class="filter" v-if="isMenuOpen">
+      <div class="filter" :class="isMenuOpen ? 'isOpen' : ''">
         <button type="button" class="ico_fold btn_fold" aria-label="필터 접기" @click="toggleMenu"></button>        
         <div class="filter_head">
 
@@ -598,8 +598,8 @@ export default {
     // 컴포넌트에서 사용할 데이터와 메서드를 반환합니다.
     return {
       items,
-      addItem,
       isMenuOpen,
+      addItem,
       toggleMenu,
     };
   },

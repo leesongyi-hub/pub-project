@@ -4,14 +4,9 @@
 
 .search_page{height:100%;display:flex;flex-direction:column;}
 .search_page main{display:flex;padding:100px 40px;}
-.search_page .filter + main{padding-left:300px;}
+// .search_page .filter + main{padding-left:300px;}
 .search_page .main_panel{flex:1;width:calc(100% - 280px)}
 .search_page .content{transition: .3s ease;}
-
-/* filter - 닫혔을때 */
-.search_page.fold .filter{left:-260px;}
-.search_page.fold .filter .btn_fold::after{transform: rotate(180deg);}
-.search_page.fold .filter ~ main{padding-left:40px;}
 
 /* 상단 */
 .resultBtn_area{display:flex;align-items:center;flex-wrap: wrap;justify-content:flex-end;}
@@ -94,10 +89,6 @@
 .subInfo_layer dd,
 .subInfo_layer dt{display:inline-flex !important;}
 
-/* 리스트 - TypeB */
-.result_wrap .list_item.typeB .repoInfo_name{margin-right:0;padding-right:0;}
-.result_wrap .list_item.typeB .repoInfo_name::before{display:none;}
-
 /* 리스트 - 첨부파일 */
 .result_wrap .list_item.type_file .preview_area{position:relative;min-height:90px;padding:8px 16px;border:1px solid $color-border-light;background-color:$color-bg-light;}
 .result_wrap .list_item.type_file .preview_area .inner{@include ellipsis(3);padding-right:24px;}
@@ -173,9 +164,9 @@
 }
 
 @media all and (max-width:1279px) {
-  .search_page.fold .filter ~ main{padding-left:24px;}
-  .search_page main{padding-left:24px;padding-right:24px;}
-  .search_page .filter + main{padding-left:290px;}
+  // .search_page.fold .filter ~ main{padding-left:24px;}
+  // .search_page main{padding-left:24px;padding-right:24px;}
+  // .search_page .filter + main{padding-left:290px;}
   .right_panel{display:none;}
 }
 

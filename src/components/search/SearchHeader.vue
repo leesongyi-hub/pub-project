@@ -14,40 +14,35 @@
             <div class="inner"> 
               
               <div class="customSelect_area">
-                <div class="customSelect button outline lg" tabindex="0">
-                  <span class="customSelect_text">전체저장소</span>
-                  <i class="icoSvg stroke i_s20 ico_arr_bot col_lightgray">
-                    <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_arrow"></use></svg>
-                  </i>
-                </div>
-                <ul class="customSelect_list" style="display:none;">
-                  <li value="selectOption1" class="customSelect_option">제목+키워드</li>
-                  <li value="selectOption2" class="customSelect_option">출처+문서번호</li>
-                  <li value="selectOption3" class="customSelect_option">전체</li>
-                  <li value="selectOption4" class="customSelect_option">제목</li>
-                  <li value="selectOption5" class="customSelect_option">내용</li>
-                  <li value="selectOption6" class="customSelect_option">문서요약</li>
-                  <li value="selectOption6" class="customSelect_option">출처</li>
-                  <li value="selectOption6" class="customSelect_option">등록자</li>
-                  <li value="selectOption6" class="customSelect_option">수정자</li>
-                  <li value="selectOption6" class="customSelect_option">문서번호</li>
-                  <li value="selectOption6" class="customSelect_option">키워드</li>
-                </ul>        
-                <select class="select_origin">
-                  <option value="selectOption1">제목+키워드</option>
-                  <option value="selectOption2">출처+문서번호</option>
-                  <option value="selectOption3">전체</option>
-                  <option value="selectOption4">제목</option>
-                  <option value="selectOption5">내용</option>
-                  <option value="selectOption6">문서요약</option>
-                  <option value="selectOption6">출처</option>
-                  <option value="selectOption6">등록자</option>
-                  <option value="selectOption6">수정자</option>
-                  <option value="selectOption6">문서번호</option>
-                  <option value="selectOption6">키워드</option>
-                </select>
+              <div
+                class="customSelect button outline lg"
+                tabindex="0"
+                style="min-width: 97px"
+                :class="{ selected: show }"
+                @click="toggleShow"
+              >
+                <span class="customSelect_text">{{ selectedOption }}</span>
+                <i class="icoSvg stroke i_s20 ico_arr_bot col_lightgray">
+                  <svg aria-hidden="true" focusable="false">
+                    <use xlink:href="#ico_arrow" />
+                  </svg>
+                </i>
               </div>
-              <!-- //customSelect_area -->
+              <ul
+                class="customSelect_list"
+                :style="{ display: show ? 'block' : 'none' }"
+                @click.stop
+              >
+                <li
+                  v-for="(option, index) in options"
+                  :key="index"
+                  class="customSelect_option"
+                  @click="selectOption(option)"
+                >
+                  {{ option }}
+                </li>
+              </ul>
+            </div>
                 
               <div class="search_area d-flex">  
                 <div class="search_input_box">
@@ -196,18 +191,64 @@
     </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
-  name:'SearchHeader',
+  name: 'SearchHeader',
   setup() {
-    const startSearch = ref(false);
+    const show = ref(false);
+    const selectedOption = ref("전체저장소");
+
+    const options = [
+      "제목+키워드",
+      "출처+문서번호",
+      "전체",
+      "제목",
+      "내용",
+      "문서요약",
+      "출처",
+      "등록자",
+      "등록자",
+      "수정자",
+      "문서번호",
+      "키워드"
+    ];
+
+    const toggleShow = () => {
+      show.value = !show.value;
+    };
+
+    const selectOption = (option) => {
+      selectedOption.value = option;
+      show.value = false;
+    };
+
+    const closeDropdown = (event) => {
+      // 클릭된 요소가 customSelect_area 내부에 있는 요소인지 확인
+      if (!event.target.closest('.customSelect_area')) {
+        show.value = false;
+      }
+    };
+
+    onMounted(() => {
+      // 컴포넌트가 마운트될 때 document 클릭 이벤트 리스너를 추가
+      document.addEventListener('click', closeDropdown);
+    });
+
+    onUnmounted(() => {
+      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거
+      document.removeEventListener('click', closeDropdown);
+    });
 
     return {
-      startSearch,
+      show,
+      selectedOption,
+      options,
+      toggleShow,
+      selectOption,
     };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -12,8 +12,16 @@
       <li class="page_item"><button type="button" class="page_link">3</button></li>
       <li class="page_item"><button type="button" class="page_link">4</button></li>
       <li class="page_item"><button type="button" class="page_link">5</button></li>
-      <li class="page_item"><button type="button" class="page_link ico btn_next"><span class="skip">다음</span></button></li>
-      <li class="page_item"><button type="button" class="page_link ico btn_end"><span class="skip">마지막으로</span></button></li>
+      <li class="page_item">
+        <button type="button" class="page_link ico btn_next">        
+          <svg class="icoSvg stroke i_s16" aria-hidden="true" focusable="false">
+            <use xlink:href="#ico_arrow"></use>
+          </svg>
+        </button>
+      </li>
+      <li class="page_item"><button type="button" class="page_link ico btn_end">
+        <span class="skip">마지막으로</span></button>
+      </li>
     </ul>
   </nav>
   <!--//페이징-->

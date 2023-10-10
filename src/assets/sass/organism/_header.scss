@@ -2,7 +2,7 @@
 .header{position:fixed;width:100%;display:flex;align-items: center;height:60px;padding:0 24px;background-color:$color-primary;z-index:110;}
 .header .logo_area{margin-right:188px;}
 .header .logo_area svg{width:88px;height:33px;}
-.header .customSelect{position:relative;justify-content:flex-start;width:140px;height:44px;line-height:44px;padding:0 12px;min-width:auto;background-color:#fff;border:0;border-right:1px solid $color-border-default;border-radius:4px 0 0 4px;}
+.header .customSelect{position:relative;justify-content:flex-start;width:140px;height:48px;line-height:48px;padding:0 12px;min-width:auto;background-color:#fff;border:0;border-right:1px solid $color-border-default;border-radius:4px 0 0 4px;}
 .header .customSelect_list{min-width:140px;}
 
 .header .search_wrap{width:auto;justify-content: left}
