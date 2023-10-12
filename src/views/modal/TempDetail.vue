@@ -1,6 +1,6 @@
 <template>
   <div>
-    dddd
+    
     <!-- // S.모달 : 템플릿 전체보기 -->
     <div class="modal modal_tempDetail fade show" id="modal_tempDetail" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-modal="true" style="display:block;">
       <div class="modal-dialog w400">

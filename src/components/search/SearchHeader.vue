@@ -118,13 +118,12 @@
             <!-- //inner -->
           </div>
           <!-- //search_wrap -->
-  
-          <div class="check_area">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="content1_1">
-              <label class="custom-control-label" for="content1_1"><span>결과 내 재검색</span></label>
-            </div>
-          </div>
+          <button type="button" class="button btn_filter i_s32" aria-label="검색결과 좁혀보기">
+            <i class="icoSvg i_s20 col_white">
+              <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_filter"></use></svg>
+            </i>
+          </button>
+
         </div>
 
         <div class="layout_right">
@@ -145,42 +144,7 @@
                   <path fill="#52E5ED" fill-rule="evenodd" d="M16 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-2.667 2A5.333 5.333 0 0 0 8 22.333 2.667 2.667 0 0 0 10.667 25h10.666A2.667 2.667 0 0 0 24 22.333 5.333 5.333 0 0 0 18.667 17h-5.334Z" clip-rule="evenodd"></path>
                 </svg>
               </button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <div class="myinfo">
-                  <strong class="name">홍길동</strong><span class="position">관리자</span>
-                  <span class="email">always@diquest.com</span>
-                </div>
-                <button type="button" class="btn_logout button outline sm">로그아웃</button>
-                <div class="menu_list left">
-                  <ul>
-                    <li class="menu_listItem">
-                      <a href="javscript:;">
-                        <i class="icoSvg i_s20 col_gray">
-                          <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_list3"></use></svg>
-                        </i>
-                        나의 활동
-                      </a>
-                    </li>
-                    <li class="menu_listItem">
-                      <a href="javscript:;">
-                        <i class="icoSvg i_s20 col_gray">
-                          <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_more2"></use></svg>
-                        </i>
-                        문서 관리
-                      </a>
-                    </li>
-                    <li class="menu_listItem">
-                      <a href="javscript:;">
-                        <i class="icoSvg i_s20 col_gray">
-                          <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_setting"></use></svg>
-                        </i>
-                        관리자모드
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-          
-              </div>
+              <MypageLayer />
             </div>
           </div>
           <!-- //maypage_area -->
@@ -191,10 +155,15 @@
     </template>
 
 <script>
+import MypageLayer from "../common/CompMypageLayer.vue";
+
 import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
   name: 'SearchHeader',
+  components: {
+    MypageLayer
+  },
   setup() {
     const show = ref(false);
     const selectedOption = ref("전체저장소");

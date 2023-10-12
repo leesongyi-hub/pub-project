@@ -4,61 +4,18 @@
 
     <div class="content">
 
-      <div class="mypage_area"> 
-      <button 
-        type="button"
-        class="btn_mypage"
-        aria-label="마이페이지"
-        aria-haspopup="true"
-        @click="updateShowProfile()"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" role="img" width="32" height="32" fill="none">
-          <circle cx="16" cy="16" r="16" fill="#1E8EB1"/>
-          <path fill="#52E5ED" fill-rule="evenodd" d="M16 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-2.667 2A5.333 5.333 0 0 0 8 22.333 2.667 2.667 0 0 0 10.667 25h10.666A2.667 2.667 0 0 0 24 22.333 5.333 5.333 0 0 0 18.667 17h-5.334Z" clip-rule="evenodd"/>
-        </svg>
-      </button>
-
-      <div
-        class="mypage_layer"
-        v-show="showProfile"         
-      >
-        <div class="myinfo">
-          <strong class="name">홍길동</strong><span class="position">관리자</span>
-          <span class="email">always@gmail.com</span>
+      <div class="mypage_area">
+        <div class=" dropdown dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <button type="button" class="btn_mypage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+              <circle cx="16" cy="16" r="16" fill="#1E8EB1"></circle>
+              <path fill="#52E5ED" fill-rule="evenodd" d="M16 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-2.667 2A5.333 5.333 0 0 0 8 22.333 2.667 2.667 0 0 0 10.667 25h10.666A2.667 2.667 0 0 0 24 22.333 5.333 5.333 0 0 0 18.667 17h-5.334Z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <MypageLayer />
         </div>
-        <button type="button" class="btn_logout button outline sm">로그아웃</button>
-        <div class="menu_list left">
-          <ul>
-            <li class="menu_listItem">
-              <a href="javascript:;">
-                <svg class="icoSvg i_s20 col_gray mr4" role="img" aria-hidden="true" focusable="false">
-                  <use xlink:href="#ico_list3"></use>
-                </svg>
-                샘플라벨
-              </a>
-            </li>
-            <li class="menu_listItem">
-              <a href="javascript:;">
-                <svg class="icoSvg i_s20 col_gray mr4" role="img" aria-hidden="true" focusable="false">
-                  <use xlink:href="#ico_more2"></use>
-                </svg>
-                샘플라벨
-              </a>
-            </li>
-            <li class="menu_listItem">
-              <a href="javascript:;">
-                <svg class="icoSvg i_s20 col_gray mr4" role="img" aria-hidden="true" focusable="false">
-                  <use xlink:href="#ico_setting"></use>
-                </svg>
-                샘플라벨
-              </a>
-            </li>
-          </ul>
-        </div>    
-      </div> 
-
       </div>
-      <!-- //mypage_area -->
+      <!-- //maypage_area -->
 
       <div class="logo_area">
         <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OKMS" width="200" height="44" viewBox="0 0 200 44" fill="none">
@@ -243,6 +200,8 @@
 </template>
 
 <script>
+import MypageLayer from "../components/common/CompMypageLayer.vue";
+
 import SwiperCore, { Navigation, Pagination} from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.min.css";
@@ -255,6 +214,7 @@ export default {
   components: {
       Swiper,
       SwiperSlide,
+      MypageLayer
     },  
   setup() {
     const keywordList = ref([
@@ -263,24 +223,17 @@ export default {
       "최근검색어3"
     ]);
 
-    const removeKeyword = (index) => {      
+    const removeKeyword = (index) => {
       keywordList.value.splice(index, 1);
     };
 
     const startSearch = ref(false);
     const updateStartSearch = () => {
       startSearch.value = !startSearch.value;
-    };  
-
-    const showProfile = ref(false);
-    const updateShowProfile = () => {
-      showProfile.value = !showProfile.value;
-    };
+    }; 
 
     return {
       startSearch,
-      showProfile,
-      updateShowProfile,
       updateStartSearch,
       keywordList,
       removeKeyword

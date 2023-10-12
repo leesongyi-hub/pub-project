@@ -8,6 +8,12 @@
 
 <!--리스트아이템-->
 <div class="result_wrap">
+  <!-- [리스트 0개일때 노출] -->
+  <div class="nodate">
+    검색 내역이 없습니다.
+  </div>
+  <!-- //리스트 0개일때 노출 -->
+
   <ul>
     <li class="list_item type_file">
 

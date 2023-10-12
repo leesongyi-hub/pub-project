@@ -1,6 +1,6 @@
 <template>
-                <!-- 목차탭 -->
-                <div id="tab2" class="tab-pane" role="tabpanel" tabindex="0">
+<!-- 목차탭 -->
+<div id="tab2" class="tab-pane" role="tabpanel" tabindex="0">
 
 <SearchToolbar /><!--툴바--> 
 

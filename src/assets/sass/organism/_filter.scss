@@ -5,11 +5,9 @@
 .filter .filter_body{height:calc(100vh - 60px - 73px);overflow-y:auto;}
 .filter .btn_fold{position:absolute;top:16px;right: -21px;width:20px;height:48px;border:1px solid #eee;border-left:0;border-radius: 0 4px 4px 0;background-color:#fff;z-index: 120;}
 .filter .btn_fold::after{content:'';display:inline-block;width:12px;height: 100%;background: url(../images/icon/ico_fold.svg) no-repeat center;}
-.filter .filter_body h3.tit{@include type-body-lg($weight:bold);}
+.filter .filter_body h3.tit{@include type-body-lg($weight:bold);text-align: left;}
 
-.filter .custom-checkbox .custom-control-label{display:block;width:100%;}
-.filter .custom-checkbox .custom-control-label::before{display:inline-block;margin-top:0;}
-.filter .custom-control-input + .custom-control-label span{display:inline;vertical-align: top;position:relative;top:-2px;}
+
 
 /* filter - 아이템 */
 .filterComp{padding:10px 20px 10px 20px;border-bottom:1px solid $color-border-default;}

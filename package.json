@@ -16,7 +16,8 @@
     "swiper": "^6.8.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
-    "vue3-bootstrap4": "^0.1.0"
+    "vue3-bootstrap4": "^0.1.0",
+    "vue3-tree": "^0.11.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
