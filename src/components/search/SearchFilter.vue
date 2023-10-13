@@ -37,7 +37,7 @@
             <button type="button"
               class="btn_aco"
               data-toggle="collapse"
-              data-target="#expanded-1"
+              data-target="#expanded1"
               aria-expanded="false"
             >
               <h3 class="tit">샘플타이틀</h3>
@@ -47,7 +47,7 @@
             </button>
             
             <div
-              class="filterComp_body show" id="expanded-1"
+              class="filterComp_body show" id="expanded1"
             >
               <ul class="filterComp_list">
                 <li
@@ -71,14 +71,14 @@
             <button
               type="button"
               class="btn_aco"
-              data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample"            
+              data-toggle="collapse" href="#expanded2" role="button" aria-expanded="true" aria-controls="collapseExample"            
             >
               <h3 class="tit">샘플타이틀</h3>
               <i class="icoSvg stroke i_s20 ico_arr_right">
                 <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_arrow"></use></svg>
               </i>
             </button>
-            <div class="filterComp_body show" id="collapseExample">
+            <div class="filterComp_body show" id="expanded2">
               <div class="control_area">
                 <ul class="control_tab">
                   <li><button type="button" class="on">기본분류</button></li>
@@ -111,14 +111,14 @@
             <button
               type="button"
               class="btn_aco"
-              data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample"            
+              data-toggle="collapse" href="#expanded3" role="button" aria-expanded="true" aria-controls="collapseExample"            
             >
               <h3 class="tit">샘플타이틀</h3>
               <i class="icoSvg stroke i_s20 ico_arr_right">
                 <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_arrow"></use></svg>
               </i>
             </button>
-            <div class="filterComp_body show" id="collapseExample">
+            <div class="filterComp_body show" id="expanded3">
               <div class="control_area">
                 <ul class="control_tab">
                   <li><button type="button">기본분류</button></li>
