@@ -9,7 +9,7 @@
 .header .search_wrap .inner{width:540px;display:flex;align-items: center;border:2px solid $color-border-primary;border-radius: 6px;}
 .header .search_wrap .search_area{flex:1 1 auto;border:0;}
 .header .search_wrap .search_input_box .search_input{border-radius: 0 4px 4px 0;overflow:hidden;}
-.header .search_layer{top:48px;width:calc(100% - 140px);}
+.header .search_layer{top:54px;width:calc(100% - 140px);}
 
 .header .check_area{margin:0 24px 0 16px;color:#fff;}
 .header .check_area .custom-control-label{align-items: center;line-height:18px;}
@@ -43,10 +43,12 @@
 .search_layer .recent_area .recent_header span{color:#8E8E8E;}
 .search_layer .recent_area .btn_del:hover i{color:#8E8E8E;}
 
+.search_layer .nodata{@apply fc-800;display:block;text-align: center;padding:40px 0;}
+
 @media all and (max-width:1299px) {
   .header{justify-content: space-between;}
   .header .search_wrap{flex:1 1 auto;flex-basis:0px;}
-  .header .search_wrap .inner{width:auto;}
+  .header .search_wrap .inner{width:100%;}
 }
 
 @media all and (max-width:1279px) {   

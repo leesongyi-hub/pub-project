@@ -8,14 +8,14 @@
 /* 마이메뉴 */
 .mypage_area{position:absolute;top:16px;right:16px !important;z-index:10}
 .mypage_area .btn_logout{position:absolute;top:16px;right:16px;}
-.mypage_area .myinfo{padding:16px;text-align:left;}
-.mypage_area .myinfo .name{@include type-heading-sm($color:$text-color-400, $weight:700)}
-.mypage_area .myinfo .position{@include type-caption-md($color:$text-color-primary);margin-left:6px;}
+.mypage_area .myinfo{display:flex;flex-wrap:wrap;max-width:170px;padding:16px;text-align:left;white-space: normal;}
+.mypage_area .myinfo .name{@include type-heading-sm($color:$text-color-400, $weight:700);margin-right:6px;}
+.mypage_area .myinfo .position{@include type-caption-md($color:$text-color-primary);line-height:24px;}
 .mypage_area .myinfo .email{display:block;@include type-caption-md;margin-top:4px;}
-.mypage_area .mypage_layer{position:absolute;top:32px;right:0;min-width:240px;padding:0;margin-top:8px;border:1px solid $color-border-default;background-color:var(--color-white);box-shadow: var(--shadow-sm);}
-.mypage_area .mypage_layer .menu_list{padding:8px 0;border-top:1px solid $color-border-default;}
-.mypage_area .mypage_layer .menu_list .menu_listItem a{@include type-body-md;display:flex;align-items: center;width:100%;height:38px;padding:0 16px;text-align:left;}
-.mypage_area .mypage_layer .menu_list .menu_listItem a i{position:relative;top:-1px;margin-right:4px;}
+.mypage_area .dropdown-menu{min-width:240px;padding:0;margin-top:8px;}
+.mypage_area .dropdown-menu .menu_list{padding:8px 0;border-top:1px solid $color-border-default;}
+.mypage_area .dropdown-menu .menu_list .menu_listItem a{@include type-body-md;display:flex;align-items: center;width:100%;height:38px;padding:0 16px;text-align:left;}
+.mypage_area .dropdown-menu .menu_list .menu_listItem a i{position:relative;top:-1px;margin-right:4px;}
 
 /* 저장소 */
 .main_page .repo_wrap{margin:0 auto;}

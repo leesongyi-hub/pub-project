@@ -31,30 +31,30 @@
           <!-- [반응형] 768px 이하에서 노출 -->
           <button type="button" class="btn_more button icoOnly sm dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <i class="icoSvg i_s16 col_lightgray ml2">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_more"></use></svg>
+              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_more"></use></svg>
             </i>
           </button>
           <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
             <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
               <span>원본URL</span>
-              <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="#ico_url"></use></svg></i>
+              <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_url"></use></svg></i>
           </a>
             <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
               <span>의견</span>
               <span class="mark_ico">
                 <span class="mark_count">6</span>
                 <i class="icoSvg stroke i_s18">
-                  <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_talk"></use></svg>
+                  <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_talk"></use></svg>
                 </i>
               </span>
             </a>
             <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
               <span>문서</span>
-              <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="#ico_list3"></use></svg></i>
+              <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_list3"></use></svg></i>
             </a>
             <a href="javascript:;" class="dropdown-item justify-content-between border_bot align-items-center">
               <span>분류등록</span>
-              <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="#ico_class"></use></svg></i>
+              <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_class"></use></svg></i>
             </a>
             <a href="javascript:;" class="dropdown-item justify-content-between align-items-center"><span>수정</span></a>
             <a href="javascript:;" class="dropdown-item justify-content-between align-items-center"><span>삭제</span></a>
@@ -84,7 +84,7 @@
             <div class="repoInfo_name"><span class="name">저장소명</span> 온라인 &gt; 정기/상해 &gt; 저장소명
               <button type="button" class="ico_box dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <i class="icoSvg stroke i_s12 ico_arr_bot">
-                  <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_arrow"></use></svg>
+                  <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_arrow"></use></svg>
                 </i>
               </button>
               <div class="repoInfo_layer dropdown-menu">
@@ -106,23 +106,23 @@
           <div class="btn_area">
             <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="원문 URL">
               <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_url"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_url"></use></svg>
               </i>
             </a>
             <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="의견">
               <span class="mark_count">6</span>
               <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_talk"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_talk"></use></svg>
               </i>
             </a>
             <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="문서">
               <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_list3"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_list3"></use></svg>
               </i>
             </a>
             <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="분류등록">
               <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_class"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_class"></use></svg>
               </i>
             </a>
             <!-- S.버튼 구분선 -->
@@ -130,12 +130,12 @@
             <!-- //E.버튼 구분선 -->
             <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="수정">
               <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_edit"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_edit"></use></svg>
               </i>
             </a>
             <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="삭제">
               <i class="icoSvg stroke i_s16">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_del"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_del"></use></svg>
               </i>
             </a>
           </div>

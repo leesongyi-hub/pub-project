@@ -24,7 +24,7 @@
                 <span class="customSelect_text">{{ selectedOption }}</span>
                 <i class="icoSvg stroke i_s20 ico_arr_bot col_lightgray">
                   <svg aria-hidden="true" focusable="false">
-                    <use xlink:href="#ico_arrow" />
+                    <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
                   </svg>
                 </i>
               </div>
@@ -57,13 +57,13 @@
                   <div class="btn_area">
                     <button type="button" class="btn_reset icoOnly">
                       <i class="icoSvg i_s16 col_white">
-                        <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_close"></use></svg>
+                        <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_close"></use></svg>
                       </i>
                       <span class="skip">검색어삭제</span>
                     </button>
                     <button type="search" class="btn_search icoOnly md">
                       <i class="icoSvg i_s20 stroke col_gray">
-                        <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_search"></use></svg>
+                        <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_search"></use></svg>
                       </i>
                       <span class="skip">검색</span>
                     </button>
@@ -71,56 +71,16 @@
                 </div>  
               </div>
               <!-- //search_area -->
-  
-              <!-- 연관검색어/최근검색어 레이어 -->
-              <div
-                class="search_layer"
-                v-if="startSearch"
-              >
-  
-                <!-- 최근검색어 -->
-                <div class="recent_area">
-                  <div class="recent_header">
-                    <span>최근검색어</span>
-                    <button type="button" class="btn_allDel">전체삭제</button>
-                  </div>
-                  <ul>
-                    <li class="keyword_item">
-                      <a href="javascript:;" class="keyword_box">
-                        <i class="icoSvg i_s20"><svg aria-hidden="true" focusable="false"><use xlink:href="#ico_search"></use></svg></i>
-                        <span class="keyword">최근검색어 키워드</span>
-                      </a>
-                      <button class="btn_del icoOnly i_s20">
-                        <i class="icoSvg col_lightgray"><svg aria-hidden="true" focusable="false"><use xlink:href="#ico_close"></use></svg></i>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <!-- //최근검색어 -->
-  
-                <!-- 연관검색어 -->
-                <div class="related_area">
-                  <ul>
-                    <li class="keyword_item">
-                      <a href="javascript:;" class="keyword_box">
-                        <i class="icoSvg i_s20"><svg aria-hidden="true" focusable="false"><use xlink:href="#ico_search"></use></svg></i>
-                        <span class="keyword"><strong>연관검색어</strong> 키워드</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- //연관검색어 -->
-  
-              </div>
-              <!-- //연관검색어/최근검색어 레이어 -->
+
+              <SearchLayer />
   
             </div>
             <!-- //inner -->
           </div>
           <!-- //search_wrap -->
-          <button type="button" class="button btn_filter i_s32" aria-label="검색결과 좁혀보기">
-            <i class="icoSvg i_s20 col_white">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_filter"></use></svg>
+          <button type="button" class="button btn_filter i_s48" aria-label="검색결과 좁혀보기">
+            <i class="icoSvg i_s24 col_white">
+              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_filter"></use></svg>
             </i>
           </button>
 
@@ -131,7 +91,7 @@
             <a href="javascript:;" class="button">
               질의검색
               <i class="icoSvg i_s16 stroke col_white ml2">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_arrow"></use></svg>
+                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_arrow"></use></svg>
               </i>
             </a>
           </div>
@@ -156,13 +116,15 @@
 
 <script>
 import MypageLayer from "../common/CompMypageLayer.vue";
+import SearchLayer from "../common/CompSearchLayer.vue";
 
 import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
   name: 'SearchHeader',
   components: {
-    MypageLayer
+    MypageLayer,
+    SearchLayer
   },
   setup() {
     const show = ref(false);

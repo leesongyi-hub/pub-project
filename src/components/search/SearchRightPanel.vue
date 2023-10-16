@@ -38,7 +38,7 @@
       <button tpye="button" class="btn_setting" data-toggle="modal" data-target="#modal_sideSet">
         사이드메뉴 설정
         <i class="icoSvg stroke i_s20">
-          <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_setting"></use></svg>
+          <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_setting"></use></svg>
         </i>
       </button>
     </div>

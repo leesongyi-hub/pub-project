@@ -2,23 +2,23 @@
     <div class="btn_area">
         <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="원문 URL">            
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
-                <use xlink:href="#ico_url"></use>
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_url" />
             </svg>
         </button>
         <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
             <span class="mark_count">12</span>
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
-                <use xlink:href="#ico_talk"></use>
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
             </svg>
         </button>
         <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="문서">            
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
-                <use xlink:href="#ico_list3"></use>
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_list3" />
             </svg>
         </button>
         <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="분류등록">            
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
-                <use xlink:href="#ico_class"></use>
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_class" />
             </svg>
         </button>
 
@@ -28,15 +28,14 @@
 
         <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="수정">            
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
-                <use xlink:href="#ico_edit"></use>
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_edit" />
             </svg>
         </button>
         <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">            
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
-                <use xlink:href="#ico_del"></use>
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_del" />
             </svg>
         </button>
-
     </div>
 </template>
 

@@ -17,7 +17,8 @@ module.exports = defineConfig({
           use: [
             'vue-style-loader',
             'css-loader',
-            'sass-loader'
+            'sass-loader',
+            'postcss-loader'
           ]
         }
       ]
@@ -25,5 +26,5 @@ module.exports = defineConfig({
   },
   publicPath: './',
   outputDir:'dist',
-  assetsDir:'static'
+  // assetsDir:'static'
 })
