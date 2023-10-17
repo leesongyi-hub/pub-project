@@ -15,12 +15,14 @@
   <!-- //리스트 0개일때 노출 -->
 
   <ul>
-    <li class="list_item type_file">
-
+    <li class="list_item type_file"
+      v-for="index in 4"
+      :key="index"
+    >
       <h3 class="tit_area">
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="list_check1">
-          <label class="custom-control-label" for="list_check1"></label>
+          <input type="checkbox" class="custom-control-input" :id="'fileList_check' + index">
+          <label class="custom-control-label" :for="'fileList_check' + index"></label>
         </div>
         <a href="javscript:void(0);" class="tit">
 
@@ -39,36 +41,7 @@
         </a>
 
         <!-- [반응형] 768px 이하에서 노출 -->
-        <button type="button" class="btn_more button icoOnly sm dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <i class="icoSvg i_s16 col_lightgray ml2">
-            <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_more"></use></svg>
-          </i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
-            <span>원본URL</span>
-            <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_url"></use></svg></i>
-         </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
-            <span>의견</span>
-            <span class="mark_ico">
-              <span class="mark_count">6</span>
-              <i class="icoSvg stroke i_s18">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_talk"></use></svg>
-              </i>
-            </span>
-          </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
-            <span>문서</span>
-            <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_list3"></use></svg></i>
-          </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between border_bot align-items-center">
-            <span>분류등록</span>
-            <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_class"></use></svg></i>
-          </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center"><span>수정</span></a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center"><span>삭제</span></a>
-        </div>
+        <SearchResponsiveEditBtn />
         <!-- //[반응형] 768px 이하에서 노출 -->
 
       </h3>
@@ -110,185 +83,7 @@
         </div>
         <!-- //info_area -->
 
-        <div class="btn_area">
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="원문 URL">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_url"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="의견">
-            <span class="mark_count">6</span>
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_talk"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="문서">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_list3"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="분류등록">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_class"></use></svg>
-            </i>
-          </a>
-          <!-- S.버튼 구분선 -->
-          <span class="division"></span>
-          <!-- //E.버튼 구분선 -->
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="수정">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_edit"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="삭제">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_del"></use></svg>
-            </i>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li class="list_item type_file">
-
-      <h3 class="tit_area">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="list_check1">
-          <label class="custom-control-label" for="list_check1"></label>
-        </div>
-        <a href="javscript:void(0);" class="tit">
-
-          <!--
-            .ico_doc 
-            .ico_hwp
-            .ico_ppt
-            .ico_zip
-            .ico_xls
-            .ico_pdf
-            .ico_pic
-            .ico_etc
-          -->
-          <i class="ico sp_file ico_hwp"></i>
-          첨부<mark>파일</mark>명.hwp<span class="col_txt_light type_caption_sm ml4">29KB</span>
-        </a>
-
-        <!-- [반응형] 768px 이하에서 노출 -->
-        <button type="button" class="btn_more button icoOnly sm dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <i class="icoSvg i_s16 col_lightgray ml2">
-            <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_more"></use></svg>
-          </i>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
-            <span>원본URL</span>
-            <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_url"></use></svg></i>
-         </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
-            <span>의견</span>
-            <span class="mark_ico">
-              <span class="mark_count">6</span>
-              <i class="icoSvg stroke i_s18">
-                <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_talk"></use></svg>
-              </i>
-            </span>
-          </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center">
-            <span>문서</span>
-            <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_list3"></use></svg></i>
-          </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between border_bot align-items-center">
-            <span>분류등록</span>
-            <i class="icoSvg stroke i_s18"><svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_class"></use></svg></i>
-          </a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center"><span>수정</span></a>
-          <a href="javascript:;" class="dropdown-item justify-content-between align-items-center"><span>삭제</span></a>
-        </div>
-        <!-- //[반응형] 768px 이하에서 노출 -->
-
-      </h3>
-      <!-- //tit_area -->
-
-      <div class="preview_area">
-        <div class="inner">
-          <div class="htext">
-            텍스트 적을때  
-          </div>                  
-        </div>
-        <button type="button" class="btn_more">
-          <i class="icoSvg stroke i_s20 ico_arr_bot col_lightgray">
-            <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_arrow"></use></svg>
-          </i>
-        </button>
-      </div>
-      <!-- //preview_area -->
-
-      <div class="docTit_category txt_weight_md mb4">
-        <span class="col_txt_blue">[문서명 표기] </span>
-        문서명 입니다.
-        <i class="icoSvg stroke i_s16 ico_arr_right col_lightgray">
-          <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_arrow"></use></svg>
-        </i>
-        목차명 입니다.
-      </div>
-      <div class="repoInfo_wrap">
-        <div class="info_area">
-          <dl>
-            <dt>등록자</dt>
-            <dd>홍길동</dd>
-          </dl>
-          <dl>
-            <dt>등록일</dt>
-            <dd>2022-10-02</dd>
-          </dl>
-          <dl>
-            <dt>수정일</dt>
-            <dd>2022-10-02</dd>
-          </dl>
-          <dl>
-            <dt>수정자</dt>
-            <dd>홍길동</dd>
-          </dl>
-          <dl>
-            <dt>조회수</dt>
-            <dd>321</dd>
-          </dl>
-        </div>
-        <div class="btn_area">
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="원문 URL">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_url"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="의견">
-            <span class="mark_count">6</span>
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_talk"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="문서">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_list3"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="분류등록">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_class"></use></svg>
-            </i>
-          </a>
-          <!-- S.버튼 구분선 -->
-          <span class="division"></span>
-          <!-- //E.버튼 구분선 -->
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="수정">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_edit"></use></svg>
-            </i>
-          </a>
-          <a href="javascript:void(0)" class="button sm icoOnly" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="삭제">
-            <i class="icoSvg stroke i_s16">
-              <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_del"></use></svg>
-            </i>
-          </a>
-        </div>
+        <SearchEditBtn />
       </div>
     </li>
   </ul>
@@ -305,11 +100,15 @@
 
 <script>
 import SearchToolbar from "@/components/search/SearchToolbar.vue";
+import SearchEditBtn from "@/components/search/SearchEditBtn.vue";
+import SearchResponsiveEditBtn from "@/components/search/SearchResponsiveEditBtn.vue";
 
 export default {
   name:'SearchTabFile',
   components: {
-    SearchToolbar
+    SearchToolbar,
+    SearchEditBtn,
+    SearchResponsiveEditBtn
   },
   setup() {
   },

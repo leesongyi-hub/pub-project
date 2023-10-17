@@ -28,9 +28,9 @@
               <button class="nav-link" data-toggle="tab" data-target="#tab4" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count disabled">0</span></button>
             </li>
           </ul>
-          <div id="resultTabCont" class="tab-content">              
+          <div id="resultTabCont" class="tab-content">
 
-            <SearchTabDoc /><!-- //문서탭 -->              
+            <SearchTabDoc /><!-- //문서탭 -->
             <SearchTabIndex /><!-- //목차탭 -->
             <SearchTabOpinion /><!-- //의견탭 -->
             <SearchTabFile /><!-- //첨부파일탭 -->
@@ -76,7 +76,6 @@ export default {
 
   setup() {
     const startSearch = ref(false);
-
 
     return {
       startSearch, 
