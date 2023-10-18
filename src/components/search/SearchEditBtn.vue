@@ -44,20 +44,20 @@ import { onMounted  } from "vue";
 import { Tooltip } from 'bootstrap'
 
 export default {
-  name:'SearchEditBtn',
-  components: {
-  },
-  setup() {
+name:'SearchEditBtn',
+components: {
+},
+setup() {
 
-    onMounted(() => {  
-       //inti tooltip
-       Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]'))
-      .forEach(tooltipNode => new Tooltip(tooltipNode))
-    });
+onMounted(() => {  
+    //init tooltip
+    Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]'))
+    .forEach(tooltipNode => new Tooltip(tooltipNode))
+});
 
-    return {
-    };    
-  },
+return {
+};    
+},
 }
 </script>
 

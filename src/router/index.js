@@ -2,7 +2,6 @@ import { createWebHashHistory, createRouter } from "vue-router";
 import MainPage from "../views/MainView.vue";
 import SearchResult from "../views/SearchView.vue";
 import testView from "../views/testView.vue";
-import TempDetail from "../views/modal/TempDetail.vue";
 // import PubList from "../views/PubList.vue";
 
 const routes = [
@@ -27,11 +26,6 @@ const routes = [
     }
   },
   {
-    path: "/modal/template_detail",
-    name: "TempDetail",
-    component: TempDetail,
-  },
-  {
     path: "/test",
     name: "testView",
     component: testView,
@@ -52,4 +46,5 @@ router.afterEach((to) => {
   const title = to.meta.title || 'OKMS';
   document.title = title;
 });
+
 export default router;
