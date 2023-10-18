@@ -7,7 +7,11 @@ import TempDetail from "../views/modal/TempDetail.vue";
 
 const routes = [
   {
-    path: "/",
+    path: '/',
+    redirect: '/main',
+  },
+  {
+    path: "/main",
     name: "MainView",
     component: MainPage,
     meta: {
