@@ -18,7 +18,7 @@
         <li
             v-for="index in 10"
           :key="index">
-            <a href="javascript:void(0)">샘플텍스트</a>
+            <a href="javascript:;">샘플텍스트</a>
         </li>
       </ul>
     </div>
