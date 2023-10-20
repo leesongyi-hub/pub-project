@@ -97,20 +97,33 @@
             <!-- //filterComp_list -->
           </div>
           <div v-else-if="index === 3">
-            <!-- 기타 섹션의 내용 -->
             <div class="control_area">
               <ul class="control_tab">
-                <li><button type="button">기본분류</button></li>
-                <li><button type="button" class="on">상세분류</button></li>
+                <li><button type="button" class="on">기본분류</button></li>
+                <li><button type="button">상세분류</button></li>
               </ul>
-
               <div class="form_switch">
-                <input type="checkbox" id="switch2" checked="">
-                <label for="switch2"><span class="label_txt">미분류</span><i class="btn_switch"></i></label>
+                <input type="checkbox" id="switch1" checked="">
+                <label for="switch1"><span class="label_txt">미분류</span><i class="btn_switch"></i></label>
               </div>
-
-            </div>            
-          
+            </div>
+            <ul class="filterComp_list">
+              <li
+                class="filterComp_listOpt"
+                v-for="index in 10"
+                :key="index"
+              >
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" :id="'check3' + index">
+                  <label class="custom-control-label" :for="'check3' + index">
+                    <span>샘플라벨
+                      <em class="count">(1,234)</em>
+                    </span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+            <!-- //filterComp_list -->
           </div>
         </div>
       </div>

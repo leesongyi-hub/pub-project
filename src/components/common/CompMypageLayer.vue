@@ -9,7 +9,7 @@
       <ul>
         <li class="menu_listItem">
           <a href="javscript:;">
-            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_gray">
+            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_gray mr4">
               <use xlink:href="@/assets/images/sp_svg.svg#ico_list3" />
             </svg>
             샘플라벨
@@ -17,7 +17,7 @@
         </li>
         <li class="menu_listItem">
           <a href="javscript:;">
-            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_gray">
+            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_gray mr4">
               <use xlink:href="@/assets/images/sp_svg.svg#ico_more2" />
             </svg>
             샘플라벨
@@ -25,7 +25,7 @@
         </li>
         <li class="menu_listItem">
           <a href="javscript:;">
-            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_gray">
+            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_gray mr4">
               <use xlink:href="@/assets/images/sp_svg.svg#ico_setting" />
             </svg>
             샘플라벨

@@ -13,7 +13,7 @@
       </div>
       <ul>
         <li class="keyword_item"
-          v-for="item in keywordList"                      
+          v-for="item in keywordList"
           :key="item"
         >
           <a href="javascript:;" class="keyword_box">
@@ -23,8 +23,9 @@
             <span class="keyword">{{ item }}</span>
           </a>
           <button
+            type="button"
             class="btn_del icoOnly i_s20"
-            @click="removeKeyword()"
+            @click="removeKeyword(index)"
           >
             <svg class="icoSvg col_lightgray" role="img" aria-hidden="true" focusable="false">
               <use xlink:href="@/assets/images/sp_svg.svg#ico_close" />              

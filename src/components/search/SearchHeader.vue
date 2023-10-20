@@ -53,10 +53,17 @@
                     class="search_input"
                     placeholder="검색어를 입력해주세요"
                     autocomplete="off"
+                    v-model="searchText"
                     @focus="startSearch = true"
                   />
                   <div class="btn_area">
-                    <button type="button" class="btn_reset icoOnly" aria-label="검색어삭제">
+                    <button
+                      type="button"
+                      class="btn_reset icoOnly"
+                      aria-label="검색어삭제"   
+                      v-if="searchText"
+                      @click="searchText=''"
+                    >
                       <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 col_white">
                         <use xlink:href="@/assets/images/sp_svg.svg#ico_close" />
                       </svg>                      
@@ -185,7 +192,7 @@ export default {
       document.removeEventListener('click', closeSearchArea);
     });
 
-
+    const searchText = ref('');
 
     return {
       show,
@@ -193,7 +200,8 @@ export default {
       options,
       toggleShow,
       selectOption,
-      startSearch
+      startSearch,
+      searchText     
     };
   },
 };

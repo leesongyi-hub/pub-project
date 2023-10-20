@@ -1,12 +1,19 @@
 <template>
   <div class="search_page">
-    
-    <SearchHeader /><!-- 헤더 -->
-    <SearchFilter /><!-- 좌측필터 -->
 
+    <button
+      type="button"
+      class="btn_createDoc button md outline mr8"
+      data-toggle="modal"
+      data-target="#modal_createDoc"
+      @click="showModal"
+      style="position:fixed;top:0;left:0;"
+    >
+      샘플라벨
+    </button>
+    
     <main class="content">
       <div class="main_panel">
-
         <div class="main_head">
           <div class="result_txt"><strong class="col_txt_primary">샘플텍스트&nbsp;</strong>검색결과 <span class="count ml8">(총 <em class="col_txt_primary">293</em>건)</span></div>
         </div>          
@@ -43,44 +50,64 @@
       </div>
       <!-- //main_panel-->
 
-      <SearchRightPanel /><!-- 우측패널 -->
-
     </main>
 
+    
+    <!-- S.부트스트랩4 모달 -->
+    <div
+      class="modal modal_createDoc fade"
+      id="modal_createDoc"
+      tabindex="-1"
+      data-backdrop="static"
+      data-keyboard="false"
+      aria-modal="true"
+      v-if="modalVisible" 
+      >
+      <modalTest 
+        @sendClose="closeModal"
+      />
+    </div>
+    
   </div>
 </template>
 
 <script>
 import { ref } from "vue";
 
-import SearchHeader from "../components/search/SearchHeader.vue";
-import SearchFilter from "../components/search/SearchFilter.vue";
-import SearchRightPanel from "../components/search/SearchRightPanel.vue";
 import SearchTabDoc from "../components/search/SearchTabDoc.vue";
 import SearchTabIndex from "../components/search/SearchTabIndex.vue";
 import SearchTabOpinion from "../components/search/SearchTabOpinion.vue";
 import SearchTabFile from "../components/search/SearchTabFile.vue";
+import modalTest from "./modal/modal_createDoc.vue";
 
 export default {
 
+
   name:'SearchResult',
   components: {
-    SearchHeader,
-    SearchFilter,
-    SearchRightPanel,
     SearchTabDoc,
     SearchTabIndex,
     SearchTabOpinion,
     SearchTabFile,
+    modalTest
   },
 
   setup() {
-    const startSearch = ref(false);
+
+    const modalVisible = ref(false);
+    const showModal = () => {
+      modalVisible.value = true;
+    }
+
+    const closeModal = (value) => {
+      modalVisible.value = value;
+    }; 
 
     return {
-      startSearch,
+      modalVisible,
+      showModal,
+      closeModal
     };
-    
   },
 }
 </script>
