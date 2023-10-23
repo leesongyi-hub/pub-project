@@ -8,6 +8,6 @@
   transition:opacity .15s linear;
   z-index: 120;
 }
-.edit_view .edit_mode{display:none;}
+// .edit_view .edit_mode{display:none;}
 .edit_view.on .view_mode{display:none !important;}
 .edit_view.on .edit_mode{display:block;}

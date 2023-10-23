@@ -46,8 +46,9 @@
       <SearchRightPanel /><!-- 우측패널 -->
 
     </main>
-
+    <ModalComment />
   </div>
+  
 </template>
 
 <script>
@@ -61,6 +62,8 @@ import SearchTabIndex from "../components/search/SearchTabIndex.vue";
 import SearchTabOpinion from "../components/search/SearchTabOpinion.vue";
 import SearchTabFile from "../components/search/SearchTabFile.vue";
 
+import ModalComment from "./modal/ModalComment.vue";
+
 export default {
 
   name:'SearchResult',
@@ -72,6 +75,7 @@ export default {
     SearchTabIndex,
     SearchTabOpinion,
     SearchTabFile,
+    ModalComment
   },
 
   setup() {

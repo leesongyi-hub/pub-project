@@ -4888,10 +4888,6 @@ button:not(.button).disabled .icoSvg {
   z-index: 120;
 }
 
-.edit_view .edit_mode {
-  display: none;
-}
-
 .edit_view.on .view_mode {
   display: none !important;
 }

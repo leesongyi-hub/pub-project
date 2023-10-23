@@ -5,7 +5,14 @@
                 <use xlink:href="@/assets/images/sp_svg.svg#ico_url" />
             </svg>
         </button>
-        <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
+        <button
+            class="button sm icoOnly"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="의견" 
+            data-toggle="modal"
+            data-target="#modal_comment"
+        >
             <span class="mark_count">12</span>
             <svg class="icoSvg stroke i_s16" role="img" aria-hidden="true" focusable="false">
                 <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />

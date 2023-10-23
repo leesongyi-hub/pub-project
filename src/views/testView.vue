@@ -5,18 +5,29 @@
       type="button"
       class="btn_createDoc button md outline mr8"
       data-toggle="modal"
-      data-target="#modal_createDoc"
-      @click="showModal"
+      data-target="#modal_comment"
       style="position:fixed;top:0;left:0;"
     >
       샘플라벨
     </button>
+
+    <button
+      type="button"
+      class="btn_createDoc button md outline mr8"
+      data-toggle="modal"
+      data-target="#modal_editCategory"
+      @click="modalVisible = true"
+      style="position:fixed;top:0;left:200px;"
+    >
+      샘플라벨
+    </button>
+
     
     <main class="content">
       <div class="main_panel">
         <div class="main_head">
           <div class="result_txt"><strong class="col_txt_primary">샘플텍스트&nbsp;</strong>검색결과 <span class="count ml8">(총 <em class="col_txt_primary">293</em>건)</span></div>
-        </div>          
+        </div>
 
         <div class="main_body">
 
@@ -50,24 +61,10 @@
       </div>
       <!-- //main_panel-->
 
-    </main>
+    </main>    
 
-    
-    <!-- S.부트스트랩4 모달 -->
-    <div
-      class="modal modal_createDoc fade"
-      id="modal_createDoc"
-      tabindex="-1"
-      data-backdrop="static"
-      data-keyboard="false"
-      aria-modal="true"
-      v-if="modalVisible" 
-      >
-      <modalTest 
-        @sendClose="closeModal"
-      />
-    </div>
-    
+    <!-- <modalTest /> -->
+
   </div>
 </template>
 
@@ -78,7 +75,7 @@ import SearchTabDoc from "../components/search/SearchTabDoc.vue";
 import SearchTabIndex from "../components/search/SearchTabIndex.vue";
 import SearchTabOpinion from "../components/search/SearchTabOpinion.vue";
 import SearchTabFile from "../components/search/SearchTabFile.vue";
-import modalTest from "./modal/modal_createDoc.vue";
+
 
 export default {
 
@@ -89,23 +86,20 @@ export default {
     SearchTabIndex,
     SearchTabOpinion,
     SearchTabFile,
-    modalTest
+
   },
 
   setup() {
 
     const modalVisible = ref(false);
-    const showModal = () => {
-      modalVisible.value = true;
-    }
+
 
     const closeModal = (value) => {
       modalVisible.value = value;
     }; 
 
     return {
-      modalVisible,
-      showModal,
+      modalVisible,      
       closeModal
     };
   },
