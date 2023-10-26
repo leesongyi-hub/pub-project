@@ -16,7 +16,7 @@
 
   <ul>
     <li class="list_item type_file"
-      v-for="index in 4"
+      v-for="(items, index) in fileIcons"
       :key="index"
     >
       <h3 class="tit_area">
@@ -25,18 +25,11 @@
           <label class="custom-control-label" :for="'fileList_check' + index"></label>
         </div>
         <a href="javscript:void(0);" class="tit">
-
-          <!--
-            .ico_doc
-            .ico_hwp
-            .ico_ppt
-            .ico_zip
-            .ico_xls
-            .ico_pdf
-            .ico_pic
-            .ico_etc
-          -->
-          <i class="ico sp_file ico_doc"></i>
+          <i
+            class="ico sp_file ico_doc"
+            :class="fileIcons[index]"
+          >
+          </i>
           첨부<mark>파일</mark>명.doc<span class="col_txt_light type_caption_sm ml4">29KB</span>
         </a>
 
@@ -48,17 +41,7 @@
       <!-- //tit_area -->
 
       <div class="preview_area">
-        <div class="inner">
-            1975년 우라늄협회로 출발한 세계원자력협회(WNA)는 원자력을 평화적으로 이용하는 것을 적극 지원하고, 원자력 발전과 핵연료주기 전반에 걸친 원자력 산업 발전을 위하고자 설립한 세계적 민간 기구로, 우라늄 채광부터 변환, 농축, 핵연료 제조, 원자력발전 운영, 기자재(설비) 제작 및 사용후핵연료 처분에 이르기까지 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 기자재(설비) 제작 및 사용후핵연료 처분에 이르기까지 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다 원자력 발전을 촉진하고 관...
-            1975년 우라늄협회로 출발한 세계원자력협회(WNA)는 원자력을 평화적으로 이용하는 것을 적극 지원하고, 원자력 발전과 핵연료주기 전반에 걸친 원자력 산업 발전을 위하고자 설립한 세계적 민간 기구로, 우라늄 채광부터 변환, 농축, 핵연료 제조, 원자력발전 운영, 기자재(설비) 제작 및 사용후핵연료 처분에 이르기까지 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 기자재(설비) 제작 및 사용후핵연료 처분에 이르기까지 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다 원자력 발전을 촉진하고 관...
-            1975년 우라늄협회로 출발한 세계원자력협회(WNA)는 원자력을 평화적으로 이용하는 것을 적극 지원하고, 원자력 발전과 핵연료주기 전반에 걸친 원자력 산업 발전을 위하고자 설립한 세계적 민간 기구로, 우라늄 채광부터 변환, 농축, 핵연료 제조, 원자력발전 운영, 기자재(설비) 제작 및 사용후핵연료 처분에 이르기까지 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 기자재(설비) 제작 및 사용후핵연료 처분에 이르기까지 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다. 원자력발전의 전 주기 산업을 촉진하고 관련 정보를 지원하고 있다 원자력 발전을 촉진하고 관...
-        </div>
-
-        <button type="button" class="btn_more">
-          <i class="icoSvg stroke i_s20 ico_arr_bot col_lightgray">
-            <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_arrow"></use></svg>
-          </i>
-        </button>
+          샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트샘플텍스트
       </div>
       <!-- //preview_area -->
 
@@ -90,9 +73,8 @@
 </div>
 <!--//리스트아이템-->
 
-<!--페이징-->
+
 <BasePagination />
-<!--//페이징-->
 
 </div>
 <!-- //첨부파일탭 -->
@@ -103,6 +85,8 @@ import SearchToolbar from "@/components/search/SearchToolbar.vue";
 import SearchEditBtn from "@/components/search/SearchEditBtn.vue";
 import SearchResponsiveEditBtn from "@/components/search/SearchResponsiveEditBtn.vue";
 
+// import { ref } from "vue";
+
 export default {
   name:'SearchTabFile',
   components: {
@@ -111,6 +95,20 @@ export default {
     SearchResponsiveEditBtn
   },
   setup() {
+    const fileIcons = [
+      "ico_doc",
+      "ico_hwp",
+      "ico_ppt",
+      "ico_zip",
+      "ico_xls",
+      "ico_pdf",
+      "ico_pic",
+      "ico_etc",
+    ]
+
+    return{
+      fileIcons
+    }
   },
 }
 </script>

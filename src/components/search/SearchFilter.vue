@@ -97,28 +97,17 @@
             <!-- //filterComp_list -->
           </div>
           <div v-else-if="index === 3">
-            <div class="control_area">
-              <ul class="control_tab">
-                <li><button type="button" class="on">기본분류</button></li>
-                <li><button type="button">상세분류</button></li>
-              </ul>
-              <div class="form_switch">
-                <input type="checkbox" id="switch1" checked="">
-                <label for="switch1"><span class="label_txt">미분류</span><i class="btn_switch"></i></label>
-              </div>
-            </div>
             <ul class="filterComp_list">
               <li
                 class="filterComp_listOpt"
-                v-for="index in 10"
+                v-for="(color, index) in labelColors"
                 :key="index"
               >
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" :id="'check3' + index">
-                  <label class="custom-control-label" :for="'check3' + index">
-                    <span>샘플라벨
-                      <em class="count">(1,234)</em>
-                    </span>
+                  <label class="custom-control-label" :for="'check3' + index" title="샘플라벨">
+                    <span class="txt_badge" :class="labelColors[index]">샘플라벨</span>
+                    <em class="count">(12)</em>
                   </label>
                 </div>
               </li>
@@ -144,6 +133,19 @@ export default {
 
   },
   setup() {
+    const labelColors =  ref([
+      "green",
+      "red",
+      "orange",
+      "navy",
+      "blue",
+      "gray",
+      "purple",
+      "yellow",
+      "pink",
+      "mint"
+    ]);
+
     const isMenuOpen = ref(true);
 
     const toggleMenu = () => {
@@ -161,6 +163,8 @@ export default {
       toggleMenu,
       isCollapsed,
       toggleCollapse,
+
+      labelColors
     };
   },
 }

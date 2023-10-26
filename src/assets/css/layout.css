@@ -2465,11 +2465,20 @@ button:not(.button).disabled .icoSvg {
 }
 
 .pagination .page_item .page_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   height: 100%;
   line-height: 30px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
   background-color: transparent;
 }
 
@@ -3455,6 +3464,7 @@ button:not(.button).disabled .icoSvg {
 }
 
 .add_tag .txt {
+  line-height: 20px;
   margin-right: 4px;
 }
 
@@ -4325,7 +4335,7 @@ button:not(.button).disabled .icoSvg {
   line-height: 18px;
   color: #8E8E8E;
   font-weight: 400;
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 .filterComp .control_area {
@@ -4389,7 +4399,7 @@ button:not(.button).disabled .icoSvg {
 
 .filterComp_list .filterComp_listOpt {
   position: relative;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 }
 
 .filterComp .btn_more {
@@ -4413,88 +4423,6 @@ button:not(.button).disabled .icoSvg {
 .filterComp .btn_more.on i {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
-}
-
-/* filter - 문서분류 */
-.filterComp .tree_listItem {
-  margin-bottom: 8px;
-}
-
-.filterComp .tree_list {
-  margin-bottom: 8px;
-}
-
-.filterComp .tree_list .btn_doc {
-  position: relative;
-  width: 100%;
-  padding: 4px 10px;
-  padding-right: 30px;
-  border: 1px solid #EEEEEE;
-  border-radius: 4px;
-  text-align: left;
-}
-
-.filterComp .tree_listItem .btn_doc .custom-control {
-  position: relative;
-  top: 3px;
-}
-
-.filterComp .tree_listItem .btn_doc .btn_arr {
-  cursor: pointer;
-}
-
-.filterComp .tree_listItem .btn_doc .btn_arr:hover i {
-  color: #8E8E8E;
-}
-
-.filterComp .tree_listItem.on .btn_doc {
-  background-color: #EEFCFC;
-  border-color: #DFF7F7;
-}
-
-.filterComp .tree_list .btn_doc .btn_arr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  top: 50%;
-  right: 6px;
-  margin-top: -12px;
-}
-
-.filterComp .tree_listItem .btn_doc .btn_arr {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-.filterComp .tree_listItem.on .btn_doc .btn_arr {
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
-}
-
-.filterComp .tree_list .treeComp {
-  margin-top: 8px;
-}
-
-.filterComp .tree_list .treeComp li > .tree {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.filterComp .tree_list .treeComp li > .tree .btn_acco {
-  top: 5px;
-  margin-top: 0;
-}
-
-.filterComp .tree_listItem:not(.on) .treeComp {
-  display: none;
 }
 
 /* filter - 닫혔을때 */
@@ -4556,6 +4484,21 @@ button:not(.button).disabled .icoSvg {
     height: calc(100vh - 109px);
   }
 }
+.filter .custom-control {
+  min-height: auto;
+}
+
+.filter .custom-checkbox .custom-control-label::before {
+  margin-top: 1px;
+  min-width: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.filter .custom-control .custom-control-label {
+  line-height: 18px;
+}
+
 /*모달 - 문서분류 설정*/
 .category_wrap .category_tree {
   position: relative;
@@ -6565,7 +6508,7 @@ button:not(.button).disabled .icoSvg {
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: absolute;
-  top: 26px;
+  top: 24px;
   left: 12px;
 }
 
@@ -6640,6 +6583,10 @@ button:not(.button).disabled .icoSvg {
   position: relative;
   top: 2px;
   display: inline-block;
+}
+
+.repoInfo_area .ico_box .ico_arr_bot {
+  vertical-align: inherit;
 }
 
 .repoInfo_area .repoInfo_name {
@@ -6780,54 +6727,17 @@ button:not(.button).disabled .icoSvg {
 }
 
 /* 리스트 - 첨부파일 */
-.result_wrap .list_item.type_file .preview_area {
-  position: relative;
-  min-height: 90px;
-  padding: 8px 16px;
-  border: 1px solid #F5F5F5;
-  background-color: #FAFAFA;
-}
-
-.result_wrap .list_item.type_file .preview_area .inner {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  padding-right: 24px;
-}
-
-.result_wrap .list_item.type_file .preview_area .btn_more {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  bottom: 9px;
-  right: 16px;
-}
-
-.result_wrap .list_item.type_file .preview_area.on {
-  padding-right: 40px;
-}
-
-.result_wrap .list_item.type_file .preview_area.on .inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.result_wrap .list_item.type_file .preview_area.on .btn_more {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
 .result_wrap .list_item.type_file .info_area dl {
   margin-bottom: 0;
 }
 
 .result_wrap .list_item.type_file .sp_file.ico {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  position: relative;
   top: 4px;
 }
 
@@ -6836,8 +6746,8 @@ button:not(.button).disabled .icoSvg {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  min-width: 20px;
-  height: 20px;
+  width: 100%;
+  height: 100%;
   background-image: url("../images/icon/ico_sp_extension.svg");
   background-position: 0 0;
   background-repeat: no-repeat;

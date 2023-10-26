@@ -15,7 +15,7 @@
 .filterComp.on .ico_arr_right{transform: rotate(90deg);}
 .filterComp .btn_aco{display:flex;width:100%;height:40px;align-items: center;justify-content:space-between;}
 .filterComp .btn_aco .ico_arr_right{transition: .3s;}
-.filterComp .count{@include type-caption-sm;margin-left:4px;}
+.filterComp .count{@include type-caption-sm;margin-left:2px;}
 
 .filterComp .control_area{display:flex;margin-top:12px;margin-bottom:16px;align-items: center;justify-content:space-between;}
 .filterComp .control_area .control_tab{display:flex;}
@@ -27,26 +27,10 @@
 .filterComp .control_area .control_tab button.on{color:$text-color-primary;font-weight:700;}
 
 .filterComp_list{margin-top:8px;;}
-.filterComp_list .filterComp_listOpt{position: relative;margin-bottom:7px;}
+.filterComp_list .filterComp_listOpt{position: relative;margin-bottom:8px;}
 
 .filterComp .btn_more{@include type-caption-sm;display:flex;align-items: center;justify-content:center;width:100%;height:28px;}
 .filterComp .btn_more.on i{transform: rotate(270deg);}
-
-/* filter - 문서분류 */
-.filterComp .tree_listItem{margin-bottom:8px;}
-.filterComp .tree_list{margin-bottom:8px;}
-.filterComp .tree_list .btn_doc{position:relative;width:100%;padding:4px 10px;padding-right:30px;border:1px solid $color-border-default;border-radius: $btn-radius-default;text-align:left;}
-.filterComp .tree_listItem .btn_doc .custom-control{position:relative;top:3px;}
-.filterComp .tree_listItem .btn_doc .btn_arr{cursor: pointer;}
-.filterComp .tree_listItem .btn_doc .btn_arr:hover i{color:#8E8E8E;}
-.filterComp .tree_listItem.on .btn_doc{background-color:#EEFCFC;border-color:#DFF7F7;}
-.filterComp .tree_list .btn_doc .btn_arr{display:flex;align-items: center;justify-content: center;position: absolute;top:50%;right:6px;margin-top:-12px;}
-.filterComp .tree_listItem .btn_doc .btn_arr{transform: rotate(270deg);}
-.filterComp .tree_listItem.on .btn_doc .btn_arr{transform: rotate(0);}
-.filterComp .tree_list .treeComp{margin-top:8px;}
-.filterComp .tree_list .treeComp li > .tree{display:flex;}
-.filterComp .tree_list .treeComp li > .tree .btn_acco{top:5px;margin-top:0;}
-.filterComp .tree_listItem:not(.on) .treeComp{display:none;}
 
 /* filter - 닫혔을때 */
 .search_page .filter.isOpen{left:0;}
@@ -68,4 +52,6 @@
   .filter .filter_body{height:calc(100vh - 109px);}
 }
 
-
+.filter .custom-control{min-height:auto;}
+.filter .custom-checkbox .custom-control-label::before{margin-top:1px;min-width:18px;width:18px;height:18px;}
+.filter .custom-control .custom-control-label{line-height:18px;}

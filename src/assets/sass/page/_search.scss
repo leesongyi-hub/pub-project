@@ -48,7 +48,7 @@
 .result_wrap .list_item .docTit_category i{position:relative;top:3px;}
 
 .result_wrap .tit_area{margin-bottom:12px;}
-.result_wrap .tit_area .custom-checkbox{display:inline-flex;position:absolute;top:26px;left:12px;}
+.result_wrap .tit_area .custom-checkbox{display:inline-flex;position:absolute;top:24px;left:12px;}
 .result_wrap .tit_area .tit{@apply typo-heading-sm-bold;display:inline;}
 .result_wrap .tit_area .txt_badge{position: relative;top:-2px;margin-left:4px;}
 .result_wrap .tit_area .btn_more{display:none;}
@@ -64,6 +64,7 @@
 .repoInfo_area{@include type-caption-md($color:$text-color-400);line-height:20px;}
 .repoInfo_area .repoInfo_category{display:inline;}
 .repoInfo_area .ico_box{position:relative;top:2px;display:inline-block;}
+.repoInfo_area .ico_box .ico_arr_bot{vertical-align: inherit;}
 .repoInfo_area .repoInfo_name{position:relative;}
 .repoInfo_area .repoInfo_name .name{display:inline;}
 .repoInfo_area .repoInfo_name .name::after{content:'';position:relative;top:2px;display:inline-block;width:1px;height:12px;margin:0 8px;background-color:#e1e1e1;}
@@ -90,15 +91,9 @@
 .subInfo_layer dt{display:inline-flex !important;}
 
 /* 리스트 - 첨부파일 */
-.result_wrap .list_item.type_file .preview_area{position:relative;min-height:90px;padding:8px 16px;border:1px solid $color-border-light;background-color:$color-bg-light;}
-.result_wrap .list_item.type_file .preview_area .inner{@include ellipsis(3);padding-right:24px;}
-.result_wrap .list_item.type_file .preview_area .btn_more{display:flex;position:absolute;bottom:9px;right:16px;}
-.result_wrap .list_item.type_file .preview_area.on{padding-right:40px;}
-.result_wrap .list_item.type_file .preview_area.on .inner{display:flex;max-height:200px;overflow-y:auto;}
-.result_wrap .list_item.type_file .preview_area.on .btn_more{transform: rotate(180deg);}
 .result_wrap .list_item.type_file .info_area dl{margin-bottom:0}
-.result_wrap .list_item.type_file .sp_file.ico{top:4px;}
-.result_wrap .list_item.type_file .sp_file.ico::before{content:'';display:inline-flex;min-width:20px;height:20px;background-image:url('../images/icon/ico_sp_extension.svg');background-position:0 0;background-repeat:no-repeat;}
+.result_wrap .list_item.type_file .sp_file.ico{display:inline-flex;width:20px;height:20px;position: relative;top:4px;}
+.result_wrap .list_item.type_file .sp_file.ico::before{content:'';display:inline-flex;width:100%;height:100%;background-image:url('../images/icon/ico_sp_extension.svg');background-position:0 0;background-repeat:no-repeat;}
 .result_wrap .list_item.type_file .sp_file.ico_doc::before{background-position:0 0;}
 .result_wrap .list_item.type_file .sp_file.ico_hwp::before{background-position:0 -20px;}
 .result_wrap .list_item.type_file .sp_file.ico_ppt::before{background-position:0 -40px;}

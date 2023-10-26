@@ -1,111 +1,189 @@
 <template>
-  <div class="search_page">
+	<!-- S. 문서정보 모달-->
 
-    <button
-      type="button"
-      class="btn_createDoc button md outline mr8"
-      data-toggle="modal"
-      data-target="#modal_comment"
-      style="position:fixed;top:0;left:0;"
-    >
-      샘플라벨
-    </button>
+  <div class="modal modal_documentInfo fade show" id="modal_documentInfo" tabindex="-1" data-backdrop="static" data-keyboard="false" aria-modal="true" role="dialog" style="display:block;">
+    <div class="modal-dialog w1000">
+			<div class="modal-content">
+				<div class="modal-body">
 
-    <button
-      type="button"
-      class="btn_createDoc button md outline mr8"
-      data-toggle="modal"
-      data-target="#modal_editCategory"
-      @click="modalVisible = true"
-      style="position:fixed;top:0;left:200px;"
-    >
-      샘플라벨
-    </button>
+          <div class="table_wrap">
+            <div class="responsive_table">
 
-    
-    <main class="content">
-      <div class="main_panel">
-        <div class="main_head">
-          <div class="result_txt"><strong class="col_txt_primary">샘플텍스트&nbsp;</strong>검색결과 <span class="count ml8">(총 <em class="col_txt_primary">293</em>건)</span></div>
-        </div>
+              <dl class="tr w100">
+                <dt class="th"><span>문서분류</span></dt>
+                <dd class="td">
+                  <div class="d-flex">	
+                    
+                    <div
+                      class="add_tag_list flex-grow-1 mr8"
+                      v-show="tagList.length > 0"
+                    >
+                      <div
+                        class="add_tag d-flex"
+                        v-for="tag in tagList"
+                        :key="tag"
+                      >
+                        <span class="txt">{{ tag }}</span>
+                        <button
+                          type="button"
+                          aria-label="삭제"
+                          @click="removeTag"
+                        >
+                          <svg role="img" aria-hidden="true" focusable="false" class="ico col_lightgray i_s20">
+                            <use xlink:href="@/assets/images/sp_svg.svg#ico_deleted" />
+                          </svg>
+                        </button>
+                      </div>
 
-        <div class="main_body">
+                    </div>
 
-          <ul class="nav nav-tabs nav-justified mb12" id="resultTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" data-toggle="tab" data-target="#tab1" type="button" role="tab" aria-selected="true">샘플라벨<span class="mark_count">115</span></button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" data-toggle="tab" data-target="#tab2" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">5</span></button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" data-toggle="tab" data-target="#tab3" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count">52</span></button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <!-- 0개일때 addClass('disabled') -->
-              <button class="nav-link" data-toggle="tab" data-target="#tab4" type="button" role="tab" aria-selected="false">샘플라벨<span class="mark_count disabled">0</span></button>
-            </li>
-          </ul>
-          <div id="resultTabCont" class="tab-content">
+                    <div class="flex-shrink-0">
+                      <button type="button" class="button outline md" data-toggle="modal" data-target="#modal_categoryRegist">추가</button>
+                    </div>
+                  </div>
+                </dd>
+              </dl>
 
-            <SearchTabDoc /><!-- //문서탭 -->
-            <SearchTabIndex /><!-- //목차탭 -->
-            <SearchTabOpinion /><!-- //의견탭 -->
-            <SearchTabFile /><!-- //첨부파일탭 -->
+              <dl class="tr w100 edit_view">
+                <dt class="th"><span>출처</span></dt>
+                <dd class="td">
 
+                  <!-- 보기 모드🔻 -->
+                  <div
+                    class="view_mode"
+                    v-if="!isEdit"
+                  >
+                    <div class="d-flex">
+                      <span>출처는 인포채터 3입니다.</span>
+                      <button
+                        btype="button"
+                        class="btn_titEdit ico ico_edit i_s20 ml4"
+                        @click="showEdit"
+                      >
+                        <svg role="img" aria-hidden="true" focusable="false" class="ico col_lightgray i_s16"><use xlink:href="@/assets/images/sp_svg.svg#ico_edit" /></svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- 편집 모드🔻 -->
+                  <div
+                    class="edit_mode"
+                    v-if="isEdit"
+                  >
+                    <div class="edit_box d-flex">
+                      <input type="text" class="form_input w700" placeholder="" value="출처는 인포채터 3입니다." />
+                      <button
+                        type="button"
+                        class="button outline md ml8"
+                        @click="hideEdit"
+                      >
+                        저장
+                      </button>
+                      <button
+                        type="button" class="button outline md btn_cancel ml8"
+                        @click="hideEdit"
+                      >
+                        취소
+                      </button>
+                    </div>
+                  </div>
+
+                </dd>
+              </dl>
+
+              <dl class="tr w100 edit_view">
+                <dt class="th"><span>원본 URL</span></dt>
+                <dd class="td">
+                  <!-- 보기 모드🔻 -->
+                  <div
+                    class="view_mode"
+                    v-if="!isEdit"
+                  >
+                    <div class="d-flex">
+                      <span>https://hansungackr-my.sharepoint.com/:p:/g/personal</span>
+                      <button
+                        btype="button"
+                        class="btn_titEdit ico ico_edit i_s20 ml4"
+                        @click="showEdit"
+                      >
+                        <svg role="img" aria-hidden="true" focusable="false" class="ico col_lightgray i_s16"><use xlink:href="@/assets/images/sp_svg.svg#ico_edit" /></svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- 편집 모드🔻 -->
+                  <div
+                    class="edit_mode"
+                    v-if="isEdit"
+                  >
+                    <div class="edit_box d-flex">
+                      <input type="text" class="form_input w700" placeholder="" value="https://hansungackr-my.sharepoint.com/:p:/g/personal" />
+                      <button
+                        type="button"
+                        class="button outline md ml8"
+                        @click="hideEdit"
+                      >
+                        저장
+                      </button>
+                      <button
+                        type="button" class="button outline md btn_cancel ml8"
+                        @click="hideEdit"
+                      >
+                        취소
+                      </button>
+                    </div>
+                  </div>
+                </dd>
+              </dl>	
+            </div>
           </div>
-          <!-- //tab-content -->
 
-        </div>
-        <!-- //main_body -->
-      </div>
-      <!-- //main_panel-->
+				</div>
 
-    </main>    
+			</div>
+		</div>
+	</div>
+	<!-- //E. 문서정보 모달 -->
 
-    <!-- <modalTest /> -->
-
-  </div>
 </template>
 
 <script>
 import { ref } from "vue";
 
-import SearchTabDoc from "../components/search/SearchTabDoc.vue";
-import SearchTabIndex from "../components/search/SearchTabIndex.vue";
-import SearchTabOpinion from "../components/search/SearchTabOpinion.vue";
-import SearchTabFile from "../components/search/SearchTabFile.vue";
-
-
 export default {
-
-
-  name:'SearchResult',
-  components: {
-    SearchTabDoc,
-    SearchTabIndex,
-    SearchTabOpinion,
-    SearchTabFile,
-
-  },
-
   setup() {
+    const tagList = ref([
+      "문서 대분류 > 문서 중분류 > 문서 소분류 > 분류1",
+      "문서 대분류 > 문서 중분류 > 문서 소분류 > 분류2",
+      "문서 대분류 > 문서 중분류 > 문서 소분류 > 분류3"
+    ]);
 
-    const modalVisible = ref(false);
+    const removeTag = (index) => {
+      tagList.value.splice(index, 1);
+    };
 
+    const isEdit = ref();
+    const showEdit = () => {
+      //내가 클릭한 버튼의 부모 요소(.edit_view) 내부에서 조작하고싶습니다.
+      this.$parent.$parent.isEdit.value = !isEdit.value;
+    }
 
-    const closeModal = (value) => {
-      modalVisible.value = value;
-    }; 
+    const hideEdit = () => {
+      //내가 클릭한 버튼의 부모 요소(.edit_view) 내부에서 조작하고싶습니다.
+      this.$parent.$parent.isEdit.value = false;
+    }   
 
     return {
-      modalVisible,      
-      closeModal
+      tagList,
+      removeTag,
+
+      isEdit,
+      showEdit,
+      hideEdit
     };
   },
-}
+};
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
 </style>

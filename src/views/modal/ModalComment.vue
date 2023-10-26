@@ -8,10 +8,10 @@
         <h5 class="tit">의견</h5>
         <strong class="mt8 mb2">문서명 : 100세변액연금보험(B1.0 무배당)</strong>
         <p class="sub_txt"><em>목차명</em> > 단락</p>
-        <button type="button" class="btn-close" data-dismiss="modal">
-          <i class="icoSvg stroke i_s24 col_lightgray">
-            <svg aria-hidden="true" focusable="false"><use xlink:href="#ico_deleted"></use></svg>
-          </i>  
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="닫기">
+          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24">
+            <use xlink:href="@/assets/images/sp_svg.svg#ico_deleted" />
+          </svg>
         </button>
       </div>
       <div class="modal-body">
@@ -31,7 +31,15 @@
               </div>
             </div>
             <div>
-              <button type="button" class="button primary md"><i class="ico ico_save_white i_s20"></i><span class="label">저장</span></button>
+              <button
+                type="button"
+                class="btn_save button primary md"
+              >
+                <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s18 mr4 col_white">
+                  <use xlink:href="@/assets/images/sp_svg.svg#ico_save" />
+                </svg>
+                저장
+              </button>
             </div>
           </div>
         </div>
@@ -88,7 +96,11 @@
                       <span class="label">수정</span>
                     </button>
 
-                    <button type="button" class="button outline sm">
+                    <button
+                      type="button"
+                      class="button outline sm"
+                      
+                    >
                       <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s14 mr4">
                         <use xlink:href="@/assets/images/sp_svg.svg#ico_del" />
                       </svg>
@@ -110,7 +122,7 @@
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="content2_2">
                       <label class="custom-control-label" for="content2_2"><span>작성자 비공개</span></label>
-                    </div>											
+                    </div>
                   </div>
                   <div class="mt8 d-flex">
                     <div class="flex-grow-1">
@@ -120,18 +132,33 @@
                       <div class="edit_btn_box">
                         <button
                           type="button"
-                          class="btn_save button outline sm">
-                            <i class="ico i_s18 ico_save"></i>
-                            <span class="label">저장</span>
+                          class="btn_save button outline sm"
+                        >
+                          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s14 mr4">
+                            <use xlink:href="@/assets/images/sp_svg.svg#ico_save" />
+                          </svg>
+                          저장
                         </button>
-                        <button type="button" class="button outline sm"><i class="ico i_s18 ico_del"></i><span class="label">삭제</span></button>
+
                         <button
                           type="button"
-                          class="btn_cancel button outline sm"
+                          class="btn_save button outline sm"
+                        >
+                          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s14 mr4">
+                            <use xlink:href="@/assets/images/sp_svg.svg#ico_del" />
+                          </svg>
+                          삭제
+                        </button>
+
+                        <button
+                          type="button"
+                          class="btn_save button outline sm"
                           @click="hideEdit"
                         >
-                            <i class="ico i_s18 ico_cancel"></i>
-                            <span class="label">취소</span>
+                          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s14 mr4">
+                            <use xlink:href="@/assets/images/sp_svg.svg#ico_cancel" />
+                          </svg>
+                          취소
                         </button>
                       </div>
                     </div>
@@ -201,6 +228,4 @@ export default {
 </script>
 
 <style scoped>
-.modal.show{display:block;}
-/* 리스트 트랜지션 */
 </style>

@@ -2,9 +2,15 @@
 
   <!--툴바-->
   <div class="resultBtn_area">
-    <button type ="button" class="btn_createDoc button md outline mr8" data-toggle="modal" data-target="#modal_createDoc"
-    @click="showModal"
-    >샘플라벨</button>
+    <button
+      type ="button"
+      class="button md outline mr8"
+      data-toggle="modal"
+      data-target="#modal_documentInfo">
+      샘플라벨
+    </button>
+
+
     <button type ="button" class="button md outline mr8" data-toggle="modal" data-target="#modal_editCategory">샘플라벨</button>
     <button type ="button" class="button md outline mr8" data-toggle="modal" data-target="#modal_editField">샘플라벨</button>
     <button type ="button" class="button md outline mr8 disabled">샘플라벨</button>      
