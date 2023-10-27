@@ -7,12 +7,9 @@
 .filter .btn_fold::after{content:'';display:inline-block;width:12px;height: 100%;background: url(../images/icon/ico_fold.svg) no-repeat center;}
 .filter .filter_body .tit{@include type-body-lg($weight:bold);text-align: left;}
 
-
-
 /* filter - 아이템 */
 .filterComp{padding:10px 20px 10px 20px;border-bottom:1px solid $color-border-default;}
 .filterComp:last-child{border-bottom:none;}
-.filterComp.on .ico_arr_right{transform: rotate(90deg);}
 .filterComp .btn_aco{display:flex;width:100%;height:40px;align-items: center;justify-content:space-between;}
 .filterComp .btn_aco .ico_arr_right{transition: .3s;}
 .filterComp .count{@include type-caption-sm;margin-left:2px;}
@@ -26,32 +23,36 @@
 .filterComp .control_area .control_tab button{color:$text-color-800;}
 .filterComp .control_area .control_tab button.on{color:$text-color-primary;font-weight:700;}
 
-.filterComp_list{margin-top:8px;;}
+.filterComp_list{margin-top:8px;}
 .filterComp_list .filterComp_listOpt{position: relative;margin-bottom:8px;}
 
 .filterComp .btn_more{@include type-caption-sm;display:flex;align-items: center;justify-content:center;width:100%;height:28px;}
 .filterComp .btn_more.on i{transform: rotate(270deg);}
 
-/* filter - 닫혔을때 */
-.search_page .filter.isOpen{left:0;}
-.search_page .filter.isOpen + main{padding-left:290px;}
-.search_page .filter.isOpen .btn_fold::after{transform: rotate(0);}
+.search_page .filter + main{padding-left:290px;}
+.search_page .filter .btn_fold::after{transform: rotate(0);}
+.search_page .filter[aria-expanded="true"]{left:0;}
+.search_page .filter[aria-expanded="false"]{left:-260px;}
+.search_page.fold .filter .btn_fold::after{transform: rotate(180deg);}
+.search_page.fold .filter ~ main{padding-left:40px;}
 
-.search_page .filter{left:-260px;}
-.search_page .filter + main{padding-left:40px;}
-.search_page .filter .btn_fold::after{transform: rotate(180deg);}
+
 
 @media all and (max-width:1023px) {
   .filter{display:block;width:300px;height:100vh;top:0;left:-100%;z-index:130;padding-top:109px;}
-  .search_page .filter,
-  .search_page .filter.isOpen{left:-100%;}
-
+  .search_page .filter[aria-expanded="true"]{left:0;}
+  .search_page .filter[aria-expanded="true"] .overlay{display:block}
+  .search_page .filter[aria-expanded="false"]{left:-100%;}
   .filter .btn_fold{display:none;}
   .filter .filter_head{padding-top:56px;}
   .filter .filter_head .btn_close{display:flex;position:absolute;top:16px;right:18px;}
   .filter .filter_body{height:calc(100vh - 109px);}
+  .overlay{display:block;position: fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.2);z-index:120;}
+  .fold .overlay{display:none;}
 }
 
 .filter .custom-control{min-height:auto;}
 .filter .custom-checkbox .custom-control-label::before{margin-top:1px;min-width:18px;width:18px;height:18px;}
 .filter .custom-control .custom-control-label{line-height:18px;}
+
+

@@ -24,7 +24,7 @@
           <input type="checkbox" class="custom-control-input" :id="'fileList_check' + index">
           <label class="custom-control-label" :for="'fileList_check' + index"></label>
         </div>
-        <a href="javscript:void(0);" class="tit">
+        <a href="javascript:;" class="tit">
           <i
             class="ico sp_file ico_doc"
             :class="fileIcons[index]"

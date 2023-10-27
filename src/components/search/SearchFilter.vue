@@ -1,12 +1,23 @@
 <template>
   <!-- filter -->
-  <div class="filter" :class="isMenuOpen ? 'isOpen' : ''">
-    <button type="button" class="ico_fold btn_fold" aria-label="필터 접기" @click="toggleMenu"></button>        
+  <div class="filter">
+    <button
+      type="button"
+      class="ico_fold btn_fold"
+      aria-label="필터 접기"
+      @click="updateLeftOpened()"      
+    >
+    </button>        
     
     <div class="filter_head">
 
       <!-- [반응형] 1024px 이하에서 노출 -->
-      <button type="button" class="btn_close button" aria-label="필터 닫기">
+      <button
+        type="button"
+        class="btn_close button"
+        aria-label="필터 닫기"
+        @click="updateLeftOpened()"
+      >
         <svg aria-hidden="true" focusable="false" class="icoSvg i_s24 col_gray">
           <use xlink:href="@/assets/images/sp_svg.svg#ico_close" />
         </svg>
@@ -30,15 +41,15 @@
     <!-- //filter_head -->
 
     <div class="filter_body">
-      <div class="filterComp" v-for="index in 3" :key="index">
+      <div class="filterComp" v-for="list in 3" :key="list">
         <button
           type="button"
           class="btn_aco"
           data-toggle="collapse"
           aria-expanded="true"
-          :data-target="'#expanded' + index"
-          @click="toggleCollapse(index - 1)"
-          :aria-label="isCollapsed[index - 1] ? '샘플타이틀영역 접기' : '샘플타이틀영역 펼치기'"
+          :data-target="'#expanded' + list"
+          @click="toggleCollapse(list - 1)"
+          :aria-label="isCollapsed[list - 1] ? '샘플타이틀영역 접기' : '샘플타이틀영역 펼치기'"
         >
           <h2 class="tit">샘플타이틀</h2>
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s20 ico_arr_right">
@@ -48,7 +59,7 @@
         
         <div :id="'expanded' + index" class="filterComp_body show">
           <!-- 각 섹션의 내용을 데이터 배열에서 동적으로 렌더링 -->
-          <div v-if="index === 1">
+          <div v-if="list === 1">
             <ul class="filterComp_list">
               <li
                 class="filterComp_listOpt"
@@ -67,7 +78,7 @@
             </ul>
             <!--//filterComp_list-->
           </div>
-          <div v-else-if="index === 2">
+          <div v-else-if="list === 2">
             <div class="control_area">
               <ul class="control_tab">
                 <li><button type="button" class="on">기본분류</button></li>
@@ -81,13 +92,14 @@
             <ul class="filterComp_list">
               <li
                 class="filterComp_listOpt"
-                v-for="index in 5"
+                v-for="(item, index) in filterList"
                 :key="index"
+                v-show="showAll[list] || index < 5"
               >
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" :id="'check2' + index">
                   <label class="custom-control-label" :for="'check2' + index">
-                    <span>샘플라벨
+                    <span>{{ filterList[index] }}{{index + 1}}
                       <em class="count">(1,234)</em>
                     </span>
                   </label>
@@ -96,17 +108,18 @@
             </ul>
             <!-- //filterComp_list -->
           </div>
-          <div v-else-if="index === 3">
+          <div v-else-if="list === 3">
             <ul class="filterComp_list">
               <li
                 class="filterComp_listOpt"
-                v-for="(color, index) in labelColors"
-                :key="index"
+                v-for="(color, idx) in labelColors"
+                :key="color"
+                v-show="showAll[list] || idx < 5"
               >
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" :id="'check3' + index">
                   <label class="custom-control-label" :for="'check3' + index" title="샘플라벨">
-                    <span class="txt_badge" :class="labelColors[index]">샘플라벨</span>
+                    <span class="txt_badge" :class="labelColors[idx]">샘플라벨{{idx + 1}}</span>
                     <em class="count">(12)</em>
                   </label>
                 </div>
@@ -114,13 +127,24 @@
             </ul>
             <!-- //filterComp_list -->
           </div>
+
+          <button type="button" class="btn_more" @click="showAllItems(list)">
+            <span class="label">{{ showAll[list] ? "간략보기" : "더보기" }}</span>
+            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s16 col_lightgray ml2"
+              :class="showAll[list] ? 'ico_arr_top' : 'ico_arr_bot'"
+            >
+              <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
+            </svg>
+          </button>
+
         </div>
       </div>
     </div>
-    <!-- //filter_body -->        
+    <!-- //filter_body -->       
+
   </div>
   <!-- //filter -->
-  
+
 </template>
 
 <script>
@@ -132,7 +156,7 @@ export default {
   components: {
 
   },
-  setup() {
+  setup(props, { emit }) {
     const labelColors =  ref([
       "green",
       "red",
@@ -143,10 +167,26 @@ export default {
       "purple",
       "yellow",
       "pink",
-      "mint"
+      "mint",
     ]);
 
-    const isMenuOpen = ref(true);
+    const filterList =  ref([
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+      "필터샘플명",
+    ]);
+
+
+    const isMenuOpen = ref(false);
 
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
@@ -158,23 +198,48 @@ export default {
       isCollapsed.value[index] = !isCollapsed.value[index];
     };
 
+    const updateLeftOpened = () => {
+      return emit("updateLeftOpened");
+    };
+    const updateLeftOpenedTest = () => {
+      return emit("updateLeftOpenedTest");
+    };   
+
+    const showAll = ref([false, false, false]);
+
+    const showAllItems = ( idx ) => {
+      console.log(idx);
+      showAll.value[idx] = !showAll.value[idx];
+    };
+
     return {
       isMenuOpen,
       toggleMenu,
       isCollapsed,
       toggleCollapse,
 
-      labelColors
+      labelColors,
+
+      updateLeftOpened,
+      updateLeftOpenedTest,
+
+      showAllItems,
+      showAll,
+
+      filterList
     };
   },
 }
 </script>
 
 <style scoped>
-  [aria-expanded="true"] .ico_arr_right{
+  .filterComp [aria-expanded="true"] .ico_arr_right{
     transform:rotate(90deg);
   }
-  [aria-expanded="true"] .ico_arr_right{
+  .filterComp [aria-expanded="true"] .ico_arr_right{
     transform:rotate(90deg);
+  }
+  .btn_more svg{
+    transition:.3s;
   }
 </style>

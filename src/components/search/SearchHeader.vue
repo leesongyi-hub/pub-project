@@ -80,10 +80,15 @@
             <!-- //inner -->
           </div>
           <!-- //search_wrap -->
-          <button type="button" class="button btn_filter i_s48" aria-label="검색결과 필터">
-              <svg aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
-                <use xlink:href="@/assets/images/sp_svg.svg#ico_filter" />
-              </svg>
+          <button
+            type="button"
+            class="button btn_filter i_s48"
+            aria-label="검색결과 필터"
+            @click="updateLeftOpened()"
+          >
+            <svg aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
+              <use xlink:href="@/assets/images/sp_svg.svg#ico_filter" />
+            </svg>
           </button>
         </div>
 
@@ -127,7 +132,7 @@ export default {
     MypageLayer,
     SearchLayer
   },
-  setup() {
+  setup(props, { emit }) {
     const show = ref(false);
     const selectedOption = ref("전체저장소");
 
@@ -194,6 +199,14 @@ export default {
 
     const searchText = ref('');
 
+    const updateLeftOpened = () => {
+      return emit("updateLeftOpened");
+    };
+
+    const updateLeftOpenedTest = () => {
+      return emit("updateLeftOpenedTest");
+    };
+
     return {
       show,
       selectedOption,
@@ -201,7 +214,10 @@ export default {
       toggleShow,
       selectOption,
       startSearch,
-      searchText     
+      searchText,
+
+      updateLeftOpened,
+      updateLeftOpenedTest
     };
   },
 };
