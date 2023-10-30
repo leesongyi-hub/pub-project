@@ -1,33 +1,4 @@
-.tooltip[x-placement="top"]{
-  padding-top:0;
-  padding-bottom:6px;
-}
-
-.tooltip[x-placement="top"] .arrow{
-  position:absolute;
-  width:6px;
-  height:6px;
-  display:block;
-  background:#4b4b4b;
-  transform: rotate(45deg);
-  left:50%;
-  margin-left:-2px;
-  top:23px;
-}
-
-.tooltip .arrow::before{
-  display:none;
-}
-
-.tooltip .tooltip-inner{
-  width:auto;
-  height:26px;
-  line-height:26px;
-  padding:0 8px;
-  margin:0 !important;
-  font-size:13px !important;
-  font-weight:300 !important;
-  color:#fff;
-  background-color:#4B4B4B;
-  border-radius: 4px;
-}
+.tooltip[x-placement="top"]{padding-top:0;padding-bottom:6px;}
+.tooltip[x-placement="top"] .arrow{position:absolute;width:6px;height:6px;display:block;background:#4b4b4b;transform: rotate(45deg);left:50%;margin-left:-2px;top:23px;}
+.tooltip .arrow::before{display:none;}
+.tooltip .tooltip-inner{width:auto;height:26px;line-height:26px;padding:0 8px;margin:0 !important;font-size:13px !important;font-weight:300 !important;color:#fff;background-color:#4B4B4B;border-radius: 4px;}

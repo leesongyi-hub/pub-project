@@ -26,7 +26,7 @@
             <input type="checkbox" class="custom-control-input" :id="'opinionList_check' + index">
           <label class="custom-control-label" :for="'opinionList_check' + index"></label>
           </div>
-          <a href="javscript:void(0);" class="tit">
+          <a href="javascript:;" class="tit">
             샘플타이틀
           </a>
           <span class="txt_badge blue">Text</span>

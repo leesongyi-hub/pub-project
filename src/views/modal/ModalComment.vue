@@ -52,7 +52,7 @@
           <div class="comment_list">
             <div class="list_item fix">
               <div class="list_head">
-                <div class="name">정승한<span class="caption">2022-08-03 13:13</span></div>
+                <div class="name">홍길동<span class="caption">2023-08-03 13:13</span></div>
                 <span class="badge_state col_white bg_blue">중요의견</span>
               </div>
               <div class="list_cont">
@@ -72,7 +72,7 @@
           <div class="comment_list">
             <div class="list_item fix edit_view">
               <div class="list_head">
-                <div class="name">정승한<span class="caption">2022-08-03 13:13</span></div>
+                <div class="name">정승한<span class="caption">2023-08-03 13:13</span></div>
                 <span class="badge_state col_white bg_blue">중요의견</span>
               </div>
               <div class="list_cont">
@@ -168,7 +168,7 @@
               </div>
             </div>
           </div>
-          <!--//E. 의견리스트-->						
+          <!--//E. 의견리스트-->
 
           <!--S. 의견리스트
             Case3.기본 + 비공개

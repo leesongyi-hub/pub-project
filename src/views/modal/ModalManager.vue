@@ -6,10 +6,10 @@
 					<h5 class="tit">담당자 지정</h5>
 					<p class="sub_txt">서브타이틀이 들어가는 곳입니다.</p>
 					<button type="button" class="btn-close" data-dismiss="modal" aria-label="닫기">
-          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24">
-            <use xlink:href="@/assets/images/sp_svg.svg#ico_deleted" />
-          </svg>
-        </button>
+						<svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24">
+							<use xlink:href="@/assets/images/sp_svg.svg#ico_deleted" />
+						</svg>
+					</button>
 				</div>
 				<div class="modal-body">
 					<div class="form_group_wrap d-flex align-items-center justify-content-end right mb24">

@@ -54,18 +54,18 @@
       <SearchRightPanel /><!-- 우측패널 -->
 
     </main>
-
-    <ModalComment />
-    <ModalDocInfo />
-    <ModalStatus />
-    <ModalManager />
     <div
       v-if="isMobile"
       class="overlay"
     >
-    </div> 
+    </div>
+
   </div>
-  
+  <ModalComment />
+  <ModalDocInfo />
+  <ModalStatus />
+  <ModalManager />
+
 </template>
 
 <script>

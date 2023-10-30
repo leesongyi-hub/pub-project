@@ -3,15 +3,8 @@
 .modal{padding-right:0 !important;}
 
 /* 모달 - 주요항목 설정 */
-.main_page .category_wrap .category_tree{position:relative;min-width:auto;width:100%;min-height: auto;padding:0;border:0;background-color: transparent;overflow: visible;white-space: normal;}
-.main_page .category_wrap .category_tree li > .tree{display:block;position:relative;padding:0 0 0 24px;margin-bottom:6px;margin-left:0;}
-.main_page .category_wrap .category_tree li > .tree + ul{display:none;}
-.main_page .category_wrap .category_tree li > .tree + ul > li > .tree{padding:0;padding-left:40px;}
-.main_page .category_wrap .category_tree li > .tree:hover{background-color:$color-bg-default;}
-.main_page .category_wrap .category_tree li > .tree .btn_acco{display:flex;align-items:center;justify-content: center;position:absolute;top: 13px;left:0px;width:20px;height:20px;cursor: pointer;margin-top: -10px;}
-.main_page .category_wrap .category_tree li > .tree .btn_acco::before{width:14px;height:14px;}
-.main_page .category_wrap .category_tree li.on > .tree + ul{display:block;margin-left:0;}
-.main_page .category_wrap .category_tree li.on > .tree .btn_acco{-webkit-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);}
+.modal_documentSet .repoList_item{margin-bottom:4px;}
+.modal_documentSet .repoList_item:last-child{margin-bottom:0;}
 
 /* 모달 - 정렬 설정 */
 .modal_sortSet .select_area{flex:1;}

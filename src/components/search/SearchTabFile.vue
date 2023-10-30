@@ -30,7 +30,7 @@
             :class="fileIcons[index]"
           >
           </i>
-          첨부<mark>파일</mark>명.doc<span class="col_txt_light type_caption_sm ml4">29KB</span>
+          첨부<mark>파일</mark>명.doc<span class="col_txt_light typo_caption_sm ml4">29KB</span>
         </a>
 
         <!-- [반응형] 768px 이하에서 노출 -->

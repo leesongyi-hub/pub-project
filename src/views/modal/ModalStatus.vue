@@ -1,6 +1,6 @@
 <template>
 	<!-- S. 문서설정 모달(문서정보 탭) > 상태 이력 모달 -->
-	<div class="modal modal_stateHistory fade" @show="handleModalShow" id="modal_stateHistory" tabindex="-1" data-backdrop="static" data-keyboard="false">
+	<div class="modal modal_stateHistory fade" id="modal_stateHistory" tabindex="-1" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog w600">
 			<div class="modal-content">
 				<div class="modal-header">

@@ -17,7 +17,7 @@
 
 
     <button type ="button" class="btn_sort button md outline" data-toggle="modal" data-target="#modal_sortSet">
-      정렬<span class="count type_caption_sm txt_info"> (3개)</span>
+      정렬<span class="count typo_caption_sm txt_info"> (3개)</span>
       <i class="icoSvg i_s20 col_gray ml2">
         <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_align"></use></svg>
       </i>

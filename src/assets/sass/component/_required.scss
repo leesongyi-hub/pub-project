@@ -1,8 +1,8 @@
 /* 필수정보 표시 */
-.essential{
+.required{
   position:relative;
 }
-.essential::before{
+.required::before{
   content:'*';
   position:absolute;
   top:-2px;
@@ -12,10 +12,10 @@
 }
 
 @media all and (max-width:480px) {
-  .essential::before{
+  .required::before{
     display:none;
   }
-  .essential::after{
+  .required::after{
     content:'*';
     position:absolute;
     top:-2px;

@@ -1,9 +1,7 @@
 <template>
 
   <main class="main_page">
-
     <div class="content">
-
       <div class="mypage_area">
         <div class=" dropdown dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <button type="button" class="btn_mypage">
@@ -25,39 +23,40 @@
 
       <div class="search_wrap">
         <div class="inner">
-          <div class="search_area">  
+          <div
+            class="search_area d-flex"
+            @click.stop
+            @blur="startSearch = false"
+          >  
             <div class="search_input_box">
               <input
                 type="search"
                 class="search_input"
                 placeholder="검색어를 입력해주세요"
-                autocomplete="off"                
-                />
+                autocomplete="off"
+                v-model="searchText"
+                @focus="startSearch = true"
+              />
               <div class="btn_area">
-                <!-- <button type="button" class="btn_reset" aria-label="초기화">            
-                  <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s14 col_white"><use xlink:href="#ico_close"></use></svg>
-                </button> -->
-
-                <button type="button" class="btn_reset" aria-label="초기화">
-                  <svg role="img" aria-hidden="true" class="icoSvg i_s14 col_white">
+                <button
+                  type="button"
+                  class="btn_reset icoOnly"
+                  aria-label="검색어삭제"   
+                  v-if="searchText"
+                  @click="searchText=''"
+                >
+                  <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 col_white">
                     <use xlink:href="@/assets/images/sp_svg.svg#ico_close" />
-                  </svg>
+                  </svg>                      
                 </button>
-
-                <button type="submit" class="btn_search" aria-label="검색">
-                  <svg role="img" aria-hidden="true" class="icoSvg i_s20 stroke col_gray">
-                    <use xlink:href="@/assets/images/sp_svg.svg#ico_search" />
-                  </svg>
+                <button type="search" class="btn_search icoOnly md" aria-label="검색">  
+                  <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 stroke col_gray"><use xlink:href="@/assets/images/sp_svg.svg#ico_search"></use></svg>
                 </button>
               </div>
-            </div>  
+            </div>
+            <SearchLayer v-if="startSearch" />
           </div>
           <!-- //search_area -->
-
-          <!-- 연관검색어/최근검색어 레이어 -->
-          <SearchLayer />
-          <!-- //최근검색어 -->
-
         </div>
         <!-- //inner -->
       </div>
@@ -105,46 +104,219 @@
           }"
         >
           <swiper-slide class="repo_area swiper-slide"
-            v-for="index in 4"
+            v-for="(item, index) in 4"
             :key="index"
           >
-            <div class="repo_head">
-              <div class="tit_box">
-                <div class="tit">샘플텍스트 {{ index }}</div>
-                <span class="repo_name type_caption_md">샘플텍스트</span>
-              </div>
-              <div class="repo_filter">
-                <div class="chip_area">
-
-                  <!-- 선택된 저장소 addClass('on') -->
-                  <button tpye="button" class="chip on">샘플텍스트</button>
-                  <button tpye="button" class="chip">샘플텍스트</button>
-                  <button tpye="button" class="chip">샘플텍스트</button>
-                  <button tpye="button" class="chip">샘플텍스트</button>
+            <div v-if="item === 1">
+              <div class="repo_head">
+                <div class="tit_box">
+                  <div class="tit">기본 리스트</div>
+                  <span class="repo_name type_caption_md">샘플텍스트</span>
                 </div>
-
-                <button type="button" class="btn_more button outline icoOnly md" aria-label="전체보기">
-                  <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 stroke col_gray ico_arr_bot">
-                    <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />                    
-                  </svg>
-                </button>
+                <div class="repo_filter"
+                  @click="toggleRepositoryList(index)"
+                  :class="repositoryList[index] ? 'on' : '' "
+                >
+                  <div class="chip_area">
+  
+                    <!-- 선택된 저장소 addClass('on') -->
+                    <button tpye="button" class="chip on">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                  </div>
+  
+                  <button type="button" class="btn_more button outline icoOnly md" aria-label="전체보기">
+                    <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 stroke col_gray ico_arr_bot">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />                    
+                    </svg>
+                  </button>
+                </div>
+              </div>
+  
+              <div class="repo_body">
+                <div class="doc_list">
+                  <ul>
+                    <li class="doc_listItem" 
+                      v-for="(item, index) in 10"
+                      :key="item"
+                    >
+                      <span class="rank">{{ index + 1}}</span>
+                      <a href="javascript:;">샘플텍스트 샘플텍스트 샘플텍스트 샘플텍스트</a>
+                      <span class="sub_info date">2022-03-19</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-
-            <div class="repo_body">
-              <div class="doc_list">
-                <ul>
-                  <li class="doc_listItem" 
-                    v-for="(item, index) in 10"
-                    :key="item"
-                  >
-                    <span class="rank">{{ index + 1}}</span>
-                    <a href="javascript:;">샘플텍스트 샘플텍스트 샘플텍스트 샘플텍스트</a>
-                    <span class="sub_info date">2022-03-19</span>
-                  </li>
-                </ul>
+            <div v-else-if="item === 2">
+              <div class="repo_head">
+                <div class="tit_box">
+                  <div class="tit">인기검색어 리스트</div>
+                  <span class="repo_name type_caption_md">샘플텍스트</span>
+                </div>
+                <div class="repo_filter"
+                  @click="toggleRepositoryList(index)"
+                  :class="repositoryList[index] ? 'on' : '' "
+                >
+                  <div class="chip_area">
+                    <span class="chip">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr4">
+                        <g id="ph:crown-simple-fill">
+                        <path id="Vector" d="M15.4606 5.57189L13.1481 12.655C13.1249 12.7264 13.0858 12.7916 13.0339 12.8459C12.982 12.9001 12.9185 12.942 12.8482 12.9683C12.7779 12.9947 12.7026 13.0049 12.6278 12.9981C12.553 12.9914 12.4807 12.9679 12.4162 12.9294C12.4019 12.9206 10.8037 12 7.99875 12C5.19375 12 3.59562 12.9206 3.58 12.93C3.51556 12.9682 3.44338 12.9913 3.36879 12.9979C3.2942 13.0044 3.21909 12.9941 3.14902 12.9677C3.07895 12.9413 3.0157 12.8995 2.96394 12.8453C2.91219 12.7912 2.87325 12.7262 2.85 12.655L0.538748 5.57001C0.492179 5.42818 0.488591 5.27575 0.528433 5.13189C0.568276 4.98802 0.649771 4.85915 0.762667 4.76149C0.875563 4.66382 1.01482 4.60172 1.16292 4.583C1.31102 4.56428 1.46135 4.58976 1.595 4.65626L4.73187 6.21876L7.35187 1.86501C7.41922 1.75334 7.51428 1.66096 7.62784 1.59684C7.74139 1.53272 7.86959 1.49902 8 1.49902C8.13041 1.49902 8.2586 1.53272 8.37216 1.59684C8.48571 1.66096 8.58077 1.75334 8.64812 1.86501L11.2681 6.21876L14.4062 4.65626C14.5401 4.58967 14.6906 4.56421 14.8388 4.58312C14.9871 4.60202 15.1264 4.66443 15.2393 4.76246C15.3521 4.8605 15.4333 4.98976 15.4727 5.13394C15.5121 5.27811 15.5079 5.43073 15.4606 5.57251V5.57189Z" fill="#FFAD0D"></path>
+                        </g>
+                      </svg>
+                      <strong>5월</strong> 인기 검색어
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>            
+  
+              <div class="repo_body">
+                <div class="doc_list">
+                    <ul>
+                      <li class="doc_listItem">
+                        <span class="rank">1</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info col_txt_red">
+                          3↑
+                        </span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">2</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info col_txt_blue">
+                          2↓
+                        </span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">3</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info noChange"></span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">4</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info col_txt_red">
+                          3↑
+                        </span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">5</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info txt_badge red">New</span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">6</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info txt_badge red">New</span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">7</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info txt_badge red">New</span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">8</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info col_txt_blue">
+                          1↓
+                        </span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">9</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info txt_badge red">New</span>
+                      </li>
+                      <li class="doc_listItem">
+                        <span class="rank">10</span>
+                        <a href="javascript:;">샘플키워드</a>
+                        <span class="sub_info col_txt_red">
+                          1↑
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+            <div v-else-if="item === 3">
+              <div class="repo_head">
+                <div class="tit_box">
+                  <div class="tit">리스트 없을 경우</div>
+                  <span class="repo_name type_caption_md">샘플텍스트샘플텍스트샘플텍스트샘플텍스트</span>
+                </div>
+                <div class="repo_filter"
+                  @click="toggleRepositoryList(index)"
+                  :class="repositoryList[index] ? 'on' : '' "
+                >
+                  <div class="chip_area">
+  
+                    <!-- 선택된 저장소 addClass('on') -->
+                    <button tpye="button" class="chip on">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                  </div>
+  
+                  <button type="button" class="btn_more button outline icoOnly md" aria-label="전체보기">
+                    <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 stroke col_gray ico_arr_bot">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />                    
+                    </svg>
+                  </button>
+                </div>
+              </div>
+  
+              <div class="repo_body">
+                <div class="nodata align_center">
+                  <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_lightgray">
+                    <use xlink:href="@/assets/images/sp_svg.svg#ico_cancel"></use>                 
+                  </svg>
+                  <p class="caption_body mt8">문서가 없습니다.</p>
+                </div>
+              </div>
+            </div>
+            <div v-else-if="item === 4">
+              <div class="repo_head">
+                <div class="tit_box">
+                  <div class="tit">기본 리스트</div>
+                  <span class="repo_name type_caption_md">샘플텍스트</span>
+                </div>
+                <div class="repo_filter"
+                  @click="toggleRepositoryList(index)"
+                  :class="repositoryList[index] ? 'on' : '' "
+                >
+                  <div class="chip_area">
+  
+                    <!-- 선택된 저장소 addClass('on') -->
+                    <button tpye="button" class="chip on">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                    <button tpye="button" class="chip">샘플저장소</button>
+                  </div>
+  
+                  <button type="button" class="btn_more button outline icoOnly md" aria-label="전체보기">
+                    <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s16 stroke col_gray ico_arr_bot">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />                    
+                    </svg>
+                  </button>
+                </div>
+              </div>
+  
+              <div class="repo_body">
+                <div class="doc_list">
+                  <ul>
+                    <li class="doc_listItem" 
+                      v-for="(item, index) in 10"
+                      :key="item"
+                    >
+                      <span class="rank">{{ index + 1}}</span>
+                      <a href="javascript:;">샘플텍스트 샘플텍스트 샘플텍스트 샘플텍스트</a>
+                      <span class="sub_info date">2022-03-19</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </swiper-slide>
         </swiper>
       </div>
@@ -154,7 +326,7 @@
         <button tpye="button" class="btn_setting" data-toggle="modal" data-target="#modal_documentSet">
           주요항목 설정
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s20">
-            <use xlink:href="@/assets/images/sp_svg.svg#ico_setting"></use>                 
+            <use xlink:href="@/assets/images/sp_svg.svg#ico_setting"></use>
           </svg>
         </button>
       </div>
@@ -164,18 +336,22 @@
     <!-- //content -->
   </main>
 
+  <ModalDocumentSet />
+
 </template>
 
 <script>
 import MypageLayer from "../components/common/CompMypageLayer.vue";
 import SearchLayer from "../components/common/CompSearchLayer.vue";
 
+import ModalDocumentSet from "./modal/ModalDocumentSet.vue";
+
 import SwiperCore, { Navigation, Pagination} from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.min.css";
 SwiperCore.use([Navigation, Pagination]);
 
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
   name:'MainView',
@@ -183,25 +359,60 @@ export default {
       Swiper,
       SwiperSlide,
       MypageLayer,
-      SearchLayer
+      SearchLayer,
+      ModalDocumentSet
     },  
-  setup() {
-    const keywordList = ref([
-      "최근검색어1",
-      "최근검색어2",
-      "최근검색어3"
-    ]);
+  setup(props, { emit }) {
 
-    const removeKeyword = (index) => {
-      keywordList.value.splice(index, 1);
-    };
+    const repositoryList = ref([false, false, false, false]);
+
+    const toggleRepositoryList = (index) => {
+      repositoryList.value[index] = !repositoryList.value[index];
+    }
 
     const startSearch = ref(false);
 
+    const closeSearchArea = (event) => {
+      // 클릭된 요소가 search_area 내부에 있는 요소인지 확인
+      if (!event.target.closest('.search_area')) {
+        startSearch.value = false;
+      }
+    };
+
+    onMounted(() => {
+      // 컴포넌트가 마운트될 때 document 클릭 이벤트 리스너를 추가
+      document.addEventListener('click', closeSearchArea);
+    });
+
+    onUnmounted(() => {
+      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거
+      document.removeEventListener('click', closeSearchArea);
+    });
+
+    const searchText = ref('');
+
+    const updateLeftOpened = () => {
+      return emit("updateLeftOpened");
+    };
+
+    const updateLeftOpenedTest = () => {
+      return emit("updateLeftOpenedTest");
+    };
+
+    const showModal = () => {
+      emit('sendShow', true);
+    };
+
+
     return {
+      repositoryList,
+      toggleRepositoryList,
+
       startSearch,
-      keywordList,
-      removeKeyword
+      searchText,
+      updateLeftOpened,
+      updateLeftOpenedTest,
+      showModal
     };
   },
 }

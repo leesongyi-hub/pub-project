@@ -63,14 +63,7 @@
                       <div class="d-flex align-items-center">
                         <span>2021.08.29</span><button type="button" class="button outline md ml8">수정</button>
                       </div>
-                      <appdate-picker
-                        :full-month-name="true"
-                        input-class="customClass"
-                        placeholder="YYYY-MM-DD"
-                        :typeable="true"
-                        :hideInput="false"
-                      >
-                      </appdate-picker>
+
 
 
                     </dd>
@@ -186,7 +179,7 @@
                         <span class="txt">{{ tag }}</span>
                         <button type="button" class="d-flex" aria-label="삭제" @click="removeTag2(index)">
                           <svg role="img" aria-hidden="true" focusable="false" class="ico col_lightgray i_s20">
-                            <use xlink:href="static/img/sp_svg.4e495612.svg#ico_deleted"></use>
+                            <use xlink:href="@/assets/images/sp_svg.svg#ico_deleted"></use>
                           </svg>
                         </button>
                       </div>
@@ -256,7 +249,7 @@
                   <!--//E. 22.10.12 노데이터 케이스 추가-->
 
                   <dl class="tr w100">
-                    <dt class="th"><span class="essential">셀렉트박스</span></dt>
+                    <dt class="th"><span class="required">셀렉트박스</span></dt>
                     <dd class="td">
                       <div class="edit_box d-flex">
                         <select class="form_input form-select">
@@ -268,7 +261,7 @@
                     </dd>
                   </dl>
                   <dl class="tr w100 align-items-center">
-                    <dt class="th"><span class="essential">라디오</span></dt>
+                    <dt class="th"><span class="required">라디오</span></dt>
                     <dd class="td">
                       <div class="d-flex flex-wrap">
                         <div class="custom-control custom-radio">
@@ -345,15 +338,9 @@
 		</div>
 	</div>
 	<!-- //E. 문서정보 모달 -->
-
-
-
-
 </template>
 
 <script>
-
-
 import { ref } from "vue";
 
 export default {

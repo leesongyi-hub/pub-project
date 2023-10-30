@@ -1,10 +1,7 @@
-
-
 .ico_box{position:relative;top:-1px;display:flex;align-items: center;justify-content: center;min-width:20px;width:20px;height:20px;margin-left:4px;border: 1px solid $color-border-default;border-radius: $btn-radius-circle;}
 
 .search_page{height:100%;display:flex;flex-direction:column;}
 .search_page main{display:flex;padding:100px 40px;}
-// .search_page .filter + main{padding-left:300px;}
 .search_page .main_panel{flex:1;width:calc(100% - 280px)}
 .search_page .content{transition: .3s ease;}
 
@@ -27,12 +24,12 @@
 .right_panel .setting_area{text-align:right;}
 .right_panel [class*="popular"]{padding: 16px 20px 12px 20px;border:1px solid $color-border-default;}
 .right_panel .popularDoc li{display:flex;align-items: baseline;margin-bottom:8px;}
-.right_panel .popularDoc li .list_index{@include type-caption-sm;min-width:18px;max-width:18px;height:18px;text-align: center;line-height:18px;border-radius: $btn-radius-default;background-color:$color-bg-default}
-.right_panel .popularDoc li .list_count{@include type-caption-sm;margin-left:auto;}
+.right_panel .popularDoc li .list_index{@include typo-caption-sm;min-width:18px;max-width:18px;height:18px;text-align: center;line-height:18px;border-radius: $btn-radius-default;background-color:$color-bg-default}
+.right_panel .popularDoc li .list_count{@include typo-caption-sm;margin-left:auto;}
 .right_panel .popularDoc li .list_name{margin:0 8px 0 6px;line-height:22px;}
 .right_panel .popularKeyword li{display:inline-block;margin-right:8px;margin-bottom:8px;}
 .right_panel .popularKeyword li:last-child{margin-right:0;}
-.right_panel .popularKeyword li a{display:inline-block;padding:4px 8px;min-height:32p;background-color:$color-bg-default;border-radius: $btn-radius-default;}
+.right_panel .popularKeyword li a{display:inline-block;padding:4px 8px;min-height:32px;background-color:$color-bg-default;border-radius: $btn-radius-default;}
 
 /* 리스트 */
 .result_wrap{margin-top:16px;border-top:1px solid $color-border-default;}
@@ -49,19 +46,19 @@
 
 .result_wrap .tit_area{margin-bottom:12px;}
 .result_wrap .tit_area .custom-checkbox{display:inline-flex;position:absolute;top:24px;left:12px;}
-.result_wrap .tit_area .tit{@apply typo-heading-sm-bold;display:inline;}
+.result_wrap .tit_area .tit{@include typo-heading-sm($weight:600);display:inline;}
 .result_wrap .tit_area .txt_badge{position: relative;top:-2px;margin-left:4px;}
 .result_wrap .tit_area .btn_more{display:none;}
 
 .result_wrap .info_area{display:flex;flex-wrap: wrap;}
 .result_wrap .info_area dl{display:inline-flex;margin-right:12px;margin-bottom:4px;}
-.result_wrap .info_area dl dt{@apply typo-body-sm-regular;margin-right:4px;}
-.result_wrap .info_area dl dd{@apply typo-body-md-regular fc-800;}
+.result_wrap .info_area dl dt{@include typo-body-md;margin-right:4px;}
+.result_wrap .info_area dl dd{@include typo-body-md;}
 
 .result_wrap .preview_area{@include ellipsis(3);color:$text-color-800;margin:12px 0;}
 
 .repoInfo_wrap{position:relative;padding-right:220px;}
-.repoInfo_area{@include type-caption-md($color:$text-color-400);line-height:20px;}
+.repoInfo_area{@include typo-caption-md($color:$text-color-400);line-height:20px;}
 .repoInfo_area .repoInfo_category{display:inline;}
 .repoInfo_area .ico_box{position:relative;top:2px;display:inline-block;}
 .repoInfo_area .ico_box .ico_arr_bot{vertical-align: inherit;}
@@ -71,14 +68,14 @@
 .repoInfo_area .repoInfo_layer{width:240px;padding:4px 0;margin:8px 0;left:50%;text-align: left;white-space: normal;box-shadow: $shadow-sm;}
 .repoInfo_area .repoInfo_layer .head{padding:8px 20px;}
 .repoInfo_area .repoInfo_layer .body{padding:4px 20px 8px 20px;}
-.repoInfo_area .repoInfo_layer li{@include type-caption-md($color:$text-color-400);margin-bottom:8px;}
+.repoInfo_area .repoInfo_layer li{@include typo-caption-md($color:$text-color-400);margin-bottom:8px;}
 
 .result_wrap .subInfo_area{position:relative;height:40px;padding:10px 40px 0 10px;border:1px solid $color-border-default;overflow-y:hidden;}
 .result_wrap .subInfo_area .inner{display:flex;flex-wrap: wrap;}
 .result_wrap .subInfo_area.on{height:auto;overflow-y:visible}
 .result_wrap .subInfo_area dl{display:flex;margin-right:12px;margin-bottom:10px;}
-.result_wrap .subInfo_area dl dt{@include type-caption-md;margin-right:4px;}
-.result_wrap .subInfo_area dl dd{@include type-caption-md($color:$text-color-400);}
+.result_wrap .subInfo_area dl dt{@include typo-caption-md;margin-right:4px;}
+.result_wrap .subInfo_area dl dd{@include typo-caption-md($color:$text-color-400);}
 .result_wrap .subInfo_area .btn_more{position:absolute;top:10px;right:10px;display:flex;}
 .result_wrap .subInfo_area.on .btn_more{transform: rotate(180deg);}
 
@@ -106,37 +103,15 @@
 .btn_listMore{display:none;}
 
 /* 반응형 */
-@media all and (max-width:1299px) {  
-  .layout_right{margin-left:inherit;}
+@media all and (max-width:$breakpoint-laptop) {
+  .right_panel{display:none;} 
 }
 
-@media all and (max-width:1279px) {
-  // .search_page.fold .filter ~ main{padding-left:24px;}
-  // .search_page main{padding-left:24px;padding-right:24px;}
-  // .search_page .filter + main{padding-left:290px;}
-  .right_panel{display:none;}
-}
-
-@media all and (max-width:1023px) {
-  .layout_right{position:absolute;top:12px;right:24px;}
-
-  .search_page main{padding-top:148px;padding-left:24px !important;}
-
-  .filter{display:block;width:300px;height:100vh;top:0;left:-100%;z-index:130;padding-top:109px;}
-  .filter .btn_fold{display:none;}
-  .filter .filter_head{padding-top:56px;}
-  .filter .filter_head .btn_close{display:flex;position:absolute;top:16px;right:18px;}
-  .filter .filter_body{height:calc(100vh - 109px);}  
-
-  .search_page.pad .filter{left:-100%;}
-  .search_page.pad.expend .filter{left:0;}
-}
-@media all and (max-width:768px) {
+@media all and (max-width:$breakpoint-tablet) {
   .search_page main{padding:186px 16px 78px 16px !important;}
+  .search_page .btn_listMore{display:flex;width:100%;} 
 
   .main_head{flex-wrap: wrap;}
-  .result_keywordMap{width:100%;margin-top:8px;margin-left:0;}
-  .result_keywordMap .swiper-container{width:100%;}
 
   .resultBtn_area .button,
   .resultBtn_area .customSelect_area{display:none;}
@@ -151,6 +126,4 @@
   .result_wrap .tit_area{padding-right:28px;}
   .result_wrap .tit_area .custom-checkbox{display:none;}
   .result_wrap .tit_area .btn_more{display:flex;position:absolute;top:26px;right:0;}
-
-  .search_page .btn_listMore{display:flex;width:100%;} 
 }

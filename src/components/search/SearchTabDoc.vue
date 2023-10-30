@@ -24,7 +24,7 @@
             <label class="custom-control-label" :for="'docList_check' + index"></label>
           </div>
 
-          <a href="javscript:void(0);" class="tit">
+          <a href="javascript:;" class="tit">
             <span class="col_txt_blue">[샘플텍스트]</span> 샘플타이틀
           </a>
 

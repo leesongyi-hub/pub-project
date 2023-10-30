@@ -24,9 +24,9 @@ button[type="submit"]:not(.disabled):focus-visible{outline:2px solid $btn-focus-
 .button.outline.disabled{color:$btn-outline-disabled-text-color;border:1px solid $btn-outline-disabled-border-color;background-color:$btn-outline-disabled-bg-color;}
 
 /*button - size*/
-.sm{min-width:55px;height:24px;line-height:24px;padding:0 6px;font-size:12px;}
-.md{min-width:49px;height:32px;line-height:32px;padding:0 8px;}
-.lg{min-width:96px;height:40px;line-height:40px;padding:0 24px;}
+.button.sm{min-width:55px;height:24px;line-height:24px;padding:0 6px;font-size:12px;}
+.button.md{min-width:49px;height:32px;line-height:32px;padding:0 8px;}
+.button.lg{min-width:96px;height:40px;line-height:40px;padding:0 24px;}
 
 .icoOnly{display:inline-flex;align-items: center;justify-content: center;}
 .icoOnly.sm{min-width:auto;width:24px;height:24px;line-height:24px;padding:0;}

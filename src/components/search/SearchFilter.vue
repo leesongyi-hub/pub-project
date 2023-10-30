@@ -41,15 +41,15 @@
     <!-- //filter_head -->
 
     <div class="filter_body">
-      <div class="filterComp" v-for="list in 3" :key="list">
+      <div class="filterComp" v-for="(list, idx) in 3" :key="idx">
         <button
           type="button"
           class="btn_aco"
           data-toggle="collapse"
           aria-expanded="true"
-          :data-target="'#expanded' + list"
-          @click="toggleCollapse(list - 1)"
-          :aria-label="isCollapsed[list - 1] ? '샘플타이틀영역 접기' : '샘플타이틀영역 펼치기'"
+          :data-target="'#expanded' + idx"
+          @click="toggleCollapse(idx - 1)"
+          :aria-label="isCollapsed[idx - 1] ? '샘플타이틀영역 접기' : '샘플타이틀영역 펼치기'"
         >
           <h2 class="tit">샘플타이틀</h2>
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s20 ico_arr_right">
@@ -57,19 +57,20 @@
           </svg>
         </button>
         
-        <div :id="'expanded' + index" class="filterComp_body show">
+        <div :id="'expanded' + idx" class="filterComp_body show">
           <!-- 각 섹션의 내용을 데이터 배열에서 동적으로 렌더링 -->
           <div v-if="list === 1">
             <ul class="filterComp_list">
               <li
                 class="filterComp_listOpt"
-                v-for="index in 5"
+                v-for="(item, index) in filterList"
                 :key="index"
+                v-show="showAll[idx] || index < 5"
               >
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" :id="'check1' + index">
-                  <label class="custom-control-label" :for="'check1' + index">
-                    <span>샘플라벨
+                  <input type="checkbox" class="custom-control-input" :id="'check2' + index">
+                  <label class="custom-control-label" :for="'check2' + index">
+                    <span>{{ filterList[index] }}{{index + 1}}
                       <em class="count">(1,234)</em>
                     </span>
                   </label>
@@ -90,12 +91,12 @@
               </div>
             </div>
             <ul class="filterComp_list">
-              <li
-                class="filterComp_listOpt"
+              <Transition name="display"
                 v-for="(item, index) in filterList"
                 :key="index"
-                v-show="showAll[list] || index < 5"
+                v-show="showAll[idx] || index < 5"
               >
+              <li class="filterComp_listOpt">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" :id="'check2' + index">
                   <label class="custom-control-label" :for="'check2' + index">
@@ -105,33 +106,39 @@
                   </label>
                 </div>
               </li>
+              </Transition>
             </ul>
             <!-- //filterComp_list -->
           </div>
+          
           <div v-else-if="list === 3">
             <ul class="filterComp_list">
-              <li
-                class="filterComp_listOpt"
-                v-for="(color, idx) in labelColors"
-                :key="color"
-                v-show="showAll[list] || idx < 5"
+              
+              <Transition name="display"
+                v-for="(color, index) in labelColors"
+                :key="index"
+                v-show="showAll[idx] || index < 5"
               >
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" :id="'check3' + index">
-                  <label class="custom-control-label" :for="'check3' + index" title="샘플라벨">
-                    <span class="txt_badge" :class="labelColors[idx]">샘플라벨{{idx + 1}}</span>
-                    <em class="count">(12)</em>
-                  </label>
-                </div>
-              </li>
+                <li class="filterComp_listOpt">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" :id="'check3' + index">
+                    <label class="custom-control-label" :for="'check3' + index" title="샘플라벨">
+                      <span class="txt_badge" :class="labelColors[index]">샘플라벨{{index + 1}}</span>
+                      <em class="count">(12)</em>
+                    </label>
+                  </div>
+                </li>
+              </Transition>
+            
             </ul>
             <!-- //filterComp_list -->
           </div>
+           
 
-          <button type="button" class="btn_more" @click="showAllItems(list)">
-            <span class="label">{{ showAll[list] ? "간략보기" : "더보기" }}</span>
+          <button type="button" class="btn_more" @click="showAllItems(idx)">
+            <span class="label">{{ showAll[idx] ? "간략보기" : "더보기" }}</span>
             <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s16 col_lightgray ml2"
-              :class="showAll[list] ? 'ico_arr_top' : 'ico_arr_bot'"
+              :class="showAll[idx] ? 'ico_arr_top' : 'ico_arr_bot'"
             >
               <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
             </svg>
@@ -181,8 +188,6 @@ export default {
       "필터샘플명",
       "필터샘플명",
       "필터샘플명",
-      "필터샘플명",
-      "필터샘플명",
     ]);
 
 
@@ -207,9 +212,8 @@ export default {
 
     const showAll = ref([false, false, false]);
 
-    const showAllItems = ( idx ) => {
-      console.log(idx);
-      showAll.value[idx] = !showAll.value[idx];
+    const showAllItems = ( index ) => {
+      showAll.value[index] = !showAll.value[index];
     };
 
     return {
@@ -233,13 +237,7 @@ export default {
 </script>
 
 <style scoped>
-  .filterComp [aria-expanded="true"] .ico_arr_right{
-    transform:rotate(90deg);
-  }
-  .filterComp [aria-expanded="true"] .ico_arr_right{
-    transform:rotate(90deg);
-  }
-  .btn_more svg{
-    transition:.3s;
-  }
+  .display-enter-active,
+  .display-leave-active {transition: opacity 0.3s ease;}
+  .display-enter-from {opacity: 0;}
 </style>

@@ -2,32 +2,33 @@
 .filter{position:fixed;top:60px;left:0;transition: .3s ease;width:260px;padding-top:73px;background-color:#fff;;border-right:1px solid $color-border-default;}
 .filter .filter_head{position:absolute;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid $color-border-default;}
 .filter .filter_head .btn_close{display:none;}
-.filter .filter_body{height:calc(100vh - 60px - 73px);overflow-y:auto;}
+.filter .filter_body{height:calc(100vh - 60px - 73px);overflow-y:auto;margin-right:-1px;}
 .filter .btn_fold{position:absolute;top:16px;right: -21px;width:20px;height:48px;border:1px solid #eee;border-left:0;border-radius: 0 4px 4px 0;background-color:#fff;z-index: 120;}
 .filter .btn_fold::after{content:'';display:inline-block;width:12px;height: 100%;background: url(../images/icon/ico_fold.svg) no-repeat center;}
-.filter .filter_body .tit{@include type-body-lg($weight:bold);text-align: left;}
+.filter .filter_body .tit{@include typo-body-lg($weight:bold);text-align: left;}
 
 /* filter - 아이템 */
 .filterComp{padding:10px 20px 10px 20px;border-bottom:1px solid $color-border-default;}
 .filterComp:last-child{border-bottom:none;}
 .filterComp .btn_aco{display:flex;width:100%;height:40px;align-items: center;justify-content:space-between;}
+.filterComp [aria-expanded="true"] .ico_arr_right{transform:rotate(90deg);}  
 .filterComp .btn_aco .ico_arr_right{transition: .3s;}
-.filterComp .count{@include type-caption-sm;margin-left:2px;}
+.filterComp .count{@include typo-caption-sm;margin-left:2px;}
 
 .filterComp .control_area{display:flex;margin-top:12px;margin-bottom:16px;align-items: center;justify-content:space-between;}
 .filterComp .control_area .control_tab{display:flex;}
 .filterComp .control_area .control_tab li{position: relative;margin-right:8px;padding-right:8px;}
-.filterComp .control_area .control_tab li::after{content:'';position:absolute;top:5px;right:0;display:block;width:1px;height:12px;background-color: $color-bg-dark;}
+.filterComp .control_area .control_tab li::after{content:'';position:absolute;top:5px;right:0;display:block;width:1px;height:12px;background-color: $color-bg-dark-lighter;}
 .filterComp .control_area .control_tab li:last-child{margin-right:0;padding-right:0;}
 .filterComp .control_area .control_tab li:last-child::after{display:none;}
 .filterComp .control_area .control_tab button{color:$text-color-800;}
 .filterComp .control_area .control_tab button.on{color:$text-color-primary;font-weight:700;}
 
 .filterComp_list{margin-top:8px;}
-.filterComp_list .filterComp_listOpt{position: relative;margin-bottom:8px;}
+.filterComp_list .filterComp_listOpt{position: relative;margin-bottom:10px;}
 
-.filterComp .btn_more{@include type-caption-sm;display:flex;align-items: center;justify-content:center;width:100%;height:28px;}
-.filterComp .btn_more.on i{transform: rotate(270deg);}
+.filterComp .btn_more{@include typo-caption-sm;display:flex;align-items: center;justify-content:center;width:100%;height:28px;}
+.filterComp .btn_more svg{transition:.3s;}
 
 .search_page .filter + main{padding-left:290px;}
 .search_page .filter .btn_fold::after{transform: rotate(0);}
@@ -36,9 +37,7 @@
 .search_page.fold .filter .btn_fold::after{transform: rotate(180deg);}
 .search_page.fold .filter ~ main{padding-left:40px;}
 
-
-
-@media all and (max-width:1023px) {
+@media all and (max-width:768px) {
   .filter{display:block;width:300px;height:100vh;top:0;left:-100%;z-index:130;padding-top:109px;}
   .search_page .filter[aria-expanded="true"]{left:0;}
   .search_page .filter[aria-expanded="true"] .overlay{display:block}

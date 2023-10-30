@@ -6,8 +6,10 @@
       <p class="type_body_lg txt_bold mb12">샘플타이틀</p>
 
       <div class="nodata align_center">
-        <i class="ico ico_cancel i_s20"></i>
-        <p class="caption_body">Empty State UI</p>
+        <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_lightgray">
+          <use xlink:href="@/assets/images/sp_svg.svg#ico_cancel"></use>
+        </svg>
+        <p class="caption_body mt4">문서가 없습니다.</p>
       </div>
 
     </div>

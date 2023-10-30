@@ -1,6 +1,5 @@
 
 .form_switch {position:relative;display:inline-flex;line-height: 16px;}
-
 .form_switch input {position: absolute;top: 0;left: 0;width:1px;height:1px;opacity:0;}
 .form_switch label{cursor: pointer;margin-bottom:0;padding-right:26px;color:$text-color-400;font-size:12px;}
 .form_switch label .label_txt{margin-right:4px;}
