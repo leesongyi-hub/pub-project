@@ -22,6 +22,9 @@ button[type="submit"]:not(.disabled):focus-visible{outline:2px solid $btn-focus-
 
 .button.outline:hover{background-color:$btn-outline-bg-hover-color;}
 .button.outline.disabled{color:$btn-outline-disabled-text-color;border:1px solid $btn-outline-disabled-border-color;background-color:$btn-outline-disabled-bg-color;}
+.button.outline.disabled .icoSvg{color:$btn-outline-disabled-text-color !important;}
+
+.button.secondary.disabled .icoSvg{color:#fff !important;}
 
 /*button - size*/
 .button.sm{min-width:55px;height:24px;line-height:24px;padding:0 6px;font-size:12px;}
@@ -41,14 +44,6 @@ button[type="submit"]:not(.disabled):focus-visible{outline:2px solid $btn-focus-
 .button .label{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;}
 .button i + .label{margin-left:4px;}
 .button .label + i{margin-left:4px;}
-
-/*sort 버튼*/
-.btn_sort_box{display:inline-block;width:14px;}
-.btn_sort_box button{display: -webkit-box;display: -ms-flexbox;display: flex;width:12px;height:5px;-webkit-box-align: center;-ms-flex-align: center;align-items: center;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;}
-.btn_sort_box button::before{content:'';display:inline-block;width: 0px;height: 0px;border-top:5px solid none;border-bottom:5px solid #CACACA;border-right: 5px solid transparent;border-left: 5px solid  transparent;}
-.btn_sort_box button.up{margin-bottom:4px;}
-.btn_sort_box button.down{margin-top:4px;-webkit-transform: rotate(180deg);-ms-transform: rotate(180deg);transform: rotate(180deg);}
-.btn_sort_box button.on::before{border-bottom-color: #828282;}
 
 /*아이콘버튼 disabled*/
 button:not(.button).disabled{cursor: default;}

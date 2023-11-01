@@ -200,7 +200,7 @@ textarea.form-control[readonly]:focus, textarea.form-control[readonly]:active, t
 .dateInput_area + .spacing{display:inline-block;margin:0 8px;line-height:32px;}
 
 /*반응형*/
-@media all and (max-width:768px) {
+@media all and (max-width:$breakpoint-tablet) {
   .custom-control + .custom-control{margin-left:12px;}
 
   .form_group_wrap{-webkit-box-align:end !important;-ms-flex-align:end !important;align-items:end !important;}
@@ -218,7 +218,7 @@ textarea.form-control[readonly]:focus, textarea.form-control[readonly]:active, t
   .form_input.form-select{width:auto;-ms-flex-preferred-size: 100%;flex-basis: 100%;-webkit-box-flex:1;-ms-flex:1;flex:1}
 }
 
-@media all and (max-width:480px) {
+@media all and (max-width: $breakpoint-mobile) {
   .form_group_wrap{-ms-flex-wrap: wrap;flex-wrap: wrap;}
   
   .form_group_wrap.col2 > *{margin-bottom:8px;}

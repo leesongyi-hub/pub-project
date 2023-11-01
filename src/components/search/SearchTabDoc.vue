@@ -95,7 +95,7 @@
   </div>  
   <!--//result_wrap-->
 
-  <BasePagination /><!--페이징-->
+  <BasePagination />
 
 </div>
 <!-- //문서탭 -->
@@ -112,9 +112,7 @@ export default {
     SearchToolbar,
     SearchEditBtn,
     SearchResponsiveEditBtn
-  },
-  setup() {
-  },
+  }
 }
 </script>
 

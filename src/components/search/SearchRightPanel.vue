@@ -1,29 +1,27 @@
 <template>
-     
-
   <div class="right_panel">
+
     <div class="side_item popularKeyword">
       <p class="type_body_lg txt_bold mb12">샘플타이틀</p>
-
       <div class="nodata align_center">
         <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s20 col_lightgray">
           <use xlink:href="@/assets/images/sp_svg.svg#ico_cancel"></use>
         </svg>
         <p class="caption_body mt4">문서가 없습니다.</p>
       </div>
-
     </div>
 
     <div class="side_item popularKeyword">
       <p class="type_body_lg txt_bold mb12">샘플타이틀</p>
       <ul>
         <li
-            v-for="index in 10"
+          v-for="index in 10"
           :key="index">
             <a href="javascript:;">샘플텍스트</a>
         </li>
       </ul>
     </div>
+
     <div class="side_item popularDoc">
       <p class="type_body_lg txt_bold mb12">샘플타이틀</p>
       <ul>
@@ -36,16 +34,16 @@
         </li>
       </ul>
     </div>
+
     <div class="setting_area mt8">
       <button tpye="button" class="btn_setting" data-toggle="modal" data-target="#modal_sideSet">
         사이드메뉴 설정
-        <i class="icoSvg stroke i_s20">
-          <svg aria-hidden="true" focusable="false"><use xlink:href="@/assets/images/sp_svg.svg#ico_setting"></use></svg>
-        </i>
+        <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s20 ml4">
+          <use xlink:href="@/assets/images/sp_svg.svg#ico_setting" />
+        </svg>
       </button>
     </div>
   </div>
-
 </template>
 
 <script>

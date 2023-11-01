@@ -1,5 +1,5 @@
 /*Tag*/
-.add_tag{display:inline-flex;align-items:center;min-height:32px;padding: 3px 8px 3px 12px;margin-top:8px;margin-right:8px;font-size:14px;background:$chips-bg-color;border:1px solid $chips-border-color;border-radius: $btn-radius-default;}
+.add_tag{display:inline-flex;align-items:center;min-height:32px;padding: 3px 8px 3px 12px;margin-top:8px;margin-right:8px;font-size:14px;background:$tag-bg-color;border:1px solid $tag-border-color;border-radius: $btn-radius-default;}
 .add_tag_list{font-size:0;}
 .add_tag_list .add_tag:first-child{margin-top:0;}
 .add_tag.d-flex{margin-right:0;}
@@ -7,6 +7,7 @@
 .add_tag .txt{line-height:20px;margin-right: 4px;}
 .add_tag button{margin-left:auto;}
 
+/*Chip*/
 .chip_area{font-size:0;}
 .chip{font-size:14px;height:32px;line-height:32px;padding:0 8px;background-color:$chips-bg-color;border:1px solid $chips-border-color;border-radius: $btn-radius-default;}
 .chip.on{background-color:$chips-active-bg-color;border:1px solid $chips-active-border-color;border-radius: $btn-radius-default;color:$chips-active-text-color;}

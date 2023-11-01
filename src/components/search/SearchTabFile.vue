@@ -7,6 +7,7 @@
 <!--//툴바-->
 
 <!--리스트아이템-->
+
 <div class="result_wrap">
   <!-- [리스트 0개일때 노출] -->
   <div class="nodate">
@@ -73,7 +74,6 @@
 </div>
 <!--//리스트아이템-->
 
-
 <BasePagination />
 
 </div>
@@ -84,8 +84,6 @@
 import SearchToolbar from "@/components/search/SearchToolbar.vue";
 import SearchEditBtn from "@/components/search/SearchEditBtn.vue";
 import SearchResponsiveEditBtn from "@/components/search/SearchResponsiveEditBtn.vue";
-
-// import { ref } from "vue";
 
 export default {
   name:'SearchTabFile',

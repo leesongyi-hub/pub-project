@@ -1,26 +1,8 @@
 /* 필수정보 표시 */
-.required{
-  position:relative;
-}
-.required::before{
-  content:'*';
-  position:absolute;
-  top:-2px;
-  left:-10px;
-  display:inline-block;
-  color:$color-required;
-}
+.required{position:relative;}
+.required::before{content:'*';position:absolute;top:-2px;left:-10px;display:inline-block;color:$color-required;}
 
-@media all and (max-width:480px) {
-  .required::before{
-    display:none;
-  }
-  .required::after{
-    content:'*';
-    position:absolute;
-    top:-2px;
-    right:-10px;
-    display:inline-block;
-    color:$color-required;
-  }
+@media all and (max-width: $breakpoint-mobile) {
+  .required::before{display:none;}
+  .required::after{content:'*';position:absolute;top:-2px;right:-10px;display:inline-block;color:$color-required;}
 }

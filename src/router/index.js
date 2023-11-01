@@ -2,7 +2,7 @@ import { createWebHashHistory, createRouter } from "vue-router";
 import MainPage from "../views/MainView.vue";
 import SearchResult from "../views/SearchView.vue";
 import testView from "../views/testView.vue";
-// import PubList from "../views/PubList.vue";
+import ModalView from "../views/ModalView.vue";
 
 const routes = [
   {
@@ -30,11 +30,11 @@ const routes = [
     name: "testView",
     component: testView,
   },
-  // {
-  //   path: "/pub_list",
-  //   name: "PubList",
-  //   component: PubList,
-  // },
+  {
+    path: "/modal",
+    name: "ModalView",
+    component: ModalView,
+  },
 ];
 
 const router = createRouter({

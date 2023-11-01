@@ -7,10 +7,10 @@
 				<div class="modal-header">
 					<h5 class="tit">문서명 표시</h5>
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="닫기">
-          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24">
-            <use xlink:href="@/assets/images/sp_svg.svg#ico_deleted" />
-          </svg>
-        </button>
+            <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24">
+              <use xlink:href="@/assets/images/sp_svg.svg#ico_deleted" />
+            </svg>
+          </button>
 				</div>
 				<div class="modal-body">
 

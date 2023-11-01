@@ -22,6 +22,7 @@
 .right_panel .side_item{margin-bottom:16px;}
 .right_panel .side_item:last-child{margin-bottom:0;}
 .right_panel .setting_area{text-align:right;}
+.right_panel .setting_area .btn_setting{display:flex;align-items: center;margin-left:auto;line-height: 20px;}
 .right_panel [class*="popular"]{padding: 16px 20px 12px 20px;border:1px solid $color-border-default;}
 .right_panel .popularDoc li{display:flex;align-items: baseline;margin-bottom:8px;}
 .right_panel .popularDoc li .list_index{@include typo-caption-sm;min-width:18px;max-width:18px;height:18px;text-align: center;line-height:18px;border-radius: $btn-radius-default;background-color:$color-bg-default}

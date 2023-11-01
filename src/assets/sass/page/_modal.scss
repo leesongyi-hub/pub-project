@@ -11,85 +11,10 @@
 .modal_sortSet .select_area .form-select{width:50%;}
 .modal_sortSet button i{overflow: hidden;}
 
-/* 모달 - 새글쓰기 */
-.view_tree{overflow-y:auto;}
-.view_tree ul{margin-left:20px;}
-.view_tree p{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;padding:6px 12px 6px 0;line-height:20px;}
-.view_tree p span{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;margin-right:8px;}
-.view_tree p em{text-indent:0;}
-.view_tree p em i{position:relative;top:3px;margin-left:4px;}
-
-.docSubject_area{position:relative;}
-.docSubject_area .custom-checkbox{position:absolute;top:0;right:0;}
-.template_list > ul{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:0 -8px 0;}
-.template_listItem{width:calc(33.333% - 16px);margin:0 8px 24px 8px;text-align:right;}
-.template_listItem .list_item{display:block;border:1px solid #eee;}
-.template_listItem .list_item.on{border:2px solid #15C5CE;}
-.template_listItem .list_item:hover{box-shadow:0px 1px 10px rgb(0 0 0 / 15%);}
-.template_listItem .list_item{display:block;}
-.template_listItem .list_item .tit{padding:8px;font-size:14px;font-weight:500;line-height:170%;text-align:center;background-color:#FAFAFA;border-bottom:1px solid #eee;}
-.template_listItem .list_item .view_tree{overflow-y: auto;height:160px;padding:10px 0;text-align:left;}
-.btn_tempDetail{display: inline-flex;width:34px;height:34px;min-width:34px;align-items: center;justify-content: center;border-radius: $btn-radius-circle;background-color:$color-bg-default;}
-
-.addDocument .modal-footer{position:fixed;bottom:0;right:0;width:100%;padding:32px;background-color:#fff;border-top:0;}
-.addDocument .state_txt{display:none;}
-.addDocument .success .state_txt, .addDocument .error .state_txt{display:block;}
-
-.modal_createDoc .modal-footer{padding-top:8px;}
-.modal_createDoc .docSubject_area .state_txt{position: absolute;bottom:-26px;left: 0;}
-
-.template_listItem.noTemp{font-weight:500;color:$text-color-800;;}
-.template_listItem.noTemp .list_item{display:flex;align-items: center;justify-content:center;height:202.8px;border:2px dashed $color-border-default;background-color:$color-bg-light}
-.template_listItem.noTemp .list_item.on{border:2px dashed $color-border-primary;}
-
-  @media all and (max-width: 768px) {
-    .template_listItem{width:calc(50% - 16px);}
-    .modal_createDoc .docSubject_area .d-flex{flex-wrap: wrap;}
-    .modal_createDoc .docSubject_area .form-select{margin:0 0 12px 0 !important;}
-  }
-  @media all and (max-width: 480px) {
-    .template_listItem{width:calc(100% - 16px);}
-  }
-
-/* 모달 - 새글쓰기 > 상세보기 */
-.modal_tempDetail .template_listItem{width:100%;}
-.modal_tempDetail .template_list .list_item .view_tree{height:auto;max-height:440px;}
-.modal_tempDetail .template_listItem{margin:0 0 32px 0;}
-.modal_tempDetail .template_listItem .list_item:hover{box-shadow: none;}
-
-  @media all and (max-width: 768px) {
-    .modal_tempDetail .template_listItem{margin-bottom:0;}
-    .modal_tempDetail .template_list .list_item .view_tree{max-height: 100% !important;}
-  }
-
-/* 모달 - 필드수정 */
-.modal_editField{width:auto;max-width:100%;left:50%;transform: translateX(-50%);}
-.modal_editField .modal-dialog{width:auto;max-width:1600px;padding:0 24px;}
-.modal_editField .modal-content{margin:0 auto;width:auto;}
-.modal_editField .custom-control .custom-control-label{white-space: nowrap;}
-.modal_editField .form_input.w240{min-width:240px !important;}
-.modal_editField .form-control{width:240px;height:32px;min-height:32px;max-height:140px;padding:5px 12px 0;}
-.modal_editField .form-control.resizeY{resize:vertical;}
-.modal_editField .table_wrap .table td{vertical-align: top;}
-.modal_editField .table_wrap .vdp-datepicker input{width:130px;}
-.modal_editField .form-control::-webkit-scrollbar{width:12px;}
-
-.modal_editField .table_wrap{max-width:100%;margin-bottom:16px;}
-.modal_editField .table_wrap:last-child{margin-bottom:0;}
-.modal_editField .table_wrap .nowrap{white-space: nowrap;}
-.modal_editField .table_wrap .table{width:auto;}
-.modal_editField .th_num{min-width:64px;text-align: center;}
-.modal_editField .th_tit{min-width:160px;max-width:160px;}
-
-  @media all and (max-width: 768px) {
-    .modal_editField .modal-dialog{padding:0;}
-    .modal_editField{width:100%;}
-  }
-
 /* 모달 - 복사 */
 .modal_copy .txt_warning{display:flex;color:$color-error;}
 
-  @media all and (max-width:768px) {
+  @media all and (max-width:$breakpoint-tablet) {
     .modal_copy .form_group .form-label{width:100% !important;}
   }
 
@@ -107,30 +32,8 @@
 /* 모달 - 목차정보 */
 .modal_indexInfo .add_tag_list{max-height:300px;overflow-y:auto;}
 
-/* 모달 - 문서분류 설정 */
-.modal_editCategory .category_wrap .category_tree{max-height: unset;}
-.modal_editCategory .category_wrap .category_content{height:auto;min-height:540px;padding:0;overflow-y:auto;border:1px solid #eee;border-left:none;}
-.modal_editCategory .category_wrap .category_content .dou_list{padding:16px;border-bottom:1px solid $color-border-light;}
-.modal_editCategory .category_wrap .select_dou_list{padding:16px;}
-
-.modal_editCategory .repo_select_area{padding-bottom:16px;margin-bottom:24px;border-bottom:1px solid $color-border-default}
-.modal_editCategory .repo_select_area .chip{max-width:300px;@include ellipsis(1);}
-.modal_editCategory .repo_select_area .swiper-container{padding:0 20px;}
-.modal_editCategory .repo_select_area .swiper_area{margin:0 -20px;}
-
-  @media all and (max-width: 768px) {  
-    .modal_editCategory .category_wrap {display: block !important;height: auto;}
-    .modal_editCategory .category_wrap .category_content {border: 0;padding: 16px 0;}
-    .modal_editCategory .category_wrap .category_tree {width: 100% !important;max-height: 260px!important;min-height: 260px!important;}
-    .modal_editCategory .category_wrap .category_content {padding: 0;}
-    .modal_editCategory .category_wrap .category_content .dou_list{padding:16px 0;}
-    .modal_editCategory .category_wrap .select_dou_list{padding:16px 0;}
-
-    .modal_editCategory .category_wrap .category_content{min-height:100%;padding:0 !important;}
-  }
-
 /* 모달 - 파일다운로드 */
-  @media all and (max-width: 768px) {
+  @media all and (max-width: $breakpoint-tablet) {
     .form_group .form-label{width:100% !important;}
     .form-select.w140{min-width:140px !important;}
   }
@@ -170,31 +73,11 @@
 .modal_attachments .layout_box{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;}
 .modal_attachments .index_subject{color:#8e8e8e;}
 
-  @media all and (max-width:768px) {
+  @media all and (max-width:$breakpoint-tablet) {
     .modal_attachments .attachments_list li{padding:12px 8px;}
     .modal_attachments .form_group p{display:none;}
     .modal_attachments .form_group{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important;}
     .modal_attachments .form_group .form-select{-ms-flex-preferred-size:100%;flex-basis:100%;margin-bottom:12px;}
-  }
-
-/* 모달 - 선택항목 비교 */
-.modal_indexComparison .nav-tabs{display:none;}
-.modal_indexComparison .row{position:relative;}
-.modal_indexComparison .row::after{content:'';position:absolute;top:0;left:50%;display:inline-block;width:1px;height:100%;background-color:#eee;}
-.modal_indexComparison .row .tab-pane{max-width:100%;flex:1;}
-.modal_indexComparison .before{padding-right:32px;}
-.modal_indexComparison .after{padding-left:32px;}
-
-  @media all and (max-width:768px) {
-    .modal_indexComparison .nav-tabs{display:-webkit-box;display:-ms-flexbox;display:flex;}
-    .modal_indexComparison .nav-tabs .nav-link{font-weight:700;}
-    .modal_indexComparison .nav-tabs .nav-link p{font-size:12px;line-height:1.4;font-weight:400;}
-    .modal_indexComparison .row{padding:0;margin:0;}
-    .modal_indexComparison .row>*{padding-left:0;padding-right:0;}
-    .modal_indexComparison .row::after{display:none;}
-    .modal_indexComparison .col-6{width:100%;}
-    .modal_indexComparison .before{padding-right:0;}
-    .modal_indexComparison .col-6 .d-flex{display:none !important;}	
   }
 
 /*모달 - 복원하기*/
@@ -202,15 +85,6 @@
 .modal_restore .info_txt::before{content:'';position:absolute;top:0;left:0;display:inline-block;width:24px;height:24px;background:url(../images/icon/ico_info_blue.svg) no-repeat center;}
 .modal_restore .info_txt.warning::before{background-image:url(../images/icon/ico_info-warning.svg)}
 .modal_restore .info_txt ul{margin:24px 0;}
-
-/*모달 - 목차내용 보기*/
-.modal_indexView .drag_box .drag_area{padding:0 24px;}
-.modal_indexView .drag_box .drag_area .list .flex_box{width:100%;padding-right:0;}
-.modal_indexView .drag_box .drag_area .list .flex_box .txt_area{padding:0;margin:0;}
-
-	@media all and (max-width:768px) {
-		.modal_indexView .drag_box .drag_area{padding:0;}
-	}
 
 /*모달 - 참조*/
 .modal_reference .list_item .txt_area{width:100%;overflow: hidden;}
@@ -225,7 +99,7 @@
 .modal_reference .align_left{margin-right:auto;}
 .modal_reference .index_subject{margin-bottom:2px;color:#8e8e8e;}
 
-	@media all and (max-width:768px) {
+	@media all and (max-width:$breakpoint-tablet) {
 		.modal_reference .form_group p{display:none;}
 		.modal_reference .form_input.form-select{width:100%;}
 		.modal_reference .list_item .txt_area .d-flex{display:block !important;}
@@ -237,7 +111,7 @@
 /*모달 - 참조 수정*/
 .modal_referenceEdit .form-label{width:70px;}
 
-	@media all and (max-width:768px) {
+	@media all and (max-width:$breakpoint-tablet) {
 		.modal_referenceEdit .titSearch_box{display:block !important;margin-top:24px;}
 		.modal_referenceEdit .titSearch_box .form-check{width:auto !important;margin-bottom:0 !important}
 		.modal_referenceEdit .titSearch_box .form-check + .form-check{margin-left:12px !important}

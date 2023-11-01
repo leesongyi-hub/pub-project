@@ -1,5 +1,5 @@
 <template>
-  <div class="search_page" :class="!leftOpened && 'fold'">
+  <div class="search_page" :class="!leftOpened && 'expanded'">
     
     <SearchHeader 
       @updateLeftOpened="updateLeftOpened"
@@ -134,17 +134,11 @@ export default {
     });
 
     const leftOpenedTest = ref();
-    const updateLeftOpenedTest = () => {
-      leftOpenedTest.value = true;
-    };
-
-
     
     return {
       startSearch,
       leftOpened,
-      updateLeftOpened,
-      updateLeftOpenedTest,
+      updateLeftOpened,      
       leftOpenedTest,
       isMobile
     };

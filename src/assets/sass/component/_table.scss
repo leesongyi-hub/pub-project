@@ -28,12 +28,12 @@
 .table td .button.md{min-width:auto;height:24px;line-height:24px;padding:0 8px;font-size:12px;}
 .table td .button.md.ml16{margin-left:8px !important;}
 
-@media all and (max-width:768px) {
+@media all and (max-width:$breakpoint-tablet) {
   .responsive_table .tr{flex:100%;}
   .table th{padding:8px 8px;}
   .table td{padding:8px 8px;}    
 }
-@media all and (max-width:480px) {
+@media all and (max-width: $breakpoint-mobile) {
   .responsive_table .tr{display:block;}
   .responsive_table .tr .th{margin-bottom:4px;padding:0;}
   .responsive_table .tr .td{padding:0;}

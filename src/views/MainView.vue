@@ -395,10 +395,6 @@ export default {
       return emit("updateLeftOpened");
     };
 
-    const updateLeftOpenedTest = () => {
-      return emit("updateLeftOpenedTest");
-    };
-
     const showModal = () => {
       emit('sendShow', true);
     };
@@ -411,7 +407,6 @@ export default {
       startSearch,
       searchText,
       updateLeftOpened,
-      updateLeftOpenedTest,
       showModal
     };
   },

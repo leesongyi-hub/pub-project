@@ -74,7 +74,7 @@
 .main_page .repository .swiper-button-next:after, .swiper-button-prev:after{font-size:12px;font-weight:bold;color:#888;}
 
 /* 반응형 */
-@media all and (max-width:768px) {
+@media all and (max-width:$breakpoint-tablet) {
   .main_page .container{padding:0;}
   .main_page .logo_area{padding-top:60px;margin-bottom:28px;}
   .main_page .logo_area svg{width:100px;height:22px;}

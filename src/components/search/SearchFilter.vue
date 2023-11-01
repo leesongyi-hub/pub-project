@@ -10,8 +10,6 @@
     </button>        
     
     <div class="filter_head">
-
-      <!-- [반응형] 1024px 이하에서 노출 -->
       <button
         type="button"
         class="btn_close button"
@@ -22,8 +20,6 @@
           <use xlink:href="@/assets/images/sp_svg.svg#ico_close" />
         </svg>
       </button>
-      <!-- //[반응형] 1024px 이하에서 노출 -->
-
       <button type="button" class="button primary md btn_apply flex-fill">
         <span class="label">선택 적용</span>
       </button>
@@ -58,27 +54,28 @@
         </button>
         
         <div :id="'expanded' + idx" class="filterComp_body show">
-          <!-- 각 섹션의 내용을 데이터 배열에서 동적으로 렌더링 -->
+          
           <div v-if="list === 1">
             <ul class="filterComp_list">
-              <li
-                class="filterComp_listOpt"
-                v-for="(item, index) in filterList"
+              <Transition name="display"
+                v-for="(item, index) in filterOptions"
                 :key="index"
-                v-show="showAll[idx] || index < 5"
+                v-show="showAllOptions[idx] || index < 5"
               >
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" :id="'check2' + index">
-                  <label class="custom-control-label" :for="'check2' + index">
-                    <span>{{ filterList[index] }}{{index + 1}}
-                      <em class="count">(1,234)</em>
-                    </span>
-                  </label>
-                </div>
-              </li>
-            </ul>
-            <!--//filterComp_list-->
+                <li class="filterComp_listOpt">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" :id="'check1' + index">
+                    <label class="custom-control-label" :for="'check1' + index">
+                      <span>{{ filterOptions[index] }}{{index + 1}}
+                        <em class="count">(1,234)</em>
+                      </span>
+                    </label>
+                  </div>
+                </li>
+              </Transition>
+            </ul>            
           </div>
+
           <div v-else-if="list === 2">
             <div class="control_area">
               <ul class="control_tab">
@@ -92,32 +89,30 @@
             </div>
             <ul class="filterComp_list">
               <Transition name="display"
-                v-for="(item, index) in filterList"
+                v-for="(item, index) in filterOptions2"
                 :key="index"
-                v-show="showAll[idx] || index < 5"
+                v-show="showAllOptions[idx] || index < 5"
               >
-              <li class="filterComp_listOpt">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" :id="'check2' + index">
-                  <label class="custom-control-label" :for="'check2' + index">
-                    <span>{{ filterList[index] }}{{index + 1}}
-                      <em class="count">(1,234)</em>
-                    </span>
-                  </label>
-                </div>
-              </li>
+                <li class="filterComp_listOpt">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" :id="'check2' + index">
+                    <label class="custom-control-label" :for="'check2' + index">
+                      <span>{{ filterOptions2[index] }}{{index + 1}}
+                        <em class="count">(1,234)</em>
+                      </span>
+                    </label>
+                  </div>
+                </li>
               </Transition>
-            </ul>
-            <!-- //filterComp_list -->
+            </ul>            
           </div>
           
           <div v-else-if="list === 3">
-            <ul class="filterComp_list">
-              
+            <ul class="filterComp_list">              
               <Transition name="display"
                 v-for="(color, index) in labelColors"
                 :key="index"
-                v-show="showAll[idx] || index < 5"
+                v-show="showAllOptions[idx] || index < 5"
               >
                 <li class="filterComp_listOpt">
                   <div class="custom-control custom-checkbox">
@@ -128,17 +123,14 @@
                     </label>
                   </div>
                 </li>
-              </Transition>
-            
-            </ul>
-            <!-- //filterComp_list -->
+              </Transition>            
+            </ul>            
           </div>
-           
 
-          <button type="button" class="btn_more" @click="showAllItems(idx)">
-            <span class="label">{{ showAll[idx] ? "간략보기" : "더보기" }}</span>
+          <button type="button" class="btn_more" @click="toggleShowAllOptions(idx)">
+            <span class="label">{{ showAllOptions[idx] ? "간략보기" : "더보기" }}</span>
             <svg role="img" aria-hidden="true" focusable="false" class="icoSvg stroke i_s16 col_lightgray ml2"
-              :class="showAll[idx] ? 'ico_arr_top' : 'ico_arr_bot'"
+              :class="showAllOptions[idx] ? 'ico_arr_top' : 'ico_arr_bot'"
             >
               <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
             </svg>
@@ -147,8 +139,7 @@
         </div>
       </div>
     </div>
-    <!-- //filter_body -->       
-
+    <!-- //filter_body -->
   </div>
   <!-- //filter -->
 
@@ -177,7 +168,7 @@ export default {
       "mint",
     ]);
 
-    const filterList =  ref([
+    const filterOptions =  ref([
       "필터샘플명",
       "필터샘플명",
       "필터샘플명",
@@ -190,47 +181,53 @@ export default {
       "필터샘플명",
     ]);
 
-
-    const isMenuOpen = ref(false);
-
-    const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value;
-    };
-
-    const isCollapsed = ref([true, true, true]); 
-
-    const toggleCollapse = (index) => {
-      isCollapsed.value[index] = !isCollapsed.value[index];
-    };
+    const filterOptions2 =  ref([
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+      "기본필터샘플명기본필터샘플명",
+    ]);
 
     const updateLeftOpened = () => {
       return emit("updateLeftOpened");
     };
-    const updateLeftOpenedTest = () => {
-      return emit("updateLeftOpenedTest");
-    };   
 
-    const showAll = ref([false, false, false]);
+    const isMenuOpen = ref(false);
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
 
-    const showAllItems = ( index ) => {
-      showAll.value[index] = !showAll.value[index];
+    const isCollapsed = ref([]);
+    const toggleCollapse = (index) => {
+      isCollapsed.value[index] = !isCollapsed.value[index];
+    };
+    
+    const showAllOptions = ref([]);
+    const toggleShowAllOptions = ( index ) => {
+      showAllOptions.value[index] = !showAllOptions.value[index];
     };
 
     return {
+      labelColors,
+      filterOptions,
+      filterOptions2,
+
+      updateLeftOpened,
+
       isMenuOpen,
       toggleMenu,
+
       isCollapsed,
       toggleCollapse,
 
-      labelColors,
-
-      updateLeftOpened,
-      updateLeftOpenedTest,
-
-      showAllItems,
-      showAll,
-
-      filterList
+      showAllOptions,
+      toggleShowAllOptions,
     };
   },
 }
