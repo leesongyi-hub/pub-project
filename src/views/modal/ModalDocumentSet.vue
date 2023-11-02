@@ -1,5 +1,5 @@
 <template>
-	<!-- S. 문서설정 모달(문서정보 탭) > 상태 이력 모달 -->
+
 	<div class="modal modal_type2 modal_documentSet fade" id="modal_documentSet" tabindex="-1" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog w400 max_h700">
       <div class="modal-content"> 
@@ -55,29 +55,13 @@
       </div>
     </div>
 	</div>
-	<!-- //E. 문서설정 모달(문서정보 탭) > 상태 이력 모달 -->
-
-
-
-
-
 </template>
 
 <script>
-// import { ref } from "vue";
 
 export default {
-  setup() {
-    
-  }
+  setup() {}
 };
 </script>
 
-<style>
-.modal.show + .modal.show{
-  z-index:1053;
-}
-.modal-backdrop + .modal-backdrop{
-  z-index: 1052 !important;
-}
-</style>
+<style></style>

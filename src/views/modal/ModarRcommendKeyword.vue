@@ -16,7 +16,7 @@
 
 					<div class="form_group_wrap flex-nowrap d-flex align-items-center mb24">
 						<div class="form_group d-flex align-items-center">
-							<select id="category" class="form_input form-select" autofocus="">
+							<select id="category" class="form_input form-select">
 								<option value="">분석대상항목 선택</option>
 								<option value="">사용자 직접 입력</option>
 								<option value="">문서 전체 (하위목차 포함)</option>

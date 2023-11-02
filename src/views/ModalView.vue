@@ -16,7 +16,7 @@
       <button type ="button" class="button lg outline" data-toggle="modal" data-target="#modal_filterSet">결과좁혀보기 설정</button>
     </article>
 
-    <article class="mb40">
+    <article  class="btn-area">
       <h2 class="typo_heading_lg mb16">Button</h2>
       <div>
         <div class="mb12">
@@ -527,18 +527,14 @@ export default {
     ModarReference,
     ModarFilterSet
   },
-
-  setup() {
-    return {
-
-    };    
-  },
 }
 </script>
 
 <style scoped>
-.inner{padding:60px 0;max-width:1024px;margin:0 auto;}
+.inner{padding:60px 16px;max-width:1024px;margin:0 auto;}
 article{padding:20px;border:1px solid #eee;margin-bottom:40px;border-radius: 4px;}
-.modal-area .button{margin-right:8px;margin-bottom:8px;}
+.modal-area .button{margin:0 8px 8px 0;}
+.btn-area .button{margin:0 8px 8px 0;}
+
 .icon-area .icoSvg{margin-right:12px;margin-bottom:12px;}
 </style>

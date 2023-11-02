@@ -7099,11 +7099,6 @@ vue3-bootstrap4@^0.1.0:
     vue-router "^4.0.4"
     vue3-bootstrap4 "^0.0.9"
 
-vue3-tree@^0.11.5:
-  version "0.11.5"
-  resolved "https://registry.npmjs.org/vue3-tree/-/vue3-tree-0.11.5.tgz"
-  integrity sha512-h6SzaNDnACvZsCq6GQybtyWvRyxPjzvYfNqYpvq99OprX5UPzXJwbWJbNUHod0lpwM2gbidnx2izbQSedgY+Zw==
-
 watchpack@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/watchpack/-/watchpack-2.4.0.tgz"

@@ -1,17 +1,15 @@
 <template>
 
-  <main class="main_page">
-    <div class="content">
+  <div class="main_page">
+    <main class="content">
       <div class="mypage_area">
-        <div class=" dropdown dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <button type="button" class="btn_mypage">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
-              <circle cx="16" cy="16" r="16" fill="#1E8EB1"></circle>
-              <path fill="#52E5ED" fill-rule="evenodd" d="M16 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-2.667 2A5.333 5.333 0 0 0 8 22.333 2.667 2.667 0 0 0 10.667 25h10.666A2.667 2.667 0 0 0 24 22.333 5.333 5.333 0 0 0 18.667 17h-5.334Z" clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <MypageLayer />
-        </div>
+        <button type="button" class="btn_mypage dropdown dropdown-toggle" aria-label="마이페이지메뉴" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false" width="32" height="32" fill="none">
+            <circle cx="16" cy="16" r="16" fill="#1E8EB1"></circle>
+            <path fill="#52E5ED" fill-rule="evenodd" d="M16 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-2.667 2A5.333 5.333 0 0 0 8 22.333 2.667 2.667 0 0 0 10.667 25h10.666A2.667 2.667 0 0 0 24 22.333 5.333 5.333 0 0 0 18.667 17h-5.334Z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <MypageLayer />
       </div>
       <!-- //maypage_area -->
 
@@ -142,7 +140,7 @@
                       :key="item"
                     >
                       <span class="rank">{{ index + 1}}</span>
-                      <a href="javascript:;">샘플텍스트 샘플텍스트 샘플텍스트 샘플텍스트</a>
+                      <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                       <span class="sub_info date">2022-03-19</span>
                     </li>
                   </ul>
@@ -177,60 +175,60 @@
                     <ul>
                       <li class="doc_listItem">
                         <span class="rank">1</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info col_txt_red">
                           3↑
                         </span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">2</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info col_txt_blue">
                           2↓
                         </span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">3</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info noChange"></span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">4</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info col_txt_red">
                           3↑
                         </span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">5</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info txt_badge red">New</span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">6</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info txt_badge red">New</span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">7</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info txt_badge red">New</span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">8</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info col_txt_blue">
                           1↓
                         </span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">9</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info txt_badge red">New</span>
                       </li>
                       <li class="doc_listItem">
                         <span class="rank">10</span>
-                        <a href="javascript:;">샘플키워드</a>
+                        <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                         <span class="sub_info col_txt_red">
                           1↑
                         </span>
@@ -310,7 +308,7 @@
                       :key="item"
                     >
                       <span class="rank">{{ index + 1}}</span>
-                      <a href="javascript:;">샘플텍스트 샘플텍스트 샘플텍스트 샘플텍스트</a>
+                      <a href="javascript:;" :title="sampleText">{{ sampleText }}</a>
                       <span class="sub_info date">2022-03-19</span>
                     </li>
                   </ul>
@@ -332,9 +330,8 @@
       </div>
       <!-- //setting_area -->
       
-    </div>
-    <!-- //content -->
-  </main>
+    </main>
+  </div>
 
   <ModalDocumentSet />
 
@@ -343,7 +340,6 @@
 <script>
 import MypageLayer from "../components/common/CompMypageLayer.vue";
 import SearchLayer from "../components/common/CompSearchLayer.vue";
-
 import ModalDocumentSet from "./modal/ModalDocumentSet.vue";
 
 import SwiperCore, { Navigation, Pagination} from 'swiper';
@@ -362,52 +358,39 @@ export default {
       SearchLayer,
       ModalDocumentSet
     },  
-  setup(props, { emit }) {
+  setup() {
+    const sampleText = ref('샘플저장소명');
 
-    const repositoryList = ref([false, false, false, false]);
-
+    const repositoryList = ref([]);
     const toggleRepositoryList = (index) => {
       repositoryList.value[index] = !repositoryList.value[index];
     }
 
     const startSearch = ref(false);
-
-    const closeSearchArea = (event) => {
-      // 클릭된 요소가 search_area 내부에 있는 요소인지 확인
-      if (!event.target.closest('.search_area')) {
+    const closeSearchArea = (event) => {      
+      if (!event.target.closest('.search_area') &&  startSearch.value === true ) {
         startSearch.value = false;
       }
     };
 
-    onMounted(() => {
-      // 컴포넌트가 마운트될 때 document 클릭 이벤트 리스너를 추가
+    onMounted(() => {      
       document.addEventListener('click', closeSearchArea);
     });
 
-    onUnmounted(() => {
-      // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거
+    onUnmounted(() => {      
       document.removeEventListener('click', closeSearchArea);
     });
 
     const searchText = ref('');
 
-    const updateLeftOpened = () => {
-      return emit("updateLeftOpened");
-    };
-
-    const showModal = () => {
-      emit('sendShow', true);
-    };
-
-
     return {
+      sampleText,
+
       repositoryList,
       toggleRepositoryList,
 
       startSearch,
       searchText,
-      updateLeftOpened,
-      showModal
     };
   },
 }

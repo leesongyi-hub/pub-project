@@ -27,15 +27,16 @@
 .filterComp_list{margin-top:8px;}
 .filterComp_list .filterComp_listOpt{position: relative;margin-bottom:10px;}
 
+.filterComp_list.colorLabel_area .custom-control-label{overflow: hidden}
+
 .filterComp .btn_more{@include typo-caption-sm;display:flex;align-items: center;justify-content:center;width:100%;height:28px;}
 .filterComp .btn_more svg{transition:.3s;}
 
-.search_page .filter + main{padding-left:290px;}
 .search_page .filter .btn_fold::after{transform: rotate(0);}
 .search_page .filter[aria-expanded="true"]{left:0;}
 .search_page .filter[aria-expanded="false"]{left:-260px;}
 .search_page.expanded .filter .btn_fold::after{transform: rotate(180deg);}
-.search_page.expanded .filter ~ main{padding-left:40px;}
+.search_page.expanded .filter + .content{padding-left:0;}
 
 @media all and (max-width:$breakpoint-tablet) {
   .filter{display:block;width:300px;height:100vh;top:0;left:-100%;z-index:130;padding-top:109px;}

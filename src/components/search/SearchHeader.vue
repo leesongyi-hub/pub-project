@@ -166,7 +166,7 @@ export default {
 
     const startSearch = ref(false);
     const closeSearchArea = (event) => {      
-      if (!event.target.closest('.search_area')) {
+      if (!event.target.closest('.search_area') &&  startSearch.value === true ) {
         startSearch.value = false;
       }
     };

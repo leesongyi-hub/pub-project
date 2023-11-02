@@ -17,7 +17,7 @@
 							<label class="form-label mr8" for="search">회원검색</label>
 							<input id="search" class="form_input" placeholder="회원을 찾아보세요." autocomplete="off">
 						</div>
-						<button type="button" class="button primary md ml8"><i class="ico ico_search_white i_s20"></i><span class="label">찾기</span></button>
+						<button type="button" class="button primary md ml8">찾기</button>
 					</div>
 					<div class="table_wrap">
 						<table class="table">
@@ -71,21 +71,10 @@
 </template>
 
 <script>
-// import { ref } from "vue";
-
 export default {
-  setup() {
-    
-  }
+  setup() {}
 };
 </script>
 
-<style>
-
-.modal.show + .modal.show{
-  z-index:1053;
-}
-.modal-backdrop + .modal-backdrop{
-  z-index: 1052 !important;
-}
+<style scoped>
 </style>

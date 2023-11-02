@@ -1,7 +1,7 @@
 import { createWebHashHistory, createRouter } from "vue-router";
 import MainPage from "../views/MainView.vue";
 import SearchResult from "../views/SearchView.vue";
-import testView from "../views/testView.vue";
+import SearchLoading from "../views/SearchLoadingView.vue";
 import ModalView from "../views/ModalView.vue";
 
 const routes = [
@@ -18,17 +18,20 @@ const routes = [
     }
   },
   {
+    path: "/search-loading",
+    name: "SearchLoading",
+    component: SearchLoading,
+    meta: {
+      title : 'OKMS | 통합검색'
+    }
+  },
+  {
     path: "/search",
     name: "SearchResult",
     component: SearchResult,
     meta: {
       title : 'OKMS | 통합검색'
     }
-  },
-  {
-    path: "/test",
-    name: "testView",
-    component: testView,
   },
   {
     path: "/modal",

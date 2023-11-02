@@ -65,6 +65,12 @@
     -webkit-box-orient: vertical;
   }
 }
+.ellipsis{
+  @include ellipsis;
+}
+.ellipsis2{
+  @include ellipsis(2);
+}
 .typo-display{
   @include typo-display;
 }

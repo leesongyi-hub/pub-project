@@ -4,10 +4,10 @@
     <SearchHeader 
       @updateLeftOpened="updateLeftOpened"
     />
-    
     <SearchFilter
       :aria-expanded="leftOpened"
       @updateLeftOpened="updateLeftOpened"
+      :checkLoading="isLoaded"
     />
     <div class="content">
       <main class="content_wrap">
@@ -38,17 +38,25 @@
               </li>
             </ul>
             <div id="resultTabCont" class="tab-content">
-  
-              <SearchTabDoc />
-              <SearchTabIndex />
-              <SearchTabOpinion />
-              <SearchTabFile />
+
+              <template v-if="isLoaded">
+                <CompSpinner />
+              </template>
+                
+              <template v-else>
+                <SearchTabDoc />
+                <SearchTabIndex />
+                <SearchTabOpinion />
+                <SearchTabFile />
+              </template>
   
             </div>
             <!-- //tab-content -->
           </div>
           <!-- //main_body -->
         </div>
+
+
         <SearchRightPanel
           :checkLoading="isLoaded"
         />
@@ -75,7 +83,7 @@ import SearchTabFile from "../components/search/SearchTabFile.vue";
 
 export default {
 
-  name:'SearchResult',
+  name:'SearchLoading',
   components: {
     SearchHeader,
     SearchFilter,
@@ -94,6 +102,8 @@ export default {
       leftOpened.value = !leftOpened.value;
     };
 
+    const isLoaded = ref(true);
+    
     const isMobile = ref(false);
 
     // 브라우저 창의 너비를 검사하여 isMobile 업데이트
@@ -114,16 +124,12 @@ export default {
     onBeforeUnmount(() => {
       window.removeEventListener('resize', checkMobile);
     });
-
-    const isLoaded = ref(false);
-
     
     return {
       startSearch,
       leftOpened,
       updateLeftOpened,      
       isMobile,
-
       isLoaded
     };
     

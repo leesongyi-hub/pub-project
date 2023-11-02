@@ -11,9 +11,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>
-            alert 메세지를 입력해주세요.
-          </p>
+          <p>alert 메세지를 입력해주세요.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="button primary lg" data-dismiss="modal">확인</button>
