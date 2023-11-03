@@ -56,15 +56,14 @@ export default {
     components: {
     },
     setup() {
+      onMounted(() => {  
+        //init tooltip
+        Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]'))
+        .forEach(tooltipNode => new Tooltip(tooltipNode))
+      });
 
-        onMounted(() => {  
-            //init tooltip
-            Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]'))
-            .forEach(tooltipNode => new Tooltip(tooltipNode))
-        });
-
-        return {
-        };    
+      return {
+      };
     },
 }
 </script>

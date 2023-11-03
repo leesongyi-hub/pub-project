@@ -3,6 +3,7 @@ import MainPage from "../views/MainView.vue";
 import SearchResult from "../views/SearchView.vue";
 import SearchLoading from "../views/SearchLoadingView.vue";
 import ModalView from "../views/ModalView.vue";
+import DocumentPage from "../views/DocumentView.vue";
 
 const routes = [
   {
@@ -37,6 +38,14 @@ const routes = [
     path: "/modal",
     name: "ModalView",
     component: ModalView,
+  },
+  {
+    path: "/document",
+    name: "DocumentView",
+    component: DocumentPage,
+    meta: {
+      title : 'OKMS | 문서'
+    }
   },
 ];
 
