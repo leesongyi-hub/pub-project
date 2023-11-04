@@ -1,10 +1,47 @@
 .document_page{display:flex;flex-direction: column;min-height:100%}
-.document_page .edit_btn_area{display:flex;}
 
-.document_page .doc_header{height:60px;background-color:#f5f5f5;}
+.nav{display:flex;flex-direction: column;}
+
+.icoSvg ~ .mark_count{position: absolute;top:-4px;left:12px;}
+
+.document_page .edit_btn_area{display:flex;align-items: center;}
+.document_page .edit_btn_area button{display:flex;position: relative;}
+
+.document_page .doc_header{display:flex;justify-content:space-between;align-items: center;height:60px;padding:0 20px;background-color:$color-bg-primary}
+.document_page .doc_header h1{font-size:20px;font-weight:bold;color:#fff;}
+
+.document_page .global_btn_area{display:flex;height:100%;}
+.document_page .global_btn_area .btn_menu{width:40px;height:40px;border:1px solid rgba(255,255,255,.3);border-radius: $btn-radius-circle;}
+.document_page .global_btn_area .start_area{display:flex;align-items: center;border-right:1px solid rgba(255, 255, 255, .3);}
+.document_page .global_btn_area button{margin-left:16px;}
+.document_page .global_btn_area .end_area{display:flex;align-items: center;}
 
 .document_page .content{display:flex;flex:1;}
 .document_page .nav{min-width:240px;border-right:1px solid $color-border-default}
 .document_page .doc_list_wrap{width:calc(100% - 240px);padding:40px 40px;}
 
-.editor_mode{overflow-x:auto;}
+.document_page .doc_list_head{display:flex;justify-content: space-between;background-color:$color-bg-default;padding:8px 16px;}
+.document_page .doc_list_head .edit_btn_area button{margin-left:16px;}
+.document_page .doc_list_head .edit_btn_area button:hover .icoSvg{color:$icon_color_darkgray;}
+
+.document_page .doc_list_item{margin-bottom:20px;}
+.document_page .doc_list_item .tit_area{display:flex;}
+.document_page .doc_list_item .tit_area .btn_acco:hover .icoSvg{color:$icon-color-default;}
+.document_page .doc_list_item .tit_area .tit{@include typo-heading-md($weight: 700);margin:0 8px;}
+
+.document_page .doc_list_content{margin:24px 16px;}
+.document_page .doc_list_body .view_mode{position:relative;}
+.document_page .doc_list_body .view_mode:hover{background-color:$color-bg-default;}
+.document_page .doc_list_body .view_mode:hover .edit_btn_area{display:flex;}
+.document_page .doc_list_body .view_mode .edit_btn_area{display:none;position:absolute;top:-36px;right:0;padding:8px 2px;background-color:#fff;box-shadow: $shadow-default;border-radius: $btn-radius-default;}
+.document_page .doc_list_body .view_mode .edit_btn_area button{display: inline-flex;align-items: center;justify-content: center;width:40px;height:20px;padding:0 12px;border-right:1px solid $color-border-default}
+.document_page .doc_list_body .view_mode .edit_btn_area button:hover .icoSvg{color:$icon-color-darkgray;}
+.document_page .doc_list_body .view_mode .edit_btn_area button:last-child{border-right:0;}
+.document_page .doc_list_body .view_mode .edit_btn_area button .mark_count{left:20px;}
+
+.editor_mode{display:flex;}
+.editor_mode .editor{flex:1;}
+.editor_mode .edit_btn_box{display:flex;flex-direction: column;margin-left:10px;}
+.editor_mode .edit_btn_box .button{margin-bottom:6px;}
+
+.view_mode{font-size:15px;}
