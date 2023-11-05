@@ -5343,9 +5343,15 @@ body,
   min-height: 100%;
 }
 
-.nav {
+.document_page .nav {
   display: flex;
   flex-direction: column;
+}
+
+.document_page .nav_head h2 {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
 }
 
 .icoSvg ~ .mark_count {
@@ -5394,11 +5400,12 @@ body,
 .document_page .global_btn_area .start_area {
   display: flex;
   align-items: center;
+  margin-right: 16px;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .document_page .global_btn_area button {
-  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .document_page .global_btn_area .end_area {
@@ -5426,6 +5433,10 @@ body,
   justify-content: space-between;
   background-color: #F5F5F5;
   padding: 8px 16px;
+}
+
+.document_page .doc_list_head[expended=true] .btn_acco {
+  transform: rotate(90deg);
 }
 
 .document_page .doc_list_head .edit_btn_area button {

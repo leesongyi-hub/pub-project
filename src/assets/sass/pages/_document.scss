@@ -1,6 +1,7 @@
 .document_page{display:flex;flex-direction: column;min-height:100%}
 
-.nav{display:flex;flex-direction: column;}
+.document_page .nav{display:flex;flex-direction: column;}
+.document_page .nav_head h2{font-size:18px;font-weight:600;padding:16px;}
 
 .icoSvg ~ .mark_count{position: absolute;top:-4px;left:12px;}
 
@@ -12,8 +13,8 @@
 
 .document_page .global_btn_area{display:flex;height:100%;}
 .document_page .global_btn_area .btn_menu{width:40px;height:40px;border:1px solid rgba(255,255,255,.3);border-radius: $btn-radius-circle;}
-.document_page .global_btn_area .start_area{display:flex;align-items: center;border-right:1px solid rgba(255, 255, 255, .3);}
-.document_page .global_btn_area button{margin-left:16px;}
+.document_page .global_btn_area .start_area{display:flex;align-items: center;margin-right:16px;border-right:1px solid rgba(255, 255, 255, .3);}
+.document_page .global_btn_area button{margin-right:16px;}
 .document_page .global_btn_area .end_area{display:flex;align-items: center;}
 
 .document_page .content{display:flex;flex:1;}
@@ -21,6 +22,7 @@
 .document_page .doc_list_wrap{width:calc(100% - 240px);padding:40px 40px;}
 
 .document_page .doc_list_head{display:flex;justify-content: space-between;background-color:$color-bg-default;padding:8px 16px;}
+.document_page .doc_list_head[expended="true"] .btn_acco{transform: rotate(90deg);}
 .document_page .doc_list_head .edit_btn_area button{margin-left:16px;}
 .document_page .doc_list_head .edit_btn_area button:hover .icoSvg{color:$icon_color_darkgray;}
 

@@ -1,7 +1,7 @@
 <template>
 <nav class="nav">
   <div class="nav_head">
-    목차
+    <h2>목차</h2>
     <button type="button" class="btn_close">
 
     </button>
