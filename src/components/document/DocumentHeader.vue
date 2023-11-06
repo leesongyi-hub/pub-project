@@ -42,19 +42,6 @@
         </button>
       </div>
       <div class="end_area">
-        <button
-          type="button"
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title="목록열기/닫기"
-          class="btn_allExpanded"
-          :class="isToggleClass"
-          @click="toggleClass()"
-        >
-          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
-            <use xlink:href="@/assets/images/sp_svg.svg#ico_list-expanded" />
-          </svg>
-        </button>
         <button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="인쇄">
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
             <use xlink:href="@/assets/images/sp_svg.svg#ico_print" />
@@ -88,17 +75,11 @@
 
 export default {
   props: {
-    isToggleClass: String,
   },
-  setup (props, { emit }) {
-    
-    const toggleClass = () => {
-      return emit("toggleClass");
-    };
+  setup () {
 
-    return {
-      toggleClass,
-    
+
+    return {   
     }    
   }
 }

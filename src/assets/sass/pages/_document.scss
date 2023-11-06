@@ -16,7 +16,7 @@
 .document_page .doc_header{position:fixed;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items: center;height:60px;padding:0 20px;background-color:$color-bg-primary;z-index: 100;}
 .document_page .doc_header .btn_index{display:none;}
 .document_page .doc_header h1{@include ellipsis(2); font-size:20px;font-weight:bold;color:#fff;}
-.document_page .doc_header .btn_edit{margin-left:6px;}
+.document_page .doc_header .btn_edit{margin-left:8px;}
 .document_page .btn_allExpanded{transform: rotate(-180deg);}
 .document_page .btn_allExpanded.on{transform: rotate(0);}
 
@@ -53,9 +53,10 @@
 }
 
 .document_page .doc_list_item{margin-bottom:20px;}
-.document_page .doc_list_item .tit_area{display:flex;align-items: center;}
-.document_page .doc_list_item .tit_area .tit{@include typo-heading-md($weight: 700);margin:0 8px;}
-.document_page .doc_list_item .tit_area .btn_edit{display: inline-flex;}
+.document_page .doc_list_item .tit_area{display:flex;align-items: center;flex:1;}
+.document_page .doc_list_item .tit_area .tit{@include typo-heading-md($weight: 700);display:flex;align-items: center;margin:0 8px;flex:1;}
+.document_page .doc_list_item .tit_area .tit .form_input{max-width:500px;}
+.document_page .doc_list_item .tit_area .btn_edit{display: inline-flex;margin-left:8px;}
 
 .document_page .doc_list_content{margin:24px 16px;}
 .document_page .doc_list_body .view_mode{position:relative;}
@@ -63,7 +64,6 @@
 .document_page .doc_list_body .view_mode:hover .edit_btn_area{display:flex;}
 .document_page .doc_list_body .view_mode .edit_btn_area{display:none;position:absolute;top:-36px;right:0;padding:8px 2px;background-color:#fff;box-shadow: $shadow-default;border-radius: $btn-radius-default;}
 .document_page .doc_list_body .view_mode .edit_btn_area button{display: inline-flex;align-items: center;justify-content: center;width:40px;height:20px;padding:0 12px;border-right:1px solid $color-border-default}
-.document_page .doc_list_body .view_mode .edit_btn_area button:hover .icoSvg{color:$icon-color-darkgray;}
 .document_page .doc_list_body .view_mode .edit_btn_area button:last-child{border-right:0;}
 .document_page .doc_list_body .view_mode .edit_btn_area button .mark_count{left:20px;}
 
