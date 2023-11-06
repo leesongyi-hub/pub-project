@@ -1,56 +1,321 @@
 <template>
   <div class="document_page">
-    <DocumentHeader />
-    <div class="content">      
-      <DocumentNav />
+    <DocumentHeader
+      @toggleClass="handleClick"
+      :isToggleClass="isToggleClass ? '' : 'on'"
+    />
+
+    <div class="content">
+
+      <nav class="nav">
+        <div class="nav_head">
+          <h2>목차</h2>
+          <button type="button" class="btn_close">
+          </button>
+        </div>
+        <div class="nav_body">
+          <ul class="">
+            <li><a href="/#/document/#idx0">국민건강보험이란</a></li>
+            <li><a href="/#/document/#idx1">자격정지 및 자격정지의 해제</a></li>
+            <li><a href="/#/document/#idx2">법률에 의한 강제 가입</a></li>
+            <li><a href="/#/document/#idx3">비급여 대상</a></li>
+          </ul>
+        </div>
+      </nav>
       <main class="doc_list_wrap">
-        <ul >  
-          <li class="doc_list_item" v-for="(item, index) in 3" :key="index"> 
-            <div class="doc_list_head" :aria-expanded="isExpended[index] ? 'true' : 'false'">
-              <div class="tit_area">
-                <button
-                  type="button"
-                  class="btn_acco"
-                  @click="toggleExpended(index)"
-                >
-                  <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 stroke ico_arr_bot col_lightgray">
-                    <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
-                  </svg>
-                </button>
-                <div class="tit">국민<mark>건강보험</mark>이란</div>
-                <button type="button" class="btn_edit"></button>
-              </div>
-            </div>
-            <!-- //doc_list_head -->
-  
-            <div class="doc_list_body" v-show="isExpended[index]" :aria-hidden="isExpended[index] ? 'true' : 'false'">
+        <div class="doc_list_wrap_inner">
 
-              <div class="doc_list_content">
-                <div class="view_mode">
-                  <div class="inner">
-                    <div class="">
-                      첫 번째로 직장 가입자 산정기준에 대해 알아보겠습니다. 기본적으로 직장가입자는 4대 보험료를 먼저 공제하고 급여(보수월액)를 수령하게 됩니다. 4대보험료 중 고용보험, 연금보험, <mark>건강보험</mark>은 회사와 근로자가 각자 절반씩 부담하고 산재보험만 회사에서 전액 부담하고 있습니다.
+          <ul v-for="(item, index) in 4" :key="index">  
+            <li class="doc_list_item" :id="'idx' + index"  v-if="item === 1"> 
+              <div class="doc_list_head" :aria-expanded="isExpended[index] ? 'true' : 'false'">
+                <div class="tit_area">
+                  <button
+                    type="button"
+                    class="btn_acco"
+                    @click="toggleExpended(index)"
+                  >
+                    <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 stroke ico_arr_bot col_lightgray">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
+                    </svg>
+                  </button>
+                  <div class="tit">
+                    <span>국민<mark>건강보험</mark>이란</span>
+                    <div
+                      class="d-flex"
+                      v-if="isEdit[index]"
+                    >
+                      <input type="text" value="국민건강보험이란" class="form_input w100" />                    
+                      <button type="button" class="btn_del button outline md ml6">저장</button>
+                      <button type="button" class="btn_del button outline md ml6">취소</button>
                     </div>
-                    <!-- <button class="btn_more res"></button> -->
+                  </div>
+                  <button
+                    type="button"
+                    class="btn_edit"
+                    @click="showEdit(index)"
+                  >
+                    <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s18 col_gray">
+                      <use xlink:href="static/img/sp_svg.svg#ico_edit"></use>
+                    </svg>
+                  </button>
+                </div>
+                <ul class="edit_btn_area">
+                  <li>
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="파일">
+                    <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_file" />
+                    </svg>
+                    <span class="mark_count">6</span>
+                  </button>
+                  </li>
+                  <li>
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="참조">
+                      <svg class="icoSvg i_s20" role="img" aria-hidden="true" focusable="false">
+                        <use xlink:href="@/assets/images/sp_svg.svg#ico_share" />
+                      </svg>
+                      <span class="mark_count">2</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
+                      <svg class="icoSvg i_s20" role="img" aria-hidden="true" focusable="false">
+                        <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
+                      </svg>
+                      <span class="mark_count">99+</span>
+                    </button>
+                  </li>
+                  <li>
+                  <button
+                    class="button sm icoOnly"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="스크랩"
+                    @click="btnToggleClass(index)"
+                    :class="isToggleClass[index] ? 'btn_scrap on' : 'btn_scrap'"
+                  >
+                    <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_scrap" />
+                    </svg>
+                  </button>
+                  </li>
+  
+                  <li class="dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="더보기">
+                    <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_more" />
+                    </svg>
+                    </button>										
+                    <div class="dropdown-menu dropdown-menu-right">
+  
+                      <!--S. [반응형] -->
+                      <a href="javascript:;" role="button" class="dropdown-item mo"><span>첨부파일</span></a>
+                      <a href="javascript:;" role="button" class="dropdown-item mo"><span>참조</span></a>
+                      <a href="javascript:;" role="button" class="dropdown-item mo"><span>의견</span></a>
+                      <a href="javascript:;" role="button" class="dropdown-item mo border_bot"><span>스크랩</span></a>
+                      <!--//E. [반응형] -->
+  
+                      <a href="javascript:;" role="button" class="dropdown-item">목차정보</a>
+                      <a href="javascript:;" role="button" class="dropdown-item border_bot">연계 질의관리</a>	
+                      <a href="javascript:;" role="button" class="dropdown-item ">하위목차 추가</a>
+                      <a href="javascript:;" role="button" class="dropdown-item">단락 추가</a>
+                      <a href="javascript:;" role="button" class="dropdown-item">목차 삭제</a>
+                    </div>
+                  </li>  
+                </ul>
+              </div>
+              <!-- //doc_list_head -->
+    
+              <div class="doc_list_body">
+  
+                <div class="doc_list_content">
+                  <div class="view_mode">
+                    <div class="inner">
+                      <div class="">
+                        국민건강보험, 줄여서 건보(健保)는 한국의 사회보장제도(social insurance)의 하나로, 공공의료보험(public health care)에 속한다. (해당 제도에 대한 전반적인 설명과 타국의 의료보험 제도는 의료보험 문서를 참조.) 모든 제도가 그러하듯 단점도 있지만[1], 그만큼 국민에게 큰 혜택을 주는 제도이고, 이런 장점 덕분에 국민건강보험은 지금도 각광받는 사회보장제도 중 하나로 남아있다.
+                        적용근거는 국민건강보험법에 따르며, 보건복지부 산하 국민건강보험공단과 건강보험심사평가원이 운영한다. 건강보험료 납입과 지출의 재정관리는 국민건강보험공단이 하고 의료기관 관리 및 진료비 심사는 건강보험심사평가원(심평원)에서 맡고 있다. 본래부터 이전 의료보험조합의 역할은 통합된 건강보험공단이 가지고, 이전 의료보험조합연합회의 심사 권한은 심사평가원이 이어 받은 것이다.
+                      </div>
+                      <!-- <button class="btn_more res"></button> -->
+                    </div>
+                    <div class="edit_btn_area">
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
+                        </svg>
+                        <span class="mark_count">99+</span>
+                      </button>
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="수정">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_edit" />
+                        </svg>
+                      </button>
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_del" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="doc_list_content">
+                  <div class="editor_mode">
+                    <div ref="editor" class="editor"></div>
+                    <div class="edit_btn_box">
+                      <button type="button" class="btn_save button primary md">수정</button>
+                      <button type="button" class="btn_del button outline md">취소</button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="doc_list_content">
-                <div class="editor_mode">
-                  <div ref="editor" class="editor"></div>
-                  <div class="edit_btn_box">
-                    <button type="button" class="btn_save button primary md">수정</button>
-                    <button type="button" class="btn_del button outline md">취소</button>
+              <!-- //doc_list_body -->
+            </li>
+            <!-- //doc_list_item -->
+            <li class="doc_list_item" :id="'idx' + index"  v-else> 
+              <div class="doc_list_head" :aria-expanded="isExpended[index] ? 'true' : 'false'">
+                <div class="tit_area">
+                  <button
+                    type="button"
+                    class="btn_acco"
+                    @click="toggleExpended(index)"
+                  >
+                    <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 stroke ico_arr_bot col_lightgray">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_arrow" />
+                    </svg>
+                  </button>
+                  <div class="tit">국민<mark>건강보험</mark>이란</div>
+                  <button type="button" class="btn_edit"></button>
+                </div>
+                <ul class="edit_btn_area">
+                  <li>
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="파일">
+                    <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_file" />
+                    </svg>
+                    <span class="mark_count">6</span>
+                  </button>
+                  </li>
+                  <li>
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="참조">
+                      <svg class="icoSvg i_s20" role="img" aria-hidden="true" focusable="false">
+                        <use xlink:href="@/assets/images/sp_svg.svg#ico_share" />
+                      </svg>
+                      <span class="mark_count">2</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
+                      <svg class="icoSvg i_s20" role="img" aria-hidden="true" focusable="false">
+                        <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
+                      </svg>
+                      <span class="mark_count">99+</span>
+                    </button>
+                  </li>
+                  <li>
+                  <button
+                    class="button sm icoOnly"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="스크랩"
+                    @click="btnToggleClass(index)"
+                    :class="isToggleClass[index] ? 'btn_scrap on' : 'btn_scrap'"
+                  >
+                    <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_scrap" />
+                    </svg>
+                  </button>
+                  </li>
+  
+                  <li class="dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="더보기">
+                    <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_more" />
+                    </svg>
+                    </button>										
+                    <div class="dropdown-menu dropdown-menu-right">
+  
+                      <!--S. [반응형] -->
+                      <a href="javascript:;" role="button" class="dropdown-item mo"><span>첨부파일</span></a>
+                      <a href="javascript:;" role="button" class="dropdown-item mo"><span>참조</span></a>
+                      <a href="javascript:;" role="button" class="dropdown-item mo"><span>의견</span></a>
+                      <a href="javascript:;" role="button" class="dropdown-item mo border_bot"><span>스크랩</span></a>
+                      <!--//E. [반응형] -->
+  
+                      <a href="javascript:;" role="button" class="dropdown-item">목차정보</a>
+                      <a href="javascript:;" role="button" class="dropdown-item border_bot">연계 질의관리</a>	
+                      <a href="javascript:;" role="button" class="dropdown-item ">하위목차 추가</a>
+                      <a href="javascript:;" role="button" class="dropdown-item">단락 추가</a>
+                      <a href="javascript:;" role="button" class="dropdown-item">목차 삭제</a>
+                    </div>
+                  </li>  
+                </ul>
+              </div>
+              <!-- //doc_list_head -->
+    
+              <div class="doc_list_body">
+  
+                <div class="doc_list_content">
+                  <div class="view_mode">
+                    <div class="inner">
+                      <div class="">
+                        국민건강보험, 줄여서 건보(健保)는 한국의 사회보장제도(social insurance)의 하나로, 공공의료보험(public health care)에 속한다. (해당 제도에 대한 전반적인 설명과 타국의 의료보험 제도는 의료보험 문서를 참조.) 모든 제도가 그러하듯 단점도 있지만[1], 그만큼 국민에게 큰 혜택을 주는 제도이고, 이런 장점 덕분에 국민건강보험은 지금도 각광받는 사회보장제도 중 하나로 남아있다.
+                        적용근거는 국민건강보험법에 따르며, 보건복지부 산하 국민건강보험공단과 건강보험심사평가원이 운영한다. 건강보험료 납입과 지출의 재정관리는 국민건강보험공단이 하고 의료기관 관리 및 진료비 심사는 건강보험심사평가원(심평원)에서 맡고 있다. 본래부터 이전 의료보험조합의 역할은 통합된 건강보험공단이 가지고, 이전 의료보험조합연합회의 심사 권한은 심사평가원이 이어 받은 것이다.
+                      </div>
+                      <!-- <button class="btn_more res"></button> -->
+                    </div>
+                    <div class="edit_btn_area">
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
+                        </svg>
+                        <span class="mark_count">99+</span>
+                      </button>
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="수정">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_edit" />
+                        </svg>
+                      </button>
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_del" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="doc_list_content">
+                  <div class="view_mode">
+                    <div class="inner">
+                      <div class="">
+                        국민건강보험, 줄여서 건보(健保)는 한국의 사회보장제도(social insurance)의 하나로, 공공의료보험(public health care)에 속한다. (해당 제도에 대한 전반적인 설명과 타국의 의료보험 제도는 의료보험 문서를 참조.) 모든 제도가 그러하듯 단점도 있지만[1], 그만큼 국민에게 큰 혜택을 주는 제도이고, 이런 장점 덕분에 국민건강보험은 지금도 각광받는 사회보장제도 중 하나로 남아있다.
+                        적용근거는 국민건강보험법에 따르며, 보건복지부 산하 국민건강보험공단과 건강보험심사평가원이 운영한다. 건강보험료 납입과 지출의 재정관리는 국민건강보험공단이 하고 의료기관 관리 및 진료비 심사는 건강보험심사평가원(심평원)에서 맡고 있다. 본래부터 이전 의료보험조합의 역할은 통합된 건강보험공단이 가지고, 이전 의료보험조합연합회의 심사 권한은 심사평가원이 이어 받은 것이다.
+                      </div>
+                      <!-- <button class="btn_more res"></button> -->
+                    </div>
+                    <div class="edit_btn_area">
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="의견">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
+                        </svg>
+                        <span class="mark_count">99+</span>
+                      </button>
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="수정">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_edit" />
+                        </svg>
+                      </button>
+                      <button class="button sm icoOnly" data-bs-toggle="tooltip" data-bs-placement="top" title="삭제">
+                        <svg class="icoSvg i_s18" role="img" aria-hidden="true" focusable="false">
+                          <use xlink:href="@/assets/images/sp_svg.svg#ico_del" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- //doc_list_body -->
-          </li>
-          <!-- //doc_list_item -->
-
-
-        </ul>
+              <!-- //doc_list_body -->
+            </li>
+            <!-- //doc_list_item -->
+          </ul>
+        </div>
       </main>
     </div>
     <!-- //content -->
@@ -61,9 +326,9 @@
 
 <script>
 import DocumentHeader from "../components/document/DocumentHeader.vue";
-import DocumentNav from "../components/document/DocumentNav.vue";
 
 import { onMounted, ref } from 'vue';
+
 import { Tooltip } from 'bootstrap';
 
 import Editor from '@toast-ui/editor';
@@ -73,7 +338,6 @@ export default {
   name: 'DocumentPage',
   components: {
     DocumentHeader,
-    DocumentNav,
   },
   setup()
   {
@@ -81,21 +345,7 @@ export default {
     const editorValid = ref([]);
     const testHtml = ref();
 
-    onMounted(() => 
-    { 
-      // for (let i=0; i < editor.value.length; i++) 
-      // {
-      //   const newEditor = 
-      //   new Editor({
-      //     el: editor.value[i],
-      //     height: '400px',
-      //     initialEditType: 'wysiwyg',
-      //     previewStyle: 'tab',
-      // });
-
-      //   editorValid.value[i] = newEditor;
-      // }
-
+    onMounted(() => { 
       for( const item of editor.value ){
         const newEditor = 
         new Editor({
@@ -104,34 +354,91 @@ export default {
           initialEditType: 'wysiwyg',
           previewStyle: 'tab',
         });
-        editorValid.value.push(newEditor);        
-      }          
-      //init tooltip
-      Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]')).forEach(tooltipNode => new Tooltip(tooltipNode));
+        editorValid.value.push(newEditor);
+      }
+
+      //init tooltip      
+      Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]')).forEach(tooltipNode => new Tooltip(tooltipNode, {
+        trigger: 'hover'
+      }));
+
+      //앵커 태그에 대한 이벤트 리스너 등록
+      const anchorLinks = document.querySelectorAll('.nav_body a');
+      anchorLinks.forEach(anchor => {
+        anchor.addEventListener('click', () => {
+          const targetId = anchor.getAttribute('href');
+          const targetFragment = targetId.split('document/#')[1]; 
+          if (targetFragment) {
+            const targetElement = document.querySelector(`#${targetFragment}`);
+            const targetHead = targetElement.querySelector('.doc_list_head');
+            targetHead.setAttribute('aria-expanded', 'true');
+            targetHead.classList.add('active');
+            setTimeout(() => {
+              targetHead.classList.remove('active');
+            }, 3000);
+          }
+        });
+      });
+
     });
+
     // 작성한 내용을 불러와서 HTML 적용
     const testValid = () => {
       testHtml.value = editorValid.value.getHTML();
     };
 
     const isExpended = ref([]);
-
-    for (let i=0; i<3; i++) {
+    for (let i = 0; i < 4; i++) {
       isExpended.value.push(true);
     }
 
     const toggleExpended = (index) => {      
       isExpended.value[index] = !isExpended.value[index];
     }
-    
-    return {
-        editor,
-        editorValid,
-        testHtml,
-        testValid,
 
-        isExpended,
-        toggleExpended,
+    const toggleAllExpanded = () => {
+      for (let i = 0; i < isExpended.value.length; i++) {
+        isExpended.value[i] = !isExpended.value[i];
+      }
+    }
+
+    const isToggleClass = ref([]);
+    const btnToggleClass = (index) => {
+      isToggleClass.value[index] = !isToggleClass.value[index];
+    }
+
+    const handleClick = () => {
+      toggleAllExpanded();
+      btnToggleClass();
+    };
+
+    const isEdit = ref([]);
+    const showEdit = (index) => {
+      isEdit.value[index] = !isEdit.value[index];
+    }
+
+    const hideEdit = (index) => {
+      isEdit.value[index] = false;
+    }
+
+    return {
+      editor,
+      editorValid,
+      testHtml,
+      testValid,
+
+      isExpended,
+      toggleExpended,
+      toggleAllExpanded,
+
+      handleClick,
+
+      isToggleClass,
+      btnToggleClass,
+
+      isEdit,
+      showEdit,
+      hideEdit
     };
   },
 };

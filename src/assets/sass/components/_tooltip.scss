@@ -1,4 +1,11 @@
-.tooltip[x-placement="top"]{padding-top:0;padding-bottom:6px;}
-.tooltip[x-placement="top"] .arrow{position:absolute;width:6px;height:6px;display:block;background:#4b4b4b;transform: rotate(45deg);left:50%;margin-left:-2px;top:23px;}
+
+
+.tooltip{margin:4px 0;}
+.tooltip .arrow{position:absolute;width:6px;height:6px;display:block;background:#4b4b4b;transform: rotate(45deg);left:50%;margin-left:-2px;}
 .tooltip .arrow::before{display:none;}
-.tooltip .tooltip-inner{width:auto;height:26px;line-height:26px;padding:0 8px;margin:0 !important;font-size:13px !important;font-weight:300 !important;color:#fff;background-color:#4B4B4B;border-radius: 4px;}
+.tooltip .tooltip-inner{width:auto;height:26px;line-height:26px;padding:0 8px;margin:0;font-size:13px;color:#fff;background-color:#4B4B4B;border-radius: 4px;}
+
+.tooltip.bs-tooltip-top{padding-top:0;padding-bottom:6px;}
+.tooltip.bs-tooltip-top .arrow{top:23px;}
+.tooltip.bs-tooltip-bottom{padding-top:6px;padding-bottom:0}
+.tooltip.bs-tooltip-bottom .arrow{top:auto;top:3px !important;}

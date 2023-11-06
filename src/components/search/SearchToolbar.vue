@@ -29,15 +29,7 @@
 
 export default {
   name:'SearchToolbar',
-  setup(props, { emit }) {
-
-    const showModal = () => {
-      emit('sendShow', true);
-    };
-
-    return {
-      showModal,
-    };
+  setup() {    
   },
 };
 </script>

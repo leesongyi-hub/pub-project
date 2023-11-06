@@ -52,6 +52,28 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior(to) {
+    if (to.hash) {
+      const targetId = to.hash.substr(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const offset = 80;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+        return {
+          top: targetPosition,
+          behavior: 'smooth',
+        };
+      }
+    } else if (to.name === 'DocumentView') {
+      // DocumentView 페이지일 때만 상단 여백 추가
+      return {
+        top: 100,
+        behavior: 'smooth',
+      };
+    }
+  }
 });
 
 router.afterEach((to) => {
