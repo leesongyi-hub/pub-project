@@ -39,23 +39,28 @@
                     </svg>
                   </button>
                   <div class="tit">
-                    <span>국민<mark>건강보험</mark>이란</span>
+                    <span
+                      v-if="!isEdit[index]"
+                    >
+                      국민<mark>건강보험</mark>이란
+                    </span>
                     <div
                       class="d-flex"
                       v-if="isEdit[index]"
                     >
                       <input type="text" value="국민건강보험이란" class="form_input w100" />                    
-                      <button type="button" class="btn_del button outline md ml6">저장</button>
-                      <button type="button" class="btn_del button outline md ml6">취소</button>
+                      <button type="button" class="btn_del button outline md ml6" @click="showEdit(index)">저장</button>
+                      <button type="button" class="btn_del button outline md ml6" @click="showEdit(index)">취소</button>
                     </div>
                   </div>
                   <button
                     type="button"
                     class="btn_edit"
                     @click="showEdit(index)"
+                    v-if="!isEdit[index]"
                   >
                     <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s18 col_gray">
-                      <use xlink:href="static/img/sp_svg.svg#ico_edit"></use>
+                      <use xlink:href="@/assets/images/sp_svg.svg#ico_edit"></use>
                     </svg>
                   </button>
                 </div>
