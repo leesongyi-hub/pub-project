@@ -366,4 +366,7 @@
   <symbol id="ico_scrap" viewBox="0 0 20 20">
     <path xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" d="M15.833 16.148a1 1 0 0 1-1.653.757l-2.873-2.48a2 2 0 0 0-2.614 0l-2.873 2.48a1 1 0 0 1-1.653-.757V4.5a2 2 0 0 1 2-2h7.666a2 2 0 0 1 2 2v11.648Z"/>
   </symbol>
+  <symbol id="ico_clip" viewBox="0 0 20 20">
+    <path xmlns="http://www.w3.org/2000/svg" stroke="#15C5CE" stroke-linecap="round" stroke-width="1.5" d="M11.667 14.167h1.666a4.167 4.167 0 0 0 0-8.334h-1.666m-3.334 0H6.667a4.167 4.167 0 1 0 0 8.334h1.666M12.5 10h-5"/>
+  </symbol>
 </svg>

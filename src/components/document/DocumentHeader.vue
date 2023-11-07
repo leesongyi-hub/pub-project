@@ -1,14 +1,14 @@
 <template>
   <header class="doc_header">
     <div class="left_area">
-      <div class="d-flex">
+      <div class="d-flex align-items-center">
         <button type="button" class="btn_index">
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
             <use xlink:href="@/assets/images/sp_svg.svg#ico_list" />
           </svg>
         </button>
         <h1>문서제목영역</h1>
-        <button type="button" class="btn_edit">
+        <button type="button" class="btn_edit i_s24">
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s18 col_white">
             <use xlink:href="@/assets/images/sp_svg.svg#ico_edit" />
           </svg>
@@ -42,6 +42,14 @@
         </button>
       </div>
       <div class="end_area">
+        <!-- <button
+          type="button"
+          class="btn_search"
+        >
+          <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
+            <use xlink:href="@/assets/images/sp_svg.svg#ico_search" />
+          </svg>
+        </button> -->
         <button type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="인쇄">
           <svg role="img" aria-hidden="true" focusable="false" class="icoSvg i_s24 col_white">
             <use xlink:href="@/assets/images/sp_svg.svg#ico_print" />
@@ -58,11 +66,35 @@
 					<a href="javascript:;" class="dropdown-item border_bot">목차분류보기</a>
 					<a href="javascript:;" class="dropdown-item">단락추가</a>
 					<a href="javascript:;" class="dropdown-item">하위목차 추가</a>
+
 					<!--S. [반응형] -->
-					<a href="javascript:;" class="dropdown-item mo border_top"><span>첨부파일</span></a>
-					<a href="javascript:;" class="dropdown-item mo"><span>참조</span></a>
-					<a href="javascript:;" class="dropdown-item mo"><span>의견</span></a>
-					<a href="javascript:;" class="dropdown-item mo"><span>스크랩</span></a>
+          <a href="javascript:;" role="button" class="dropdown-item mo  border_top">
+            <span>첨부파일</span>
+            <span class="button sm icoOnly">
+              <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_file" />
+              </svg>
+              <span class="mark_count">6</span>
+            </span>
+          </a>
+          <a href="javascript:;" role="button" class="dropdown-item mo">
+            <span>참조</span>
+            <span class="button sm icoOnly">
+              <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_share" />
+              </svg>
+              <span class="mark_count">2</span>
+            </span>
+          </a>
+          <a href="javascript:;" role="button" class="dropdown-item mo">
+            <span>의견</span>
+            <span class="button sm icoOnly">
+              <svg class="icoSvg i_s20 stroke" role="img" aria-hidden="true" focusable="false">
+                <use xlink:href="@/assets/images/sp_svg.svg#ico_talk" />
+              </svg>
+              <span class="mark_count">99+</span>
+            </span>
+          </a> 
 					<!--//E. [반응형] -->
 				</div>
       </div>
