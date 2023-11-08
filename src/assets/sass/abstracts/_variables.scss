@@ -1,4 +1,6 @@
-/*base-color는 다른 변수에 재할당하여 사용*/
+/*
+  base-color는 다른 변수에 재할당하여 사용 권장
+*/
 $base-color-white: #ffffff;
 $base-color-black: #000000;
 
@@ -19,6 +21,24 @@ $base-color-primary-40:#7DDDE1;
 $base-color-primary-50:#47CFD6;
 $base-color-primary-60:#15C5CE;
 $base-color-primary-70:#00ABB6;
+
+// $base-color-primary-5:#F9FBFF;
+// $base-color-primary-10:#EEF3FC;
+// $base-color-primary-20:#DFE7F7;
+// $base-color-primary-30:#B0C4EC;
+// $base-color-primary-40:#7D9EE1;
+// $base-color-primary-50:#4777D6;
+// $base-color-primary-60:#1554CE;
+// $base-color-primary-70:#003DB6;
+
+// $base-color-primary-5:#FBFFF9;
+// $base-color-primary-10:#F2FCEE;
+// $base-color-primary-20:#E5F7DF;
+// $base-color-primary-30:#C0ECB0;
+// $base-color-primary-40:#98E17D;
+// $base-color-primary-50:#5AD12E;
+// $base-color-primary-60:#3FB913;
+// $base-color-primary-70:#2AA300;
 
 $base-color-yellow-60:#FFAD0D;
 $base-color-yellow-40:#FFDD82;

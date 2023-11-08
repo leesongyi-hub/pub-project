@@ -56,11 +56,16 @@ export default {
     components: {
     },
     setup() {
-      onMounted(() => {  
-        //init tooltip
-        Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]'))
-        .forEach(tooltipNode => new Tooltip(tooltipNode))
+      onMounted(() => {
+        initTooltips();
       });
+
+      //툴팁
+      const initTooltips = () => {
+        Array.from(document.querySelectorAll('button[data-bs-toggle="tooltip"]')).forEach((tooltipNode) => {
+          new Tooltip(tooltipNode, { trigger: 'hover' });
+        });
+      };
 
       return {
       };

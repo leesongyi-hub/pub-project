@@ -1,6 +1,12 @@
 @charset "UTF-8";
-/*base-color는 다른 변수에 재할당하여 사용*/
+/*
+  base-color는 다른 변수에 재할당하여 사용 권장
+*/
 /*==========================================================*/
+:root {
+  overflow-wrap: break-word;
+}
+
 body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
   margin: 0;
   padding: 0;
@@ -103,11 +109,12 @@ table {
   border-collapse: collapse;
 }
 
-:root {
-  overflow-wrap: break-word;
+/* scrollBar */
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
 }
 
-/* scrollBar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -115,7 +122,6 @@ table {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(202, 202, 202, 0.5);
-  /* border-radius: 5px; */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -132,16 +138,6 @@ table {
   border-right: 1px solid #eee;
 }
 
-main::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-body::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
 /* input */
 [type=checkbox], [type=radio] {
   -webkit-box-sizing: border-box;
@@ -154,13 +150,15 @@ body::-webkit-scrollbar {
 }
 
 [type=search] {
-  -webkit-appearance: textfield;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
   outline-offset: -2px;
 }
 
 [type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
   border-radius: 0;
+  background-color: #fff;
 }
 
 ::-webkit-file-upload-button {
@@ -5835,7 +5833,7 @@ body,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 100%;
+  height: 100%;
 }
 
 .document_page .content {
@@ -5852,7 +5850,11 @@ body,
   padding: 60px 0 0 240px;
 }
 
-.document_page .ico_mask {
+html, body, #app, .wrap {
+  min-height: 100%;
+}
+
+.document_page .mark_ico {
   position: relative;
 }
 
@@ -5864,7 +5866,7 @@ body,
 .document_page .icoSvg ~ .mark_count {
   position: absolute;
   top: -4px;
-  left: 12px;
+  left: 10px;
 }
 
 .document_page .edit_btn_area {
@@ -6035,22 +6037,26 @@ body,
   padding: 6px 16px;
 }
 
-.document_page .doc_list_head[aria-expanded=true] + .doc_list_body {
+.document_page .doc_list_head.on + .doc_list_body {
   display: block;
 }
 
-.document_page .doc_list_head[aria-expanded=false] + .doc_list_body {
+.document_page .doc_list_head + .doc_list_body {
   display: none;
 }
 
-.document_page .doc_list_head[aria-expanded=true] .btn_acco {
+.document_page .doc_list_head.on .btn_acco {
   -webkit-transform: rotate(0);
           transform: rotate(0);
 }
 
-.document_page .doc_list_head[aria-expanded=false] .btn_acco {
+.document_page .doc_list_head .btn_acco {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+}
+
+.document_page .doc_list_head .btn_acco:hover .icoSvg {
+  color: #8E8E8E;
 }
 
 .document_page .doc_list_head .edit_btn_area li {
@@ -6135,6 +6141,7 @@ body,
 
 .document_page .doc_list_body .view_mode {
   position: relative;
+  font-size: 15px;
 }
 
 .document_page .doc_list_body .view_mode:hover {
@@ -6184,6 +6191,10 @@ body,
   left: 20px;
 }
 
+.document_page .doc_list_body .view_mode .btn_more_area.res {
+  display: none;
+}
+
 .document_page .doc_list_body .editor_mode {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6212,34 +6223,35 @@ body,
   margin-bottom: 6px;
 }
 
-.view_mode {
-  font-size: 15px;
-}
-
-.btn_more.res {
-  display: none;
-}
-
 @media all and (max-width: 768px) {
+  .document_page .content {
+    padding-left: 0;
+  }
+  .document_page .doc_nav {
+    display: none;
+  }
   .document_page .doc_list_wrap {
     padding: 24px 20px;
   }
-  .btn_more.res {
+  .document_page .doc_list_body .view_mode .edit_btn_area {
+    display: none;
+  }
+  .document_page .doc_list_body .view_mode .btn_more_area.res {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
   }
-  .view_mode .edit_btn_area {
+  .document_page .doc_header .global_btn_area .start_area {
     display: none;
   }
-  .document_page .content {
-    padding-left: 0;
-  }
-  .document_page .nav {
+  .document_page .doc_list_head .edit_btn_area li:not(.dropdown, .btn_scrap_area) {
     display: none;
   }
-  .document_page .global_btn_area .start_area {
+  .document_page .doc_list_body .view_mode {
+    padding-right: 20px;
+  }
+  .document_page .doc_list_body .view_mode:hover .edit_btn_area {
     display: none;
   }
   .document_page .dropdown-menu .dropdown-item {
@@ -6257,14 +6269,5 @@ body,
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-  }
-  .document_page .doc_list_head .edit_btn_area li:not(.dropdown, .btn_scrap_area) {
-    display: none;
-  }
-  .document_page .doc_list_body .view_mode:hover .edit_btn_area {
-    display: none;
-  }
-  .document_page .doc_list_body .view_mode {
-    padding-right: 20px;
   }
 }/*# sourceMappingURL=layout.css.map */

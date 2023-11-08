@@ -1,11 +1,12 @@
 //레이아웃
-.document_page{display:flex;flex-direction: column;min-height:100%}
+.document_page{display:flex;flex-direction: column;height:100%}
 .document_page .content{display:flex;flex-direction: column;flex:1;padding:60px 0 0 240px;}
 
+html, body, #app, .wrap{min-height:100%;}
 //공통요소
-.document_page .ico_mask{position:relative;}
+.document_page .mark_ico{position:relative;}
 .document_page .btn_scrap.on .icoSvg{color:#FFAD0D;fill:#FFAD0D;}
-.document_page .icoSvg ~ .mark_count{position: absolute;top:-4px;left:12px;}
+.document_page .icoSvg ~ .mark_count{position: absolute;top:-4px;left:10px;}
 .document_page .edit_btn_area{display:flex;align-items: center;}
 .document_page .outlink{color:$text-color-primary;  stroke:#F5F5F5;}
 .document_page .outlink::before{
@@ -25,7 +26,7 @@
 .document_page .doc_nav .nav_head{display:flex;padding:16px 16px 8px 16px;}
 .document_page .doc_nav .nav_head h2{font-size:18px;font-weight:600;}
 .document_page .doc_nav .nav_body li a{display:flex;padding:8px 16px;line-height:20px;}
-.document_page .doc_nav .nav_body li a:hover{background-color:#EEFCFC;}
+.document_page .doc_nav .nav_body li a:hover{background-color:$base-color-primary-10;}
 
 //Header
 .document_page .doc_header{position:fixed;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items: center;height:60px;padding:0 20px;background-color:$color-bg-primary;z-index: 100;}
@@ -42,10 +43,11 @@
 //문서영역
 .document_page .doc_list_wrap{width:100%;padding:40px 24px;}
 .document_page .doc_list_head{display:flex;justify-content: space-between;min-height:44px;background-color:$color-bg-default;padding:6px 16px;}
-.document_page .doc_list_head[aria-expanded="true"] + .doc_list_body{display:block;}
-.document_page .doc_list_head[aria-expanded="false"] + .doc_list_body{display:none;}
-.document_page .doc_list_head[aria-expanded="true"] .btn_acco{transform: rotate(0);}
-.document_page .doc_list_head[aria-expanded="false"] .btn_acco{transform: rotate(-90deg);}
+.document_page .doc_list_head.on + .doc_list_body{display:block;}
+.document_page .doc_list_head + .doc_list_body{display:none;}
+.document_page .doc_list_head.on .btn_acco{transform: rotate(0);}
+.document_page .doc_list_head .btn_acco{transform: rotate(-90deg);}
+.document_page .doc_list_head .btn_acco:hover .icoSvg{color:$icon-color-default}
 .document_page .doc_list_head .edit_btn_area li{position:relative;margin-left:16px;}
 .document_page .doc_list_head.active{animation: activeBg 1s ease-in; animation-iteration-count:2;animation-delay: .3s;}
 
@@ -61,36 +63,35 @@
 .document_page .doc_list_item .tit_area .btn_edit{display: inline-flex;margin-left:8px;}
 
 .document_page .doc_list_content{margin:24px 16px;}
-.document_page .doc_list_body .view_mode{position:relative;}
+.document_page .doc_list_body .view_mode{position:relative;font-size:15px;}
 .document_page .doc_list_body .view_mode:hover{background-color:$color-bg-default;}
 .document_page .doc_list_body .view_mode:hover .edit_btn_area{display:flex;}
 .document_page .doc_list_body .view_mode .edit_btn_area{display:none;position:absolute;top:-36px;right:0;padding:8px 2px;background-color:#fff;box-shadow: $shadow-default;border-radius: $btn-radius-default;}
 .document_page .doc_list_body .view_mode .edit_btn_area button{display: inline-flex;align-items: center;justify-content: center;width:40px;height:20px;padding:0 12px;border-right:1px solid $color-border-default}
 .document_page .doc_list_body .view_mode .edit_btn_area button:last-child{border-right:0;}
 .document_page .doc_list_body .view_mode .edit_btn_area button .mark_count{top:1px;left:20px;}
+.document_page .doc_list_body .view_mode .btn_more_area.res{display:none;}
 
 .document_page .doc_list_body .editor_mode{display:flex;}
 .document_page .doc_list_body .editor_mode .editor{flex:1;overflow-x:auto}
 .document_page .doc_list_body .editor_mode .edit_btn_box{display:flex;flex-direction:column;margin-left:10px;}
 .document_page .doc_list_body .editor_mode .edit_btn_box .button{margin-bottom:6px;}
 
-.view_mode{font-size:15px;}
-.btn_more.res{display:none;}
-
-
 @media all and (max-width:$breakpoint-tablet) {
-  .document_page .doc_list_wrap{padding:24px 20px;}
-
-  .btn_more.res{display:block;position: absolute;top:0;right:0;}
-  .view_mode .edit_btn_area{display:none;}
-
   .document_page .content{padding-left:0;}
-  .document_page .nav{display:none;}
-  .document_page .global_btn_area .start_area{display:none;}
-  .document_page .dropdown-menu .dropdown-item{justify-content:left}
-  .document_page .dropdown-menu .dropdown-item.mo{display:flex;align-items: center;justify-content: space-between;}
+  .document_page .doc_nav{display:none;}
+
+  .document_page .doc_list_wrap{padding:24px 20px;}
+  .document_page .doc_list_body .view_mode .edit_btn_area{display:none;}
+  .document_page .doc_list_body .view_mode .btn_more_area.res{display:block;position: absolute;top:0;right:0;}
+
+  .document_page .doc_header .global_btn_area .start_area{display:none;}
 
   .document_page .doc_list_head .edit_btn_area li:not(.dropdown, .btn_scrap_area){display:none;}
-  .document_page .doc_list_body .view_mode:hover .edit_btn_area{display:none;}
+
   .document_page .doc_list_body .view_mode{padding-right:20px;}
+  .document_page .doc_list_body .view_mode:hover .edit_btn_area{display:none;}
+
+  .document_page .dropdown-menu .dropdown-item{justify-content:left}
+  .document_page .dropdown-menu .dropdown-item.mo{display:flex;align-items: center;justify-content: space-between;}
 }

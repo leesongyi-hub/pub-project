@@ -58,7 +58,7 @@ const router = createRouter({
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
-        const offset = 80;
+        const offset = 100;
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
 
         return {
@@ -66,13 +66,8 @@ const router = createRouter({
           behavior: 'smooth',
         };
       }
-    } else if (to.name === 'DocumentView') {
-      // DocumentView 페이지일 때만 상단 여백 추가
-      return {
-        top: 100,
-        behavior: 'smooth',
-      };
-    }
+    } 
+    return { top: 0, behavior: 'smooth' };
   }
 });
 
